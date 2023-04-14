@@ -73,7 +73,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @param \DateTimeImmutable|null $createdAt
      * @param bool $isVerified
      */
-    public function __construct(?int $id, ?string $email, array $roles, string $password, ?string $surname, ?string $name, ?string $picture, ?\DateTimeImmutable $createdAt, bool $isVerified)
+    public function __construct(?int $id, ?string $email, array $roles, string $password, ?string $surname, ?string $name, ?string $picture, bool $isVerified)
     {
         $this->id = $id;
         $this->email = $email;
