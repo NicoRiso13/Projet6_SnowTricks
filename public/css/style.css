@@ -31,10 +31,15 @@ font-family: 'Sarpanch', sans-serif;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    width: 100%;
+}
+.user-email{
+    font-weight: bold;
+    margin-left: 5px;
 }
 
 .bloc-connected p {
-    margin: 0 15px;
+    margin: 0 0 0 10px;
     font-family: 'Montserrat', sans-serif;
     color: white;
     font-size: 0.6rem;
@@ -129,6 +134,103 @@ font-family: 'Sarpanch', sans-serif;
 }
 
 
+
+
+/**************************************  SECTION LOGIN **********************************************/
+.error-login{
+    text-align: center;
+    padding:5px;
+    background-color: rgba(255, 30, 0, 0.98);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 0.7rem;
+}
+.login-form{
+    display: flex;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom, right;
+    background-image: url("../img/background_login.jpg");
+
+}
+.bloc-login{
+    margin: 50px 0 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    box-shadow: 5px 5px 25px #676767;
+    height: 450px;
+
+}
+.bloc-btn-login{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.bloc-login h1{
+    font-family: 'Lobster Two', cursive;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.login-label{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 0.8rem;
+    margin:  15px 0 5px 0 ;
+}
+.bloc-remenber-me{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 10px 0;
+}
+.remenber-login-text{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+.btn-login-form{
+    width: 45%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+}
+.forget-password{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: lighter;
+    text-decoration: none;
+    color: #262626;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.create-account-text, .create-account-link{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    text-decoration: none;
+    color: #262626;
+    text-align: center;
+    margin-top: 20px;
+}
+.forget-password:hover{
+    color: #ff6a00;
+    transition: 0.2s;
+}
+.create-account-link{
+   color : #ff5a00;
+    opacity: 1;
+}
+.create-account-link:hover{
+    font-weight: bold;
+    margin: -0.6px;
+}
 /**************************************  SECTION HOMEPAGE **********************************************/
 .bloc-homepage {
 
@@ -454,8 +556,22 @@ font-family: 'Sarpanch', sans-serif;
     .bloc-list-tricks {
 
         grid-template-columns: repeat(1, 1fr);
-
     }
+    .bloc-login h1{
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    .bloc-btn-login{
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-login-form{
+        margin-top: 10px;
+        width: 55%;
+        padding: 5px 0;
+    }
+    .bloc-remenber-me{
+    margin-bottom: 10px }
 }
 
 
