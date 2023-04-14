@@ -1,0 +1,500 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400;500;600;700;800;900&family=Sarpanch:wght@400;500;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: 'Neuropolitical';
+    src: url('../fonts/NeuropoliticalRg-Regular.woff2') format('woff2'),
+    url('../fonts/NeuropoliticalRg-Regular.woff') format('woff'),
+    url('../fonts/NeuropoliticalRg-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'virgo';
+    src: url('../fonts/virgo.ttf') format('truetype');
+}
+
+/*
+
+font-family: 'Lobster Two', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Orbitron', sans-serif;
+font-family: 'Sarpanch', sans-serif;
+
+*/
+
+
+/**************************************  SECTION NAV **********************************************/
+.bloc-connected {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.bloc-connected p {
+    margin: 0 15px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 0.6rem;
+}
+
+.body-contain, .header-contain {
+    padding: 0;
+}
+
+.bloc-logo-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bloc-logo-text h4 {
+    font-family: 'Lobster Two', cursive;
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.bloc-logo-text h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.bloc-link {
+    display: flex;
+    justify-content: center;
+    background-color: #252525;
+
+    width: 100%;
+
+}
+
+.bloc-link ul {
+    font-family: 'Lobster Two', cursive;
+    font-size: 0.8rem;
+}
+
+.nav-item a {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.nav-footer-link a {
+    padding: 0;
+}
+
+.nav-item a:hover {
+    transition: 0.5s;
+    background-color: #0d5aa7;
+    color: #ffffff;
+    border-radius: 0 15px 0 15px;
+}
+
+.btn-navbar {
+    background: #0d5aa7;
+    margin: 5px;
+}
+
+.btn-line {
+    color: white;
+}
+
+
+.logo-navbar {
+    width: 80px;
+}
+
+.bloc-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background-image: url("../img/background_image_navbar.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    /*background: rgb(255,179,0);*/
+    /*background: linear-gradient(90deg, rgba(255,179,0,1) 0%, rgba(255,74,0,1) 79%);*/
+}
+
+.bloc-nav-1 {
+    padding: 10px;
+}
+
+.background-link {
+    justify-content: center;
+}
+
+
+/**************************************  SECTION HOMEPAGE **********************************************/
+.bloc-homepage {
+
+
+}
+
+.bloc-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url("../img/background_homepage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 500px;
+}
+
+.icon-down {
+    color: #ff6a00;
+    position: absolute;
+    bottom: 25px;
+    right: 35px;
+    width: 30px;
+}
+
+.text-bloc-img {
+    position: absolute;
+    box-sizing: border-box;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(3px);
+    animation-name: bloc-homepage;
+    animation-duration: 5s;
+    opacity: 1;
+    animation-iteration-count: 1;
+}
+
+.text-bloc-img h1 {
+    color: #ff4a00;
+    font-family: 'Lobster Two', cursive;
+    font-weight: bold;
+    font-size: 9rem;
+    text-shadow: 0 -1px 0 #ffaa72, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0,0,0,0.9);
+    
+}
+
+.text-bloc-img h2 {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    font-size: 2rem;
+    animation-name: bloc-homepage-subtitle;
+    animation-duration: 8s;
+    opacity: 1;
+    animation-iteration-count: 1;
+}
+
+.separator-list-homepage {
+    border: 1px solid grey;
+    opacity: 1;
+}
+
+.title-list-homepage {
+    text-align: center;
+    font-family: 'Lobster Two', cursive;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.subtitle-list-homepage {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    font-size: 1rem;
+}
+
+.bloc-list-tricks {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 30px;
+    grid-auto-rows: minmax(100px, auto);
+    margin: 20px 0;
+    padding: 25px;
+}
+
+.trick-card {
+    box-sizing: border-box;
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.3);
+}
+
+.img-trick-card {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.icon-card {
+    width: 20px;
+    margin-right: 10px;
+}
+.icon-card:hover{
+    width: 23px;
+    margin-right: 7px;
+}
+
+.footer-trick-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-trick-card h5 {
+    font-family: 'Lobster Two', cursive;
+    margin: 0;
+    padding: 5px;
+}
+
+.footer-trick-card h5:hover {
+    font-family: 'Lobster Two', cursive;
+    margin: 0;
+    background-color: #ff5a00;
+    border-radius: 0 10px 10px 0;
+    transition: 0.5s;
+    color: #ffffff;
+    font-weight: lighter;
+    box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.3);
+}
+
+.bloc-btn-footer-card {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.title-card {
+    text-align: center;
+}
+
+.title-card a {
+    text-decoration: none;
+    color: #343434;
+}
+
+
+/**************************************  SECTION FOOTER **********************************************/
+.bloc-footer {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    padding: 10px;
+    background-color: #252525;
+
+
+}
+
+.bloc-picto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.picto {
+    width: 50px;
+}
+
+.link-footer {
+    display: flex;
+    align-items: center;
+}
+
+.link-footer ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    font-size: 0.8rem;
+    font-family: 'Lobster Two', cursive;
+    margin: 0;
+    padding: 0;
+}
+
+.copyright {
+    font-family: 'Lobster Two', cursive;
+    background-color: #ff6b00;
+    margin: 0;
+    text-align: center;
+    color: white;
+    font-size: 0.7rem;
+}
+
+.join-us {
+    font-family: 'Lobster Two', cursive;
+    text-align: center;
+    font-size: 1.2rem;
+    color: white;
+    margin: 0;
+}
+
+.join-us p {
+    margin: 0;
+}
+
+.separator-join-us {
+    border: 1px solid #0095ff;
+    margin-top: 5px;
+    opacity: 1;
+}
+
+.separator-join-us-up {
+    border: 1px solid #0095ff;
+    margin-bottom: 5px;
+    opacity: 1;
+}
+
+
+/************************************ MEDIA QUERIES ***********************************************/
+
+/******************************* 1190 PX *********************************/
+@media (max-width: 1190px) {
+    .bloc-list-tricks {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .text-bloc-img h1 {
+        font-size: 7rem;
+    }
+
+    .text-bloc-img h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/******************************* 991 PX *********************************/
+@media (max-width: 991px) {
+    .background-link {
+        margin-left: 15px;
+    }
+
+    .bloc-list-tricks {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 30px;
+        grid-auto-rows: minmax(100px, auto);
+        margin: 20px 0;
+        padding: 25px;
+    }
+
+    .text-bloc-img {
+        padding: 10px;
+    }
+
+    .text-bloc-img h1 {
+        font-size: 6rem;
+    }
+
+    .text-bloc-img h2 {
+        font-size: 1.4rem;
+    }
+}
+
+
+/******************************* 670 PX *********************************/
+@media (max-width: 670px) {
+    .bloc-list-tricks {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
+
+
+/******************************* 637 PX *********************************/
+@media (max-width: 637px) {
+    .bloc-nav-1{
+        display: flex;
+        flex-direction: column;
+    }
+    .bloc-logo-text{
+        justify-content: center;
+    }
+    .bloc-connected{
+        justify-content: center;
+    }
+    .title-nav{
+        display: none;
+    }
+}
+
+/******************************* 520 PX *********************************/
+@media (max-width: 520px) {
+    .text-bloc-img h1 {
+        font-size: 5rem;
+    }
+
+    .text-bloc-img h2 {
+        font-size: 1rem;
+    }
+    .title-list-homepage{
+        font-size: 1.5rem;
+    }
+    .subtitle-list-homepage{
+        font-size: 1rem;
+    }
+    .bloc-footer{
+        align-items: center;
+        flex-direction: column;
+    }
+    .right-bloc-picto{
+        width: 50%;
+    }
+}
+
+
+/******************************* 475 PX *********************************/
+@media (max-width: 475px) {
+    .bloc-list-tricks {
+
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+}
+
+
+/******************************* 403 PX *********************************/
+@media (max-width: 403px) {
+    .text-bloc-img h1 {
+        font-size: 4rem;
+    }
+
+    .text-bloc-img h2 {
+        font-size: 0.8rem;
+    }
+}
+
+/******************************* 330 PX *********************************/
+@media (max-width: 330px) {
+    .text-bloc-img h1 {
+        font-size: 3.5rem;
+    }
+
+    .text-bloc-img h2 {
+        font-size: 0.6rem;
+    }
+}
+
+
+
+
+/*********************************** @KEYFRAME ******************************************/
+@keyframes bloc-homepage {
+    0%{opacity: 0}
+    50%{opacity: 0}
+    100%{opacity: 1}
+    
+}
+@keyframes bloc-homepage-subtitle {
+    0%{opacity: 0}
+    50%{opacity: 0}
+    100%{opacity: 1}
+
+}
+
