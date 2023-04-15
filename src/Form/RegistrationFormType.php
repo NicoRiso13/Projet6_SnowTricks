@@ -5,7 +5,9 @@ namespace App\Form;
 use App\Entity\Users;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -17,18 +19,35 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('surname')
-            ->add('name')
-            ->add('email')
+            ->add('surname', TextType::class, array(
+                'label' => 'Nom',
+                'attr' => array(
+                    'placeholder' => 'Saisissez un Nom'
+                )
+            ))
+            ->add('name', TextType::class, array(
+                'label' => 'Prénom',
+                'attr' => array(
+                    'placeholder' => 'Saisissez un Prénom'
+                )
+            ))
+            ->add('email', EmailType::class, array(
+                'label' => 'Email ',
+                'attr' => array(
+                    'placeholder' => 'Saisissez un Email',
+                )
+            ))
 
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'attr' => array(
+                    'placeholder' => 'Saisissez un Mot de passe',
+                ),
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez saisir un mot de passe',
+                        'message' => 'Saisissez un mot de passe',
                     ]),
                     new Length([
                         'min' => 6,

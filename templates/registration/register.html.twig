@@ -1,23 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}SnowTricks | Créer un compte{% endblock %}
+
 
 {% block body %}
+<div class="background-register">
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <div class="bloc-register col-8 col-sm-6 col-lg-4 col-xl-3">
+        <h1>Créer un compte</h1>
 
-    {{ form_start(registrationForm) }}
-    {{ form_row(registrationForm.surname) }}
-    {{ form_row(registrationForm.name) }}
-    {{ form_row(registrationForm.email) }}
-    {{ form_row(registrationForm.plainPassword, {
-        label: 'Password'
-    }) }}
+        {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.surname) }}
+        {{ form_row(registrationForm.name) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
 
-
-    <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+        <div class="bloc-btn-register">
+            <button type="submit" class="btn btn-primary btn-register">Créer</button>
+<a type="reset" class="btn btn-danger btn-register " href="/"> Annuler</a>
+        </div>
+        {{ form_end(registrationForm) }}
+    </div>
+</div>
 {% endblock %}
+

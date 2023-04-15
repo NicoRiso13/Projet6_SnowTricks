@@ -70,7 +70,6 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @param string|null $surname
      * @param string|null $name
      * @param string|null $picture
-     * @param \DateTimeImmutable|null $createdAt
      * @param bool $isVerified
      */
     public function __construct(?int $id, ?string $email, array $roles, string $password, ?string $surname, ?string $name, ?string $picture, bool $isVerified)
@@ -110,7 +109,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -118,7 +117,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -167,12 +166,13 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+     * Si vous stockez des données temporaires et sensibles sur l'utilisateur, effacez-les ici $this->plainPassword = null;
+     *
      * @see UserInterface
      */
     public function eraseCredentials()
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+        return null;
     }
 
     public function getSurname(): ?string

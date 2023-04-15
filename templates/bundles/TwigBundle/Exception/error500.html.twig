@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{status_code}} {{ status_text }}{% endblock %}
+
+
+
+{% block body %}
+    <div class="bloc-erreur-500">
+        <div class="bloc-logo-500">
+            <h1>{{status_code}} {{ status_text }}</h1>
+            <img alt="logo-500" class="logo-500" src="/img/error/ERREUR_500.png"/>
+        </div>
+        <P class="oups-500"> Oups !!</P>
+        <P class="message-500"> Le réseau a rencontré un problème... <a class="link-home-500" href="/">Retour à l'accueil</a> </P>
+    </div>
+
+{% endblock %}

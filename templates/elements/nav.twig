@@ -37,13 +37,13 @@
                     <a class="nav-link active" aria-current="page" href="/">Accueil</a>
                 </li>
                 {% if not app.user %}
-                    <li class="nav-item">
-                        <a class="nav-link " href="/login">Se connecter/S'inscrire</a>
+                    <li class="nav-item active">
+                        <a class="nav-link nav-link-active" title="login" href="/login">Se connecter/S'inscrire</a>
                     </li>
                 {% endif %}
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/posts">Les tricks</a>
+                    <a class="nav-link nav-link-active" href="/#list-tricks">Les tricks</a>
                 </li>
 
                 <li class="nav-item">
@@ -52,6 +52,11 @@
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
                         <a class="nav-link" href="/admin-manager">Administration</a>
+                    </li>
+                {% endif %}
+                {% if app.user %}
+                    <li class="nav-item">
+                        <a class="nav-link " href="/logout">Se déconnecter</a>
                     </li>
                 {% endif %}
 

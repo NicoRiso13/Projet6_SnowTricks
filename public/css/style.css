@@ -25,6 +25,115 @@ font-family: 'Sarpanch', sans-serif;
 */
 
 
+/**************************************  ERREUR 404 **********************************************/
+.bloc-erreur-404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 100px 0 80px 0;
+}
+
+.bloc-logo-404 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-404 {
+    z-index: 2;
+    width: 250px;
+}
+
+.bloc-erreur-404 h1 {
+    position: absolute;
+    font-family: 'Lobster Two', cursive;
+    font-weight: bold;
+    font-size: 20rem;
+    margin: 0;
+    z-index: 0;
+}
+
+.bloc-erreur-404 p {
+    font-family: 'Lobster Two', cursive;
+    font-weight: bold;
+    z-index: 0;
+}
+
+.oups {
+    font-size: 4rem;
+    margin-top: 40px;
+}
+
+.message-404 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/**************************************  ERREUR 500 **********************************************/
+.bloc-erreur-500 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0 80px 0;
+    color: #363636;
+}
+
+.bloc-logo-500 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-500 {
+    margin-top: 10px;
+    width: 250px;
+}
+
+.bloc-erreur-500 h1 {
+    font-family: 'Lobster Two', cursive;
+    font-weight: bold;
+    font-size: 4rem;
+    margin: 0;
+
+}
+
+.bloc-erreur-500 p {
+    font-family: 'Lobster Two', cursive;
+    font-weight: bold;
+    z-index: 0;
+}
+
+.oups-500 {
+    font-size: 4rem;
+
+}
+
+.message-500 {
+    margin: 0;
+    font-size: 2rem;
+}
+.link-home-500{
+    text-decoration: none;
+    color: #ff5a00;
+    opacity: 0.5;
+}
+.link-home-500:hover{
+    transition: 0.4s;
+    box-sizing: border-box;
+    color: #ff5a00;
+    opacity: 1;
+
+}
+.message-500:hover{
+
+}
+
+
 /**************************************  SECTION NAV **********************************************/
 .bloc-connected {
     display: flex;
@@ -33,7 +142,8 @@ font-family: 'Sarpanch', sans-serif;
     justify-content: flex-end;
     width: 100%;
 }
-.user-email{
+
+.user-email {
     font-weight: bold;
     margin-left: 5px;
 }
@@ -88,16 +198,17 @@ font-family: 'Sarpanch', sans-serif;
     padding: 5px 0;
 }
 
-.nav-footer-link a {
-    padding: 0;
+.nav-item a:active {
+    color: #ff5a00;
 }
 
 .nav-item a:hover {
     transition: 0.5s;
     background-color: #0d5aa7;
     color: #ffffff;
-    border-radius: 0 15px 0 15px;
+    border-radius: 0 0 15px 15px;
 }
+
 
 .btn-navbar {
     background: #0d5aa7;
@@ -133,20 +244,91 @@ font-family: 'Sarpanch', sans-serif;
     justify-content: center;
 }
 
+/**************************************  SECTION REGISTER **********************************************/
 
+.background-register {
+    padding: 50px 0;
+    background-image: url("../img/background_register.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+.bloc-register form {
+    width: 70%;
+}
+
+.bloc-register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 30px;
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    box-shadow: 5px 5px 25px #676767;
+}
+
+.bloc-register h1 {
+    font-family: 'Lobster Two', cursive;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ff5a00;
+}
+
+.bloc-register ul {
+    color: red;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 0.6rem;
+    padding: 0;
+    margin: 0;
+}
+
+.bloc-register label {
+    display: block;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 10px;
+}
+
+.bloc-register input {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+}
+
+.bloc-btn-register {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.btn-register {
+    width: 45%;
+    padding: 2px 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+}
 
 /**************************************  SECTION LOGIN **********************************************/
-.error-login{
+.error-login {
     text-align: center;
-    padding:5px;
+    padding: 5px;
     background-color: rgba(255, 30, 0, 0.98);
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
     font-size: 0.7rem;
 }
-.login-form{
+
+.login-form {
     display: flex;
     justify-content: center;
     background-repeat: no-repeat;
@@ -155,7 +337,8 @@ font-family: 'Sarpanch', sans-serif;
     background-image: url("../img/background_login.jpg");
 
 }
-.bloc-login{
+
+.bloc-login {
     margin: 50px 0 50px 0;
     display: flex;
     flex-direction: column;
@@ -167,42 +350,50 @@ font-family: 'Sarpanch', sans-serif;
     height: 450px;
 
 }
-.bloc-btn-login{
+
+.bloc-btn-login {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
-.bloc-login h1{
+
+.bloc-login h1 {
     font-family: 'Lobster Two', cursive;
     font-size: 2rem;
     text-align: center;
     margin-bottom: 50px;
+    color: #ff5a00;
 }
-.login-label{
+
+.login-label {
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
     font-size: 0.8rem;
-    margin:  15px 0 5px 0 ;
+    margin: 15px 0 5px 0;
 }
-.bloc-remenber-me{
+
+.bloc-remenber-me {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     margin: 20px 0 10px 0;
 }
-.remenber-login-text{
+
+.remenber-login-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
     font-size: 0.7rem;
     margin-left: 5px;
 }
-.btn-login-form{
+
+.btn-login-form {
     width: 45%;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.7rem;
 }
-.forget-password{
+
+.forget-password {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.7rem;
     font-weight: lighter;
@@ -211,7 +402,8 @@ font-family: 'Sarpanch', sans-serif;
     text-align: center;
     margin-bottom: 15px;
 }
-.create-account-text, .create-account-link{
+
+.create-account-text, .create-account-link {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.7rem;
     text-decoration: none;
@@ -219,18 +411,22 @@ font-family: 'Sarpanch', sans-serif;
     text-align: center;
     margin-top: 20px;
 }
-.forget-password:hover{
+
+.forget-password:hover {
     color: #ff6a00;
     transition: 0.2s;
 }
-.create-account-link{
-   color : #ff5a00;
+
+.create-account-link {
+    color: #ff5a00;
     opacity: 1;
 }
-.create-account-link:hover{
+
+.create-account-link:hover {
     font-weight: bold;
     margin: -0.6px;
 }
+
 /**************************************  SECTION HOMEPAGE **********************************************/
 .bloc-homepage {
 
@@ -266,7 +462,7 @@ font-family: 'Sarpanch', sans-serif;
     text-align: center;
     backdrop-filter: blur(3px);
     animation-name: bloc-homepage;
-    animation-duration: 5s;
+    animation-duration: 3s;
     opacity: 1;
     animation-iteration-count: 1;
 }
@@ -276,8 +472,8 @@ font-family: 'Sarpanch', sans-serif;
     font-family: 'Lobster Two', cursive;
     font-weight: bold;
     font-size: 9rem;
-    text-shadow: 0 -1px 0 #ffaa72, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0,0,0,0.9);
-    
+    text-shadow: 0 -1px 0 #ffaa72, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
+
 }
 
 .text-bloc-img h2 {
@@ -286,7 +482,7 @@ font-family: 'Sarpanch', sans-serif;
     font-weight: lighter;
     font-size: 2rem;
     animation-name: bloc-homepage-subtitle;
-    animation-duration: 8s;
+    animation-duration: 5s;
     opacity: 1;
     animation-iteration-count: 1;
 }
@@ -335,7 +531,8 @@ font-family: 'Sarpanch', sans-serif;
     width: 20px;
     margin-right: 10px;
 }
-.icon-card:hover{
+
+.icon-card:hover {
     width: 23px;
     margin-right: 7px;
 }
@@ -415,8 +612,33 @@ font-family: 'Sarpanch', sans-serif;
     color: white;
     font-size: 0.8rem;
     font-family: 'Lobster Two', cursive;
-    margin: 0;
+    margin: 5px;
+    padding: 5px;
+}
+
+.nav-footer-link a {
     padding: 0;
+}
+
+.nav-footer-link-logout:hover {
+    color: #ff5a00;
+    font-size: 0.9rem;
+    margin: -1.2px;
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
+}
+
+.nav-footer-link:hover {
+    color: #00c4ff;
+    font-size: 0.9rem;
+    margin: -1.2px;
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
+}
+
+.nav-footer-link-login:hover {
+    color: #00c4ff;
+    font-size: 0.9rem;
+    margin: -1.2px -6.3px;
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
 }
 
 .copyright {
@@ -511,17 +733,20 @@ font-family: 'Sarpanch', sans-serif;
 
 /******************************* 637 PX *********************************/
 @media (max-width: 637px) {
-    .bloc-nav-1{
+    .bloc-nav-1 {
         display: flex;
         flex-direction: column;
     }
-    .bloc-logo-text{
+
+    .bloc-logo-text {
         justify-content: center;
     }
-    .bloc-connected{
+
+    .bloc-connected {
         justify-content: center;
     }
-    .title-nav{
+
+    .title-nav {
         display: none;
     }
 }
@@ -535,18 +760,38 @@ font-family: 'Sarpanch', sans-serif;
     .text-bloc-img h2 {
         font-size: 1rem;
     }
-    .title-list-homepage{
+
+    .title-list-homepage {
         font-size: 1.5rem;
     }
-    .subtitle-list-homepage{
+
+    .subtitle-list-homepage {
         font-size: 1rem;
     }
-    .bloc-footer{
+
+    .bloc-footer {
         align-items: center;
         flex-direction: column;
     }
-    .right-bloc-picto{
+
+    .right-bloc-picto {
         width: 50%;
+    }
+
+    .bloc-btn-register {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bloc-register input {
+        font-size: 0.6rem;
+    }
+
+    .btn-register {
+        font-size: 0.7rem;
+        margin-bottom: 10px;
+        padding: 0;
+        width: 80%;
     }
 }
 
@@ -557,21 +802,26 @@ font-family: 'Sarpanch', sans-serif;
 
         grid-template-columns: repeat(1, 1fr);
     }
-    .bloc-login h1{
+
+    .bloc-login h1 {
         font-size: 1.5rem;
         margin-bottom: 15px;
     }
-    .bloc-btn-login{
+
+    .bloc-btn-login {
         flex-direction: column;
         align-items: center;
     }
-    .btn-login-form{
+
+    .btn-login-form {
         margin-top: 10px;
         width: 55%;
         padding: 5px 0;
     }
-    .bloc-remenber-me{
-    margin-bottom: 10px }
+
+    .bloc-remenber-me {
+        margin-bottom: 10px
+    }
 }
 
 
@@ -598,19 +848,30 @@ font-family: 'Sarpanch', sans-serif;
 }
 
 
-
-
 /*********************************** @KEYFRAME ******************************************/
 @keyframes bloc-homepage {
-    0%{opacity: 0}
-    50%{opacity: 0}
-    100%{opacity: 1}
-    
+    0% {
+        opacity: 0
+    }
+    50% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+
 }
+
 @keyframes bloc-homepage-subtitle {
-    0%{opacity: 0}
-    50%{opacity: 0}
-    100%{opacity: 1}
+    0% {
+        opacity: 0
+    }
+    50% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
 
 }
 

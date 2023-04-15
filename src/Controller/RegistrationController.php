@@ -32,7 +32,7 @@ class RegistrationController extends AbstractController
      */
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, LoginFormAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
-        $user = new Users(null,'email', (array)'ROLE_USER','password','surname','name',null,new \DateTimeImmutable(),1);
+        $user = new Users(null, '', (array)'ROLE_USER', '', '', '', null, 0);
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
@@ -86,7 +86,6 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('app_register');
         }
 
-        // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Votre adresse mail à bien été vérifié.');
 
         return $this->redirectToRoute('app_register');
