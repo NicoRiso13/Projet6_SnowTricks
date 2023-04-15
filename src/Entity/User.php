@@ -67,7 +67,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @param string|null $picture
      * @param \DateTimeImmutable|null $createdAt
      */
-    public function __construct($id, ?string $email, string $password, ?string $firstname, ?string $name, ?string $picture)
+    public function __construct(?int $id, ?string $email, string $password, ?string $firstname, ?string $name, ?string $picture)
     {
         $this->id = $id;
         $this->email = $email;
@@ -163,10 +163,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @see UserInterface
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+        $this->password = null;
     }
 
     public function getFirstname(): ?string
