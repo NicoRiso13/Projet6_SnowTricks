@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CommentarysRepository;
+use App\Repository\TricksRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,16 +19,14 @@ class Commentarys
     private ?int $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=users::class, inversedBy="commentarys")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="integer")
      */
-    private ?users $userId;
+    private ?int $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity=tricks::class, inversedBy="commentarys")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="integer")
      */
-    private ?tricks $tricksId;
+    private ?int $tricks;
 
     /**
      * @ORM\Column(type="text")
@@ -44,26 +43,26 @@ class Commentarys
         return $this->id;
     }
 
-    public function getUserId(): ?users
+    public function getUser(): ?int
     {
-        return $this->userId;
+        return $this->user;
     }
 
-    public function setUserId(?users $userId): self
+    public function setUser(?int $user): self
     {
-        $this->userId = $userId;
+        $this->user = $user;
 
         return $this;
     }
 
-    public function getTricksId(): ?tricks
+    public function getTricks(): ?int
     {
-        return $this->tricksId;
+        return $this->tricks;
     }
 
-    public function setTricksId(?tricks $tricksId): self
+    public function setTricks(?int $tricks): self
     {
-        $this->tricksId = $tricksId;
+        $this->tricks = $tricks;
 
         return $this;
     }

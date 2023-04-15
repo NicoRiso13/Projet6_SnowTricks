@@ -111,7 +111,7 @@ class __TwigTemplate_1d42d5c64540b5cd122f5ae15bb40a8ece8df5f1d272218943779308690
         echo "
         ";
         // line 16
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 16, $this->source); })()), "surname", [], "any", false, false, false, 16), 'row');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 16, $this->source); })()), "firstname", [], "any", false, false, false, 16), 'row');
         echo "
         ";
         // line 17
@@ -178,7 +178,7 @@ class __TwigTemplate_1d42d5c64540b5cd122f5ae15bb40a8ece8df5f1d272218943779308690
         <h1>Créer un compte</h1>
 
         {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.surname) }}
+        {{ form_row(registrationForm.firstname) }}
         {{ form_row(registrationForm.name) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {

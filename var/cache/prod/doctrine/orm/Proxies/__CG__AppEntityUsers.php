@@ -294,7 +294,7 @@ class Users extends \App\Entity\Users implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): ?string
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'eraseCredentials', []);

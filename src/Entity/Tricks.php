@@ -20,19 +20,19 @@ class Tricks
     private ?int $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=users::class, inversedBy="tricks")
+     * @ORM\Column(type="integer")
      */
-    private ?users $userId;
+    private ?int $user;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=100)
      */
     private ?string $name;
 
     /**
      * @ORM\Column(type="text")
      */
-    private ?string $descritpion;
+    private ?string $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -54,29 +54,20 @@ class Tricks
      */
     private ?\DateTimeImmutable $modifiedAt;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Commentarys::class, mappedBy="tricksId")
-     */
-    private ArrayCollection $commentarys;
-
-    public function __construct()
-    {
-        $this->commentarys = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUserId(): ?users
+    public function getUser(): ?int
     {
-        return $this->userId;
+        return $this->user;
     }
 
-    public function setUserId(?users $userId): self
+    public function setUser(?int $user): self
     {
-        $this->userId = $userId;
+        $this->user = $user;
 
         return $this;
     }
@@ -93,14 +84,14 @@ class Tricks
         return $this;
     }
 
-    public function getDescritpion(): ?string
+    public function getDescription(): ?string
     {
-        return $this->descritpion;
+        return $this->description;
     }
 
-    public function setDescritpion(string $descritpion): self
+    public function setDescription(string $description): self
     {
-        $this->descritpion = $descritpion;
+        $this->description = $description;
 
         return $this;
     }
@@ -149,36 +140,6 @@ class Tricks
     public function setModifiedAt(?\DateTimeImmutable $modifiedAt): self
     {
         $this->modifiedAt = $modifiedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Commentarys>
-     */
-    public function getCommentarys(): Collection
-    {
-        return $this->commentarys;
-    }
-
-    public function addCommentary(Commentarys $commentary): self
-    {
-        if (!$this->commentarys->contains($commentary)) {
-            $this->commentarys[] = $commentary;
-            $commentary->setTricksId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommentary(Commentarys $commentary): self
-    {
-        if ($this->commentarys->removeElement($commentary)) {
-            // set the owning side to null (unless already changed)
-            if ($commentary->getTricksId() === $this) {
-                $commentary->setTricksId(null);
-            }
-        }
 
         return $this;
     }
