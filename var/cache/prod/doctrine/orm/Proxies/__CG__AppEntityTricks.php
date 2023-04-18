@@ -195,7 +195,7 @@ class Tricks extends \App\Entity\Tricks implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getUserId(): ?\App\Entity\users
+    public function getUserId(): ?\App\Entity\User
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserId', []);
@@ -206,7 +206,7 @@ class Tricks extends \App\Entity\Tricks implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setUserId(?\App\Entity\users $userId): \App\Entity\Tricks
+    public function setUserId(?\App\Entity\User $userId): \App\Entity\Tricks
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserId', [$userId]);

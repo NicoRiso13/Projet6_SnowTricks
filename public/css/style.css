@@ -548,7 +548,8 @@ font-family: 'Sarpanch', sans-serif;
 .footer-trick-card h5 {
     font-family: 'Lobster Two', cursive;
     margin: 0;
-    padding: 5px;
+    padding: 5px 5px 5px 10px;
+    text-align: left;
 }
 
 .footer-trick-card h5:hover {

@@ -17,6 +17,6 @@ class getSecurity_User_Provider_Concrete_AppUserProviderService extends App_Kern
      */
     public static function do($container, $lazyLoad = true)
     {
-        return $container->privates['security.user.provider.concrete.app_user_provider'] = new \Symfony\Bridge\Doctrine\Security\User\EntityUserProvider(($container->services['doctrine'] ?? $container->getDoctrineService()), 'App\\Entity\\Users', 'email', NULL);
+        return $container->privates['security.user.provider.concrete.app_user_provider'] = new \Symfony\Bridge\Doctrine\Security\User\EntityUserProvider(($container->services['doctrine'] ?? $container->getDoctrineService()), 'App\\Entity\\User', 'email', NULL);
     }
 }

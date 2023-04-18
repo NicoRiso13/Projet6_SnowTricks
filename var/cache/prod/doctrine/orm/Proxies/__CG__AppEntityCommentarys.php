@@ -195,7 +195,7 @@ class Commentarys extends \App\Entity\Commentarys implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getUserId(): ?\App\Entity\users
+    public function getUserId(): ?\App\Entity\User
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserId', []);
@@ -206,7 +206,7 @@ class Commentarys extends \App\Entity\Commentarys implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setUserId(?\App\Entity\users $userId): \App\Entity\Commentarys
+    public function setUserId(?\App\Entity\User $userId): \App\Entity\Commentarys
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserId', [$userId]);

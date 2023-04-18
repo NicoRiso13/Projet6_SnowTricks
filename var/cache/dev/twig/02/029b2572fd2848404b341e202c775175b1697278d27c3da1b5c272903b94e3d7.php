@@ -123,7 +123,7 @@ class __TwigTemplate_1d42d5c64540b5cd122f5ae15bb40a8ece8df5f1d272218943779308690
         echo "
         ";
         // line 19
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 19, $this->source); })()), "plainPassword", [], "any", false, false, false, 19), 'row', ["label" => "Password"]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 19, $this->source); })()), "password", [], "any", false, false, false, 19), 'row', ["label" => "Password"]);
         // line 21
         echo "
 
@@ -181,7 +181,7 @@ class __TwigTemplate_1d42d5c64540b5cd122f5ae15bb40a8ece8df5f1d272218943779308690
         {{ form_row(registrationForm.firstname) }}
         {{ form_row(registrationForm.name) }}
         {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
+        {{ form_row(registrationForm.password, {
             label: 'Password'
         }) }}
 

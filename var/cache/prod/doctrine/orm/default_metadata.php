@@ -109,7 +109,7 @@ return [[
                             ],
                             'cascade' => [],
                             'inversedBy' => 'commentarys',
-                            'targetEntity' => 'App\\Entity\\users',
+                            'targetEntity' => 'App\\Entity\\User',
                             'fetch' => 2,
                             'type' => 2,
                             'mappedBy' => null,
@@ -321,7 +321,7 @@ return [[
                             ],
                             'cascade' => [],
                             'inversedBy' => 'tricks',
-                            'targetEntity' => 'App\\Entity\\users',
+                            'targetEntity' => 'App\\Entity\\User',
                             'fetch' => 2,
                             'type' => 2,
                             'mappedBy' => null,
@@ -381,13 +381,13 @@ return [[
         [
             'stdClass' => [
                 'name' => [
-                    'App\\Entity\\Users',
+                    'App\\Entity\\User',
                 ],
                 'namespace' => [
                     'App\\Entity',
                 ],
                 'rootEntityName' => [
-                    'App\\Entity\\Users',
+                    'App\\Entity\\User',
                 ],
                 'customRepositoryClassName' => [
                     'App\\Repository\\UsersRepository',

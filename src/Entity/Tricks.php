@@ -22,7 +22,7 @@ class Tricks
     /**
      * @ORM\Column(type="integer")
      */
-    private ?int $user;
+    private ?int $user_id;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -54,20 +54,25 @@ class Tricks
      */
     private ?\DateTimeImmutable $modifiedAt;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $categorie;
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUser(): ?int
+    public function getUserId(): ?int
     {
-        return $this->user;
+        return $this->user_id;
     }
 
-    public function setUser(?int $user): self
+    public function setUserId(?int $user_id): self
     {
-        $this->user = $user;
+        $this->user_id = $user_id;
 
         return $this;
     }
@@ -140,6 +145,18 @@ class Tricks
     public function setModifiedAt(?\DateTimeImmutable $modifiedAt): self
     {
         $this->modifiedAt = $modifiedAt;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?string
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(string $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
