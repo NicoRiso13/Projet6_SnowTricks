@@ -19,7 +19,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
@@ -58,14 +58,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?\DateTimeImmutable $createdAt;
 
     /**
-     * @param $id
+     * @param int|null $id
      * @param string|null $email
-     * @param array $roles
      * @param string $password
      * @param string|null $firstname
      * @param string|null $name
      * @param string|null $picture
-     * @param \DateTimeImmutable|null $createdAt
      */
     public function __construct(?int $id, ?string $email, string $password, ?string $firstname, ?string $name, ?string $picture)
     {

@@ -98,31 +98,30 @@ class __TwigTemplate_ed79a55cee15eabc82a24c92f35873a35adab9b2b7186793640021a90e1
         // line 44
         echo "
                 <li class=\"nav-item\">
-                    <a class=\"nav-link nav-link-active\" href=\"/#list-tricks\">Les tricks</a>
-                </li>
-
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"/contact\">Contact</a>
+                    <a class=\"nav-link nav-link-active\" href=\"";
+        // line 46
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_index");
+        echo "\">Les tricks</a>
                 </li>
                 ";
-        // line 52
+        // line 48
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-            // line 53
+            // line 49
             echo "                    <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"/admin-manager\">Administration</a>
                     </li>
                 ";
         }
-        // line 57
+        // line 53
         echo "                ";
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 57, $this->source); })()), "user", [], "any", false, false, false, 57)) {
-            // line 58
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 53, $this->source); })()), "user", [], "any", false, false, false, 53)) {
+            // line 54
             echo "                    <li class=\"nav-item\">
                         <a class=\"nav-link \" href=\"/logout\">Se déconnecter</a>
                     </li>
                 ";
         }
-        // line 62
+        // line 58
         echo "
 
             </ul>
@@ -151,7 +150,7 @@ class __TwigTemplate_ed79a55cee15eabc82a24c92f35873a35adab9b2b7186793640021a90e1
 
     public function getDebugInfo()
     {
-        return array (  126 => 62,  120 => 58,  117 => 57,  111 => 53,  109 => 52,  99 => 44,  93 => 40,  91 => 39,  72 => 22,  64 => 17,  59 => 14,  57 => 13,  43 => 1,);
+        return array (  125 => 58,  119 => 54,  116 => 53,  110 => 49,  108 => 48,  103 => 46,  99 => 44,  93 => 40,  91 => 39,  72 => 22,  64 => 17,  59 => 14,  57 => 13,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -201,11 +200,7 @@ class __TwigTemplate_ed79a55cee15eabc82a24c92f35873a35adab9b2b7186793640021a90e1
                 {% endif %}
 
                 <li class=\"nav-item\">
-                    <a class=\"nav-link nav-link-active\" href=\"/#list-tricks\">Les tricks</a>
-                </li>
-
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"/contact\">Contact</a>
+                    <a class=\"nav-link nav-link-active\" href=\"{{ path('app_tricks_index') }}\">Les tricks</a>
                 </li>
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class=\"nav-item\">

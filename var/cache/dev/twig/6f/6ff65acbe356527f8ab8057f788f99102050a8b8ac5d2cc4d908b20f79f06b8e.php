@@ -108,12 +108,12 @@ class __TwigTemplate_60c78117ab33a771616d2f50fd5414f2827ffe37008633375c340936967
         // line 56
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 56, $this->source); })()), "user", [], "any", false, false, false, 56)) {
             // line 57
-            echo "                <li class=\"nav-footer-link-logout\">
-                    <a class=\"nav-link logout\" href=\"";
+            echo "                    <li class=\"nav-footer-link-logout\">
+                        <a class=\"nav-link logout\" href=\"";
             // line 58
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">Se déconnecter</a>
-                </li>
+                    </li>
                 ";
         }
         // line 61
@@ -122,24 +122,33 @@ class __TwigTemplate_60c78117ab33a771616d2f50fd5414f2827ffe37008633375c340936967
                 <li class=\"nav-footer-link\">
                     <a class=\"nav-link active\" href=\"/\">Accueil</a>
                 </li>
-
-                <li class=\"nav-footer-link-login\">
-                    <a class=\"nav-link \" href=\"/login\">Se connecter/S'inscrire</a>
-                </li>
-
+                ";
+        // line 66
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 66, $this->source); })()), "user", [], "any", false, false, false, 66)) {
+            // line 67
+            echo "                    <li class=\"nav-footer-link-login\">
+                        <a class=\"nav-link \" href=\"/login\">Se connecter/S'inscrire</a>
+                    </li>
+                ";
+        }
+        // line 71
+        echo "
                 <li class=\"nav-footer-link\">
-                    <a class=\"nav-link \" href=\"/#list-tricks\">Les Tricks</a>
+                    <a class=\"nav-link \" href=\"";
+        // line 73
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_index");
+        echo "\">Les Tricks</a>
                 </li>
                 ";
-        // line 74
+        // line 75
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-            // line 75
+            // line 76
             echo "                    <li class=\"nav-footer-link\">
                         <a class=\"nav-link link-admin \" href=\"/admin-manager\">Administration</a>
                     </li>
                 ";
         }
-        // line 79
+        // line 80
         echo "
                 <li class=\"nav-footer-link\">
                     <a class=\"nav-link \" href=\"#\">▲ Haut de page ▲</a>
@@ -223,7 +232,7 @@ class __TwigTemplate_60c78117ab33a771616d2f50fd5414f2827ffe37008633375c340936967
 
     public function getDebugInfo()
     {
-        return array (  204 => 28,  194 => 27,  175 => 7,  143 => 79,  137 => 75,  135 => 74,  120 => 61,  114 => 58,  111 => 57,  109 => 56,  81 => 30,  79 => 27,  69 => 20,  53 => 7,  45 => 1,);
+        return array (  213 => 28,  203 => 27,  184 => 7,  152 => 80,  146 => 76,  144 => 75,  139 => 73,  135 => 71,  129 => 67,  127 => 66,  120 => 61,  114 => 58,  111 => 57,  109 => 56,  81 => 30,  79 => 27,  69 => 20,  53 => 7,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -284,22 +293,23 @@ class __TwigTemplate_60c78117ab33a771616d2f50fd5414f2827ffe37008633375c340936967
 
             <ul>
                 {% if app.user %}
-                <li class=\"nav-footer-link-logout\">
-                    <a class=\"nav-link logout\" href=\"{{ path('app_logout') }}\">Se déconnecter</a>
-                </li>
+                    <li class=\"nav-footer-link-logout\">
+                        <a class=\"nav-link logout\" href=\"{{ path('app_logout') }}\">Se déconnecter</a>
+                    </li>
                 {% endif %}
 
 
                 <li class=\"nav-footer-link\">
                     <a class=\"nav-link active\" href=\"/\">Accueil</a>
                 </li>
-
-                <li class=\"nav-footer-link-login\">
-                    <a class=\"nav-link \" href=\"/login\">Se connecter/S'inscrire</a>
-                </li>
+                {% if not app.user %}
+                    <li class=\"nav-footer-link-login\">
+                        <a class=\"nav-link \" href=\"/login\">Se connecter/S'inscrire</a>
+                    </li>
+                {% endif %}
 
                 <li class=\"nav-footer-link\">
-                    <a class=\"nav-link \" href=\"/#list-tricks\">Les Tricks</a>
+                    <a class=\"nav-link \" href=\"{{ path('app_tricks_index') }}\">Les Tricks</a>
                 </li>
                 {% if is_granted(\"ROLE_ADMIN\") %}
                     <li class=\"nav-footer-link\">

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400;500;600;700;800;900&family=Sarpanch:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400;500;600;700;800;900&family=Sarpanch:wght@400;500;600;700;800;900&display=swap');
 
 @font-face {
     font-family: 'Neuropolitical';
@@ -17,6 +17,7 @@
 
 /*
 
+font-family: 'Audiowide', cursive;
 font-family: 'Lobster Two', cursive;
 font-family: 'Montserrat', sans-serif;
 font-family: 'Orbitron', sans-serif;
@@ -117,19 +118,22 @@ font-family: 'Sarpanch', sans-serif;
     margin: 0;
     font-size: 2rem;
 }
-.link-home-500{
+
+.link-home-500 {
     text-decoration: none;
     color: #ff5a00;
     opacity: 0.5;
 }
-.link-home-500:hover{
+
+.link-home-500:hover {
     transition: 0.4s;
     box-sizing: border-box;
     color: #ff5a00;
     opacity: 1;
 
 }
-.message-500:hover{
+
+.message-500:hover {
 
 }
 
@@ -166,7 +170,7 @@ font-family: 'Sarpanch', sans-serif;
 }
 
 .bloc-logo-text h4 {
-    font-family: 'Lobster Two', cursive;
+    font-family: 'Audiowide', cursive;
     font-weight: bold;
     font-size: 2.5rem;
     margin: 0;
@@ -183,14 +187,13 @@ font-family: 'Sarpanch', sans-serif;
     display: flex;
     justify-content: center;
     background-color: #252525;
-
     width: 100%;
 
 }
 
 .bloc-link ul {
     font-family: 'Lobster Two', cursive;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .nav-item a {
@@ -433,6 +436,17 @@ font-family: 'Sarpanch', sans-serif;
 
 }
 
+.bloc-btn-new-tricks {
+    width: 100%;
+    font-size: 1.9rem;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.bloc-btn-new-tricks a {
+    font-size: 1.2rem;
+}
+
 .bloc-img {
     display: flex;
     justify-content: center;
@@ -442,7 +456,7 @@ font-family: 'Sarpanch', sans-serif;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 500px;
+    height: 700px;
 }
 
 .icon-down {
@@ -469,7 +483,7 @@ font-family: 'Sarpanch', sans-serif;
 
 .text-bloc-img h1 {
     color: #ff4a00;
-    font-family: 'Lobster Two', cursive;
+    font-family: 'Audiowide', cursive;
     font-weight: bold;
     font-size: 9rem;
     text-shadow: 0 -1px 0 #ffaa72, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
@@ -522,6 +536,12 @@ font-family: 'Sarpanch', sans-serif;
     box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.3);
 }
 
+.trick-card:hover {
+    width: 105%;
+    margin: -10px;
+    box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.5);
+}
+
 .img-trick-card {
     width: 100%;
     border-radius: 10px 10px 0 0;
@@ -547,6 +567,16 @@ font-family: 'Sarpanch', sans-serif;
 
 .footer-trick-card h5 {
     font-family: 'Lobster Two', cursive;
+    color: #ff6a00;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px 5px 5px 10px;
+    text-align: left;
+}
+
+.footer-trick-card h6 {
+    font-family: 'Lobster Two', cursive;
     margin: 0;
     padding: 5px 5px 5px 10px;
     text-align: left;
@@ -555,6 +585,7 @@ font-family: 'Sarpanch', sans-serif;
 .footer-trick-card h5:hover {
     font-family: 'Lobster Two', cursive;
     margin: 0;
+    background-position: right;
     background-color: #ff5a00;
     border-radius: 0 10px 10px 0;
     transition: 0.5s;
@@ -575,6 +606,120 @@ font-family: 'Sarpanch', sans-serif;
 .title-card a {
     text-decoration: none;
     color: #343434;
+}
+
+/**************************************  SECTION INDEX TRICKS **************************************/
+.bloc-index-tricks {
+    border-bottom: 1px solid grey;
+    border-left: 3px solid orange;
+}
+
+.index-description {
+    text-align: justify;
+    word-break: break-word;
+}
+
+.back-grey {
+    background-color: #e3e3e3;
+    border-left: 3px solid orange;
+}
+
+
+/**************************************  SECTION DETAILS TRICKS **************************************/
+.bloc-details-tricks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.relative-poster {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.bloc-icon-relative-poster {
+    position: absolute;
+    top: 50px;
+    right: 40px;
+}
+.icon-card-show-details{
+    width: 40px;
+    padding: 5px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.poster-tricks {
+    position: relative;
+    width: 100%;
+    margin-top: 25px;
+    box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+
+}
+
+.title-poster {
+    font-family: 'Lobster Two', cursive;
+    font-size: 6vw;
+    position: absolute;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    border-top: 2px solid #ff8800;
+    border-bottom: 2px solid #ff8800;
+    border-radius: 15px;
+    padding: 15px;
+    color: #ffffff;
+}
+
+.bloc-details-tricks h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+}
+
+.bloc-description-tricks {
+    margin: 25px auto;
+    padding: 0 0 40px 0;
+    width: 80%;
+    border-radius: 15px 15px 0 0;
+    z-index: 0;
+    box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.3);
+}
+
+.bloc-title-description {
+    background-color: #ff5a00;
+    color: #FFFFFF;
+    border-radius: 15px 15px 0 0;
+    font-size: 3vw;
+}
+
+.bloc-title-description h3 {
+    font-size: 2rem;
+}
+
+.bloc-description-tricks p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    margin: 20px auto;
+    width: 90%;
+}
+
+.bloc-info-details-tricks {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 0.8rem;
+}
+
+.info-tricks {
+    margin: 10px 5px;
 }
 
 
@@ -719,6 +864,15 @@ font-family: 'Sarpanch', sans-serif;
     .text-bloc-img h2 {
         font-size: 1.4rem;
     }
+
+    .bloc-title-description h3 {
+        font-size: 1.6rem;
+    }
+    .icon-card-show-details{
+        width: 30px;
+        padding: 5px;
+
+    }
 }
 
 
@@ -727,7 +881,14 @@ font-family: 'Sarpanch', sans-serif;
     .bloc-list-tricks {
 
         grid-template-columns: repeat(2, 1fr);
+    }
 
+    .bloc-title-description h3 {
+        font-size: 1.3rem;
+    }
+
+    .bloc-description-tricks p {
+        font-size: 1rem;
     }
 }
 
@@ -749,6 +910,15 @@ font-family: 'Sarpanch', sans-serif;
 
     .title-nav {
         display: none;
+    }
+
+    .bloc-description-tricks p {
+        font-size: 1rem;
+    }
+
+    .bloc-icon-relative-poster {
+        top: 40px;
+        right: 25px;
     }
 }
 
@@ -823,6 +993,32 @@ font-family: 'Sarpanch', sans-serif;
     .bloc-remenber-me {
         margin-bottom: 10px
     }
+
+    .trick-card:hover {
+        width: 105%;
+        margin: -1.7%;
+    }
+
+    .bloc-btn-new-tricks a {
+        font-size: 0.8rem;
+    }
+
+    .bloc-title-description h3 {
+        font-size: 1.1rem;
+    }
+
+    .bloc-description-tricks p {
+        font-size: 0.8rem;
+    }
+    .bloc-icon-relative-poster {
+        top: 40px;
+        right: 15px;
+    }
+    .icon-card-show-details{
+        width: 25px;
+        padding: 5px;
+
+    }
 }
 
 
@@ -845,6 +1041,13 @@ font-family: 'Sarpanch', sans-serif;
 
     .text-bloc-img h2 {
         font-size: 0.6rem;
+    }
+
+    .bloc-btn-footer-card {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-end;
     }
 }
 

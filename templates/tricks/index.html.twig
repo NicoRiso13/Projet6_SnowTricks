@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tricks index{% endblock %}
+
+{% block body %}
+    <div class="p-5">
+        <h1>Tricks index</h1>
+
+        <table class="p-5">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Categorie</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for trick in tricks %}
+                <tr class="bloc-index-tricks">
+                    <td class="col-2 p-2 back-grey">{{ trick.name }}</td>
+                    <td class="col-8 p-2 index-description">{{ trick.description | u.truncate (250,"...") }}</td>
+                    <td class="col-1 p-2 back-grey">{{ trick.categorie }}</td>
+                    <td class="col-1 p-2">
+                        <a href="{{ path('app_tricks_show', {'id': trick.id}) }}" target="_blank"><img class="icon-card" alt="btn-edit" title="voir le details"
+                                                                                                       src="/img/icons/show.png"></a>
+                        <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}" target="_blank"><img class="icon-card" alt="btn-edit" title="éditer un trick"
+                                                                                                       src="/img/icons/edit.png"></a>
+                        <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img class="icon-card" alt="btn-delete"
+                                                                                                         title="supprimer un trick"
+                                                                                                         src="/img/icons/delete.png"></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10">Aucun résultat trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_tricks_new') }}">Create new</a>
+    </div>
+{% endblock %}

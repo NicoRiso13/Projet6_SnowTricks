@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SnowTricks | {{trick.name}}{% endblock %}
+
+{% block body %}
+    <div class="bloc-details-tricks">
+
+        <div class="bloc-title-details-tricks">
+            <div class="relative-poster col-12">
+
+            <img class="poster-tricks" src="/img/test-img-card.jpg" alt="poster-tricks">
+                {% if app.user %}
+                <div class="bloc-icon-relative-poster">
+                    <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}" target="_blank"><img class="icon-card-show-details" alt="btn-edit" title="éditer un trick"
+                                                                                                   src="/img/icons/edit.png"></a>
+                    <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img class="icon-card-show-details" alt="btn-delete"
+                                                                                                     title="supprimer un trick"
+                                                                                                     src="/img/icons/delete.png"></a>
+                </div>
+                {% endif %}
+            <h1 class="title-poster ">{{trick.name}}</h1>
+            </div>
+        </div>
+        <div class="bloc-description-tricks">
+            <div class="bloc-title-description">
+            <h3>Description</h3>
+            </div>
+            <p>{{ trick.description }}</p>
+        </div>
+        <div class="bloc-info-details-tricks">
+            <p class="info-tricks col-4">créé le : {{ trick.createdAt ? trick.createdAt|date('Y-m-d H:i:s') : '' }} par {{ trick.user.id }}</p>
+            <p class="info-tricks col-4">Dernière modification le : {{ trick.modifiedAt ? trick.modifiedAt|date('Y-m-d')}}</p>
+            <p class="info-tricks col-4">Catégorie : {{ trick.categorie | capitalize }}</p>
+        </div>
+
+
+        <a href="{{ path('app_tricks_index') }}">Retour à la liste des figures</a>
+
+        <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}">Modifier la figure</a>
+
+        {{ include('tricks/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

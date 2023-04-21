@@ -18,23 +18,33 @@
         <h3 class="title-list-homepage">Tous les Tricks</h3>
         <h4 class="subtitle-list-homepage">Prenez part à la communauté en ajoutant ou en modifiant des tricks</h4>
         <hr class="separator-list-homepage">
-
+        {% if app.user %}
+        <div class="bloc-btn-new-tricks">
+            <a class="btn btn-primary" href="{{ path('app_tricks_new') }}">Ajouter une nouvelle figure</a>
+        </div>
+        {% endif %}
 
         <div class="bloc-list-tricks">
             {% for trick in tricks %}
                 <div class="trick-card ">
                     <img class="img-trick-card" src="/img/test-img-card.jpg" alt="img-trick-card">
                     <div class="footer-trick-card">
-                        <div class="col-6 title-card">
-                            <a href="#" target="_blank"><h5>{{ trick.name }}</h5></a>
+                        <div class="col-8 title-card">
+                            <a href="{{ path('app_tricks_show', {'id': trick.id}) }}" target="_blank">
+                                <h5>{{ trick.name }}</h5></a>
+                            <h6>Catégorie : {{ trick.categorie | capitalize }}</h6>
                         </div>
-                        <div class="col-5 bloc-btn-footer-card">
-                            <a href="#" target="_blank"><img class="icon-card" alt="btn-edit" title="éditer un trick"
-                                                             src="/img/icons/edit.png"></a>
-                            <a href="#" target="_blank"><img class="icon-card" alt="btn-delete"
-                                                             title="supprimer un trick"
-                                                             src="/img/icons/delete.png"></a>
+                        {% if app.user %}
+                        <div class="col-4 bloc-btn-footer-card">
+                            <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card" alt="btn-edit" title="éditer un trick"
+                                        src="/img/icons/edit.png"></a>
+                            <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card" alt="btn-delete"
+                                        title="supprimer un trick"
+                                        src="/img/icons/delete.png"></a>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}

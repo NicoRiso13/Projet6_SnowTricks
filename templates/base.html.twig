@@ -54,22 +54,23 @@
 
             <ul>
                 {% if app.user %}
-                <li class="nav-footer-link-logout">
-                    <a class="nav-link logout" href="{{ path('app_logout') }}">Se déconnecter</a>
-                </li>
+                    <li class="nav-footer-link-logout">
+                        <a class="nav-link logout" href="{{ path('app_logout') }}">Se déconnecter</a>
+                    </li>
                 {% endif %}
 
 
                 <li class="nav-footer-link">
                     <a class="nav-link active" href="/">Accueil</a>
                 </li>
-
-                <li class="nav-footer-link-login">
-                    <a class="nav-link " href="/login">Se connecter/S'inscrire</a>
-                </li>
+                {% if not app.user %}
+                    <li class="nav-footer-link-login">
+                        <a class="nav-link " href="/login">Se connecter/S'inscrire</a>
+                    </li>
+                {% endif %}
 
                 <li class="nav-footer-link">
-                    <a class="nav-link " href="/#list-tricks">Les Tricks</a>
+                    <a class="nav-link " href="{{ path('app_tricks_index') }}">Les Tricks</a>
                 </li>
                 {% if is_granted("ROLE_ADMIN") %}
                     <li class="nav-footer-link">

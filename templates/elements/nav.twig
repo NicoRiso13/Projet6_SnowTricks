@@ -43,11 +43,7 @@
                 {% endif %}
 
                 <li class="nav-item">
-                    <a class="nav-link nav-link-active" href="/#list-tricks">Les tricks</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
+                    <a class="nav-link nav-link-active" href="{{ path('app_tricks_index') }}">Les tricks</a>
                 </li>
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">

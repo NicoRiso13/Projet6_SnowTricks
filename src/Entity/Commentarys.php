@@ -21,13 +21,13 @@ class Commentarys
     /**
      * @ORM\Column(type="integer")
      */
-    private ?int $user_id;
+    private ?int $userId;
 
 
     /**
      * @ORM\Column(type="integer")
      */
-    private ?int $tricks_id;
+    private ?int $tricksId;
 
     /**
      * @ORM\Column(type="text")
@@ -46,24 +46,24 @@ class Commentarys
 
     public function getUserId(): ?int
     {
-        return $this->user_id;
+        return $this->userId;
     }
 
-    public function setUserId(?int $user_id): self
+    public function setUserId(?int $userId): self
     {
-        $this->user_id = $user_id;
+        $this->userId = $userId;
 
         return $this;
     }
 
     public function getTricksId(): ?int
     {
-        return $this->tricks_id;
+        return $this->tricksId;
     }
 
-    public function setTricksId(?int $tricks_id): self
+    public function setTricksId(?int $tricksId): self
     {
-        $this->tricks_id = $tricks_id;
+        $this->tricksId = $tricksId;
 
         return $this;
     }
