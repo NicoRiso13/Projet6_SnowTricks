@@ -5,12 +5,15 @@ namespace App\Controller;
 use App\DTO\TricksDto;
 use App\Entity\Tricks;
 use App\Entity\User;
-use App\Form\TricksType;
+use App\Form\TricksFormType;
 use App\Repository\TricksRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
  * @Route("/tricks")
@@ -33,7 +36,7 @@ class TricksController extends AbstractController
     public function new(Request $request, TricksRepository $tricksRepository): Response
     {
 
-        $form = $this->createForm(TricksType::class);
+        $form = $this->createForm(TricksFormType::class);
         $form->handleRequest($request);
 
 
@@ -69,14 +72,33 @@ class TricksController extends AbstractController
     /**
      * @Route("/{id}/edit", name="app_tricks_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, Tricks $trick, TricksRepository $tricksRepository): Response
+    public function edit(Request $request, Tricks $trick, TricksRepository $tricksRepository, SluggerInterface $slugger): Response
     {
-        $form = $this->createForm(TricksType::class);
+        $form = $this->createForm(TricksFormType::class);
         $form->handleRequest($request);
 
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form->get('imageFile')->getData();
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+
+                }
+
+                $trick->setImageFilename($newFilename);
+            }
             $tricksRepository->add($trick, true);
+            $this->addFlash('success', 'La figure a été mise a jour avec succès !');
             return $this->redirectToRoute('app_tricks_index', [], Response::HTTP_SEE_OTHER);
         }
 

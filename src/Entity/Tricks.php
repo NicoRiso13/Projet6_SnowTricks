@@ -4,10 +4,9 @@ namespace App\Entity;
 
 use App\Repository\TricksRepository;
 use DateTimeImmutable;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=TricksRepository::class)
@@ -54,9 +53,17 @@ class Tricks
     private string $categorie;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(name="poster", type="string", length=255, nullable=true)
      */
     private ?string $poster = null;
+
+    /**
+     * @var File
+     *
+     */
+    private $imageFile;
+
+
 
     /**
      * @ORM\OneToMany(targetEntity="Medias", mappedBy="tricksId")
@@ -214,6 +221,22 @@ class Tricks
     }
 
     /**
+     * @return File/null
+     */
+    public function getImageFile(): File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile/null
+     */
+    public function setImageFile(File $imageFile): void
+    {
+        $this->imageFile = $imageFile;
+    }
+
+    /**
      * @return Collection<int, Medias>
      */
     public function getMedias(): Collection
@@ -244,14 +267,19 @@ class Tricks
         if ($this->medias->removeElement($media)) {
             // set the owning side to null (unless already changed)
             if ($media->getTricks() === $this) {
-                $media->setTricks(null);
+                $media->setTricks(Null);
             }
         }
 
         return $this;
     }
 
+    public function setImageFilename(string $poster): self
+    {
+        $this->imageFilename = $poster;
 
+        return $this;
+    }
 
 
 }
