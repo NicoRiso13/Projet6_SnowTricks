@@ -1,43 +1,229 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}SnowTricks | {{trick.name}}{% endblock %}
+{% block title %}SnowTricks | {{ trick.name }}{% endblock %}
 
 {% block body %}
     <div class="bloc-details-tricks">
 
         <div class="bloc-title-details-tricks">
-            <div class="relative-poster col-12">
+            <div class="poster col-12" style="background-image: url('/uploads/poster/{{ trick.poster }}') ">
 
-            <img class="poster-tricks" src="/img/test-img-card.jpg" alt="poster-tricks">
                 {% if app.user %}
-                <div class="bloc-icon-relative-poster">
-                    <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}" target="_blank"><img class="icon-card-show-details" alt="btn-edit" title="éditer un trick"
-                                                                                                   src="/img/icons/edit.png"></a>
-                    <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img class="icon-card-show-details" alt="btn-delete"
-                                                                                                     title="supprimer un trick"
-                                                                                                     src="/img/icons/delete.png"></a>
-                </div>
+                    <div class="bloc-icon-poster">
+                        <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}"><img
+                                    class="icon-card-show-details" alt="btn-edit" title="éditer un trick"
+                                    src="/img/icons/edit.png"></a>
+                        <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img
+                                    class="icon-card-show-details" alt="btn-delete"
+                                    title="supprimer un trick"
+                                    src="/img/icons/delete.png"></a>
+                    </div>
                 {% endif %}
-            <h1 class="title-poster ">{{trick.name}}</h1>
+                <div class="title-poster ">
+                    <h1>{{ trick.name }}</h1>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary btn-display-media" type="button" data-bs-toggle="collapse"
+                data-bs-target="#view-medias" aria-expanded="true" aria-controls="collapseExample">
+            Voir les médias
+        </button>
+        <div class="collapsing " id="view-medias">
+            <div class="bloc-medias">
+                <div class="section-pictures">
+
+                    <div class="card-trick-details">
+                        <div id="img-card-details"
+                             style="background-image: url('/uploads/poster/{{ trick.poster }}')"></div>
+                        <div class="bloc-btn-details-card">
+                            <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card-details"
+                                        alt="btn-edit"
+                                        title="éditer un trick"
+                                        src="/img/icons/edit.png"></a>
+                            <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card-details" alt="btn-delete"
+                                        title="supprimer un trick"
+                                        src="/img/icons/delete.png"></a>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card-trick-details">
+                        <div id="img-card-details"
+                             style="background-image: url('/uploads/poster/{{ trick.poster }}')"></div>
+                        <div class="bloc-btn-details-card">
+                            <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card-details"
+                                        alt="btn-edit"
+                                        title="éditer un trick"
+                                        src="/img/icons/edit.png"></a>
+                            <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card-details" alt="btn-delete"
+                                        title="supprimer un trick"
+                                        src="/img/icons/delete.png"></a>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card-trick-details">
+                        <div id="img-card-details"
+                             style="background-image: url('/uploads/poster/{{ trick.poster }}')"></div>
+                        <div class="bloc-btn-details-card">
+                            <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card-details"
+                                        alt="btn-edit"
+                                        title="éditer un trick"
+                                        src="/img/icons/edit.png"></a>
+                            <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card-details" alt="btn-delete"
+                                        title="supprimer un trick"
+                                        src="/img/icons/delete.png"></a>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="section-videos">
+                    <div class="card card-trick-details">
+                        <iframe src="https://www.youtube.com/embed/hBe2GDnQhU0" title="YouTube video player"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        <div class="bloc-btn-details-card">
+                            <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card-details"
+                                        alt="btn-edit"
+                                        title="éditer un trick"
+                                        src="/img/icons/edit.png"></a>
+                            <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card-details" alt="btn-delete"
+                                        title="supprimer un trick"
+                                        src="/img/icons/delete.png"></a>
+
+                        </div>
+                    </div>
+                    <div class="card card-trick-details">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/kOyCsY4rBH0"
+                                title="YouTube video player"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        <div class="bloc-btn-details-card">
+                            <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card-details"
+                                        alt="btn-edit"
+                                        title="éditer un trick"
+                                        src="/img/icons/edit.png"></a>
+                            <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card-details" alt="btn-delete"
+                                        title="supprimer un trick"
+                                        src="/img/icons/delete.png"></a>
+
+                        </div>
+                    </div>
+                    <div class="card card-trick-details">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/U6bdYp7VpuE"
+                                title="YouTube video player"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        <div class="bloc-btn-details-card">
+                            <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card-details"
+                                        alt="btn-edit"
+                                        title="éditer un trick"
+                                        src="/img/icons/edit.png"></a>
+                            <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img
+                                        class="icon-card-details" alt="btn-delete"
+                                        title="supprimer un trick"
+                                        src="/img/icons/delete.png"></a>
+
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
         <div class="bloc-description-tricks">
             <div class="bloc-title-description">
-            <h3>Description</h3>
+                <h3>Description</h3>
             </div>
             <p>{{ trick.description }}</p>
         </div>
         <div class="bloc-info-details-tricks">
-            <p class="info-tricks col-4">créé le : {{ trick.createdAt ? trick.createdAt|date('Y-m-d H:i:s') : '' }} par {{ trick.user.id }}</p>
-            <p class="info-tricks col-4">Dernière modification le : {{ trick.modifiedAt ? trick.modifiedAt|date('Y-m-d')}}</p>
-            <p class="info-tricks col-4">Catégorie : {{ trick.categorie | capitalize }}</p>
+            <p class="info-tricks col-xl-3 col-lg-3 col-sm-3">créé le
+                : {{ trick.createdAt ? trick.createdAt|format_datetime(locale='fr',pattern="dd MMMM YYYY") }} par <span
+                        class="orange-bold-span">{{ trick.user.name }}</span></p>
+            {% if trick.modifiedAT is empty %}
+                <p class="info-tricks col-xl-3 col-lg-3 col-sm-3">Aucune modification n'a été effectuée</p>
+            {% endif %}
+            {% if trick.modifiedAT is not empty %}
+                <p class="info-tricks col-xl-3 col-lg-3 col-sm-3">Dernière modification le
+                    : <strong>{{ trick.modifiedAt ? trick.modifiedAt|format_datetime(locale='fr') }}</strong></p>
+            {% endif %}
+            <p class="info-tricks col-xl-3 col-lg-3 col-sm-3">Catégorie : <span
+                        class="orange-bold-span"> {{ trick.categorie | capitalize }}</span></p>
         </div>
 
+        {#   SECTION COMMENTAIRE #}
 
-        <a href="{{ path('app_tricks_index') }}">Retour à la liste des figures</a>
+        <div class="section-trick-commentarys col-10">
+            <h4>Espace commentaires</h4>
+            {% if app.user %}
+                <div class="bloc-form-commentary col-12">
+                    <form class="commentary-form" action="#" method="post">
+                        <label class="label-commentary" for="comment">Ajoutez votre commentaire</label>
+                        <textarea class="col-12" name="comment" id="comment" rows="5"></textarea>
 
-        <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}">Modifier la figure</a>
+                        <div class="mb-3">
+                            <button class="btn btn-primary" type="submit">Valider</button>
+                        </div>
+                    </form>
+                </div>
+            {% endif %}
+            {% if not app.user %}
+                <div class="section-message-connect-commentary">
+                    <p class="message-connect-commentary"> Pour laisser un commentaire veuillez vous <a href="/login">identifier</a>
+                        ou <a href="/register">créer un compte </a> !!</p>
+                </div>
+            {% endif %}
 
-        {{ include('tricks/_delete_form.html.twig') }}
+            <div class="bloc-commentary">
+                <div class="float-picture"
+                     style="background-image: url('/uploads/userPicture/userPicture1.png')">
+                </div>
+                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand
+                    un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
+                    polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la
+                    bureautique informatique, sans que son contenu n'en soit modifié.</p>
+                <h5>Réponse publiée par : <span class="span-author">Carlito</span></h5>
+
+            </div>
+
+            <div class="bloc-commentary">
+                <div class="float-picture"
+                     style="background-image: url('/uploads/userPicture/userPicture1.png')">
+                </div>
+                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand
+                    un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
+                    polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la
+                    bureautique informatique, sans que son contenu n'en soit modifié.</p>
+                <h5>Réponse publiée par : <span class="span-author">Carlito</span></h5>
+
+            </div>
+
+        </div>
+
+        <div class="return-list">
+            <a href="{{ path('app_tricks_index') }}">Retour à la liste des figures</a>
+        </div>
+        {% if app.user %}
+            <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}">Modifier la figure</a>
+            {{ include('tricks/_delete_form.html.twig') }}
+        {% endif %}
     </div>
 {% endblock %}

@@ -74,7 +74,7 @@ class __TwigTemplate_8883532711a9766359e6080e4d8ca36a96441f8cf226c87e7718859ee9e
         <div class=\"bloc-list-tricks\" >
 
             <div class=\"trick-card \">
-                <img class=\"img-trick-card\" src=\"/img/test-img-card.jpg\" alt=\"img-trick-card\">
+                <img class=\"img-trick-card\" src=\"/img/default-img.jpg\" alt=\"img-trick-card\">
                 <div class=\"footer-trick-card\">
                     <div class=\"col-6 title-card\">
                         <a href=\"#\" target=\"_blank\"><h5>Trick name</h5></a>
@@ -89,7 +89,7 @@ class __TwigTemplate_8883532711a9766359e6080e4d8ca36a96441f8cf226c87e7718859ee9e
             </div>
 
             <div class=\"trick-card \">
-                <img class=\"img-trick-card\" src=\"/img/test-img-card.jpg\" alt=\"img-trick-card\">
+                <img class=\"img-trick-card\" src=\"/img/default-img.jpg\" alt=\"img-trick-card\">
                 <div class=\"footer-trick-card\">
                     <div class=\"col-6 title-card\">
                         <a href=\"#\" target=\"_blank\"><h5>Trick name</h5></a>
@@ -104,7 +104,7 @@ class __TwigTemplate_8883532711a9766359e6080e4d8ca36a96441f8cf226c87e7718859ee9e
             </div>
 
             <div class=\"trick-card \">
-                <img class=\"img-trick-card\" src=\"/img/test-img-card.jpg\" alt=\"img-trick-card\">
+                <img class=\"img-trick-card\" src=\"/img/default-img.jpg\" alt=\"img-trick-card\">
                 <div class=\"footer-trick-card\">
                     <div class=\"col-6 title-card\">
                         <a href=\"#\" target=\"_blank\"><h5>Trick name</h5></a>
@@ -119,7 +119,7 @@ class __TwigTemplate_8883532711a9766359e6080e4d8ca36a96441f8cf226c87e7718859ee9e
             </div>
 
             <div class=\"trick-card \">
-                <img class=\"img-trick-card\" src=\"/img/test-img-card.jpg\" alt=\"img-trick-card\">
+                <img class=\"img-trick-card\" src=\"/img/default-img.jpg\" alt=\"img-trick-card\">
                 <div class=\"footer-trick-card\">
                     <div class=\"col-6 title-card\">
                         <a href=\"#\" target=\"_blank\"><h5>Trick name</h5></a>
@@ -134,7 +134,7 @@ class __TwigTemplate_8883532711a9766359e6080e4d8ca36a96441f8cf226c87e7718859ee9e
             </div>
 
             <div class=\"trick-card \">
-                <img class=\"img-trick-card\" src=\"/img/test-img-card.jpg\" alt=\"img-trick-card\">
+                <img class=\"img-trick-card\" src=\"/img/default-img.jpg\" alt=\"img-trick-card\">
                 <div class=\"footer-trick-card\">
                     <div class=\"col-6 title-card\">
                         <a href=\"#\" target=\"_blank\"><h5>Trick name</h5></a>
@@ -149,7 +149,7 @@ class __TwigTemplate_8883532711a9766359e6080e4d8ca36a96441f8cf226c87e7718859ee9e
             </div>
 
             <div class=\"trick-card \">
-                <img class=\"img-trick-card\" src=\"/img/test-img-card.jpg\" alt=\"img-trick-card\">
+                <img class=\"img-trick-card\" src=\"/img/default-img.jpg\" alt=\"img-trick-card\">
                 <div class=\"footer-trick-card\">
                     <div class=\"col-6 title-card\">
                         <a href=\"#\" target=\"_blank\"><h5>Trick name</h5></a>
@@ -164,7 +164,7 @@ class __TwigTemplate_8883532711a9766359e6080e4d8ca36a96441f8cf226c87e7718859ee9e
             </div>
 
             <div class=\"trick-card \">
-                <img class=\"img-trick-card\" src=\"/img/test-img-card.jpg\" alt=\"img-trick-card\">
+                <img class=\"img-trick-card\" src=\"/img/default-img.jpg\" alt=\"img-trick-card\">
                 <div class=\"footer-trick-card\">
                     <div class=\"col-6 title-card\">
                         <a href=\"#\" target=\"_blank\"><h5>Trick name</h5></a>
@@ -179,7 +179,7 @@ class __TwigTemplate_8883532711a9766359e6080e4d8ca36a96441f8cf226c87e7718859ee9e
             </div>
 
             <div class=\"trick-card \">
-                <img class=\"img-trick-card\" src=\"/img/test-img-card.jpg\" alt=\"img-trick-card\">
+                <img class=\"img-trick-card\" src=\"/img/default-img.jpg\" alt=\"img-trick-card\">
                 <div class=\"footer-trick-card\">
                     <div class=\"col-6 title-card\">
                         <a href=\"#\" target=\"_blank\"><h5>Trick name</h5></a>
@@ -194,7 +194,7 @@ class __TwigTemplate_8883532711a9766359e6080e4d8ca36a96441f8cf226c87e7718859ee9e
             </div>
 
             <div class=\"trick-card \">
-                <img class=\"img-trick-card\" src=\"/img/test-img-card.jpg\" alt=\"img-trick-card\">
+                <img class=\"img-trick-card\" src=\"/img/default-img.jpg\" alt=\"img-trick-card\">
                 <div class=\"footer-trick-card\">
                     <div class=\"col-6 title-card\">
                         <a href=\"#\" target=\"_blank\"><h5>Trick name</h5></a>
@@ -209,7 +209,7 @@ class __TwigTemplate_8883532711a9766359e6080e4d8ca36a96441f8cf226c87e7718859ee9e
             </div>
 
             <div class=\"trick-card \">
-                <img class=\"img-trick-card\" src=\"/img/test-img-card.jpg\" alt=\"img-trick-card\">
+                <img class=\"img-trick-card\" src=\"/img/default-img.jpg\" alt=\"img-trick-card\">
                 <div class=\"footer-trick-card\">
                     <div class=\"col-6 title-card\">
                         <a href=\"#\" target=\"_blank\"><h5>Trick name</h5></a>

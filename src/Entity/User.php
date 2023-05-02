@@ -45,7 +45,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private ?string $name;
+    private string $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -57,15 +57,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private ?\DateTimeImmutable $createdAt;
 
-    /**
-     * @param int|null $id
-     * @param string|null $email
-     * @param string $password
-     * @param string|null $firstname
-     * @param string|null $name
-     * @param string|null $picture
-     */
-    public function __construct(?int $id, ?string $email, string $password, ?string $firstname, ?string $name, ?string $picture)
+
+    public function __construct(?int $id, ?string $email, string $password, ?string $firstname, string $name, ?string $picture)
     {
         $this->id = $id;
         $this->email = $email;
@@ -178,7 +171,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }

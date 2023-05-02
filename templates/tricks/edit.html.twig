@@ -1,13 +1,69 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Tricks{% endblock %}
+{% block title %}SnowTricks | {{ trick.name }}{% endblock %}
 
 {% block body %}
-    <h1>Edit Tricks</h1>
+    <div class="bloc-details-tricks">
 
-    {{ include('tricks/_form.html.twig', {'button_label': 'Update'}) }}
+        <div class="bloc-title-details-tricks">
+            <div class="poster col-12" style="background-image: url('/uploads/images/{{ trick.poster }}') ">
 
-    <a href="{{ path('app_tricks_index') }}">back to list</a>
+                {% if app.user %}
+                    <div class="bloc-icon-poster">
+                        <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}" ><img
+                                    class="icon-card-show-details" alt="btn-edit" title="éditer un trick"
+                                    src="/img/icons/edit.png"></a>
+                        <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img
+                                    class="icon-card-show-details" alt="btn-delete"
+                                    title="supprimer un trick"
+                                    src="/img/icons/delete.png"></a>
+                    </div>
+                {% endif %}
+                <div class="title-poster ">
+                    <h1>{{ trick.name }}</h1>
+                </div>
+            </div>
+        </div>
 
-    {{ include('tricks/_delete_form.html.twig') }}
+        <div class="bloc-info-details-tricks">
+            <p class="info-tricks col-xl-3 col-lg-3 col-sm-3">créé le
+                : {{ trick.createdAt ? trick.createdAt|format_datetime(locale='fr',pattern="dd MMMM YYYY") }} par <span
+                        class="orange-bold-span">{{ trick.user.name }}</span></p>
+            {% if trick.modifiedAT is empty %}
+                <p class="info-tricks col-xl-3 col-lg-3 col-sm-3">Aucune modification n'a été effectuée</p>
+            {% endif %}
+            {% if trick.modifiedAT is not empty %}
+                <p class="info-tricks col-xl-3 col-lg-3 col-sm-3">Dernière modification le
+                    : {{ trick.modifiedAt ? trick.modifiedAt|format_datetime(locale='fr') }}</p>
+            {% endif %}
+            <p class="info-tricks col-xl-3 col-lg-3 col-sm-3">Catégorie : <span
+                        class="orange-bold-span"> {{ trick.categorie | capitalize }}</span></p>
+        </div>
+
+    </div>
+
+    <h1 class="edit-title">Modifier la figure</h1>
+
+    <div class="form-edit-tricks ">
+        {{ form_start(form) }}
+        <div class="div-form-edit-trick">{{ form_row(form.name) }}</div>
+        <div class="div-form-edit-trick-description">{{ form_row(form.description) }}</div>
+        <div class="div-form-edit-trick">{{ form_row(form.imageFile) }}</div>
+        <div class="div-form-edit-trick">{{ form_row(form.categorie) }}</div>
+        <div class="form-button">
+            <button class="btn btn-primary">{{ button_label|default('Mettre à jour') }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+    <div class="link-list"><a href="{{ path('app_tricks_index') }}">Retour à la liste des figures</a></div>
+
+    <div class="link-delete">{{ include('tricks/_delete_form.html.twig') }}</div>
 {% endblock %}
+
+
+
+
+
+
+

@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Tricks{% endblock %}
+{% block title %}SnowTricks | Créer un Trick{% endblock %}
 
 {% block body %}
-    <h1>Create new Tricks</h1>
+    <div class="bloc-new-trick">
 
-    {{ include('tricks/_form.html.twig') }}
+        <h1>Créer une nouvelle figure</h1>
 
-    <a href="{{ path('app_tricks_index') }}">back to list</a>
+        {{ include('tricks/_form.html.twig', {'button_label': 'Créer la figure'}) }}
+
+        <div class="link-list"><a href="{{ path('app_tricks_index') }}">Retour à la liste des figures</a></div>
+
+    </div>
 {% endblock %}

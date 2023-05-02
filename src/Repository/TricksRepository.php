@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Medias;
 use App\Entity\Tricks;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -20,6 +21,8 @@ class TricksRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Tricks::class);
     }
+
+
 
     public function add(Tricks $entity, bool $flush = false): void
     {

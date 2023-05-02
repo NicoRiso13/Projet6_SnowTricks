@@ -21,6 +21,7 @@ class MediasRepository extends ServiceEntityRepository
         parent::__construct($registry, Medias::class);
     }
 
+
     public function add(Medias $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\TricksRepository;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -24,7 +25,7 @@ class Tricks
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(nullable=false)
      */
-    private user $user;
+    private User $user;
 
     /**
      * @ORM\Column(name="name", type="string", length=100)
@@ -55,30 +56,21 @@ class Tricks
     /**
      * @ORM\Column(name="poster", type="string", length=255, nullable=true)
      */
-    private ?string $poster = null;
+    private ?string $poster ;
 
-    /**
-     * @var File
-     *
-     */
-    private $imageFile;
+
 
 
 
     /**
-     * @ORM\OneToMany(targetEntity="Medias", mappedBy="tricksId")
+     * @var Collection<int,Medias>
+     * @ORM\OneToMany(targetEntity="Medias", mappedBy="tricks")
      */
-    private ?Collection $medias = null;
+    private Collection $medias ;
 
 
-    /**
-     * @param int|null $id
-     * @param user $userId
-     * @param string $name
-     * @param string $description
-     * @param string $categorie
-     */
-    public function __construct(?int $id, user $userId, string $name, string $description, string $categorie)
+
+    public function __construct(?int $id, User $userId, string $name, string $description, string $categorie)
     {
         $this->id = $id;
         $this->user = $userId;
@@ -86,6 +78,8 @@ class Tricks
         $this->description = $description;
         $this->createdAt = new DateTimeImmutable();
         $this->categorie = $categorie;
+        $this->medias = new ArrayCollection();
+
     }
 
 
@@ -220,26 +214,11 @@ class Tricks
         $this->poster = $poster;
     }
 
-    /**
-     * @return File/null
-     */
-    public function getImageFile(): File
-    {
-        return $this->imageFile;
-    }
 
     /**
-     * @param File $imageFile/null
+     * @return iterable<Medias>
      */
-    public function setImageFile(File $imageFile): void
-    {
-        $this->imageFile = $imageFile;
-    }
-
-    /**
-     * @return Collection<int, Medias>
-     */
-    public function getMedias(): Collection
+    public function getMedias(): iterable
     {
         return $this->medias;
     }
@@ -264,22 +243,12 @@ class Tricks
      */
     public function removeMedia(Medias $media): self
     {
-        if ($this->medias->removeElement($media)) {
-            // set the owning side to null (unless already changed)
-            if ($media->getTricks() === $this) {
-                $media->setTricks(Null);
-            }
-        }
+        $this->medias->removeElement($media);
 
         return $this;
     }
 
-    public function setImageFilename(string $poster): self
-    {
-        $this->imageFilename = $poster;
 
-        return $this;
-    }
 
 
 }

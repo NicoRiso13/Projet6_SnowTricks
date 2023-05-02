@@ -27,7 +27,12 @@
         <div class="bloc-list-tricks">
             {% for trick in tricks %}
                 <div class="trick-card ">
-                    <img class="img-trick-card" src="/img/test-img-card.jpg" alt="img-trick-card">
+                    {% if trick.poster is empty %}
+                        <img class="img-trick-card" src="/img/default-img" alt="img-trick-card">
+                    {% endif %}
+                    {% if trick.poster is not empty %}
+                    <img class="img-trick-card" src="/uploads/images/{{ trick.poster }}" alt="img-trick-card">
+                    {% endif %}
                     <div class="footer-trick-card">
                         <div class="col-8 title-card">
                             <a href="{{ path('app_tricks_show', {'id': trick.id}) }}" target="_blank">

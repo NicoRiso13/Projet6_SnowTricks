@@ -24,7 +24,15 @@ font-family: 'Orbitron', sans-serif;
 font-family: 'Sarpanch', sans-serif;
 
 */
+* a {
+    text-decoration: none;
+    color: #1f9aff;
+}
 
+* a:hover {
+    color: #ff5a00;
+    transition: 0.5s;
+}
 
 /**************************************  ERREUR 404 **********************************************/
 .bloc-erreur-404 {
@@ -608,10 +616,115 @@ font-family: 'Sarpanch', sans-serif;
     color: #343434;
 }
 
+/**************************************  SECTION FORM TRICKS **************************************/
+
+.form-tricks {
+    display: flex;
+    justify-content: center;
+}
+
+.form-tricks label {
+    display: block;
+}
+
+
 /**************************************  SECTION INDEX TRICKS **************************************/
-.bloc-index-tricks {
-    border-bottom: 1px solid grey;
+.bloc-index-trick {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+}
+
+.bloc-index-trick h1 {
+    font-family: 'Lobster Two', cursive;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #ff5a00;
+}
+
+.bloc-tricks {
+    width: 80%;
+}
+
+.title-container {
+    width: 100%;
+}
+
+.info-list-trick {
+    position: relative;
     border-left: 3px solid orange;
+}
+
+.absolute-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ffa500;
+    position: absolute;
+    overflow: hidden;
+    transition: .5s ease;
+}
+
+.absolute-div h3 {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    word-break: keep-all;
+    opacity: 0;
+}
+
+.info-list-trick:hover .absolute-div {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 179, 0);
+    background: linear-gradient(90deg, rgba(255, 179, 0, 1) 34%, rgba(255, 74, 0, 1) 95%);
+    position: absolute;
+    overflow: hidden;
+    transition: .5s ease;
+    border-radius: 0 20px 0 0;
+}
+
+.info-list-trick:hover .absolute-div h3 {
+    width: 100%;
+    transition: 0.4s;
+    opacity: 1;
+}
+
+.info-list-trick h2 {
+    font-family: 'Lobster Two', cursive;
+    font-size: 2rem;
+    width: 100%;
+    text-align: left;
+    color: white;
+    background-color: #6c6c6c;
+    border-radius: 0 20px 0 0;
+}
+
+.footer-bloc-tricks {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.footer-bloc-tricks p {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.bloc-tricks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .index-description {
@@ -621,66 +734,159 @@ font-family: 'Sarpanch', sans-serif;
 
 .back-grey {
     background-color: #e3e3e3;
-    border-left: 3px solid orange;
+    margin: 0;
+}
+
+.link-create-trick {
+    margin-top: 25px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.bloc-action-list-tricks {
+    display: flex;
+    align-items: center;
+}
+
+.icon-card-index {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.icon-card-index:hover {
+    width: 23px;
+    margin-right: 7px;
+    margin-bottom: -2px;
+    margin-top: -2px;
+}
+
+.link-create-trick a {
+    text-decoration: none;
 }
 
 
 /**************************************  SECTION DETAILS TRICKS **************************************/
+
+
 .bloc-details-tricks {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-
 }
 
-.relative-poster {
+.bloc-title-details-tricks {
+    margin-bottom: 25px;
+}
+
+.poster {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    margin-top: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 90vw;
+    min-height: 40vw;
+    max-height: 100vw;
 }
 
-.bloc-icon-relative-poster {
+.title-poster {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    border-top: 2px solid #ff8800;
+    border-bottom: 2px solid #ff8800;
+    border-radius: 15px;
+    margin: 0;
+    color: #ffffff;
+}
+
+.title-poster H1 {
+    font-family: 'Lobster Two', cursive;
+    font-size: 5vw;
+    color: #ffffff;
+}
+
+.bloc-icon-poster {
     position: absolute;
-    top: 50px;
-    right: 40px;
+    top: 15px;
+    right: 15px;
 }
-.icon-card-show-details{
+
+.icon-card-show-details {
     width: 40px;
     padding: 5px;
     background-color: #FFFFFF;
     border-radius: 10px;
 }
 
-.poster-tricks {
-    position: relative;
-    width: 100%;
-    margin-top: 25px;
-    box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-
-}
-
-.title-poster {
-    font-family: 'Lobster Two', cursive;
-    font-size: 6vw;
-    position: absolute;
-    width: 60%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(15px);
-    border-top: 2px solid #ff8800;
-    border-bottom: 2px solid #ff8800;
-    border-radius: 15px;
-    padding: 15px;
-    color: #ffffff;
-}
-
 .bloc-details-tricks h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
+}
+
+.btn-display-media {
+    margin: 15px;
+}
+
+.bloc-medias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 25px 0 25px 0;
+}
+
+.card-trick-details {
+    width: 15rem;
+    margin: 5px;
+    box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 5px 5px;
+}
+
+.card-trick-details img {
+    width: 100%;
+    height: 200px;
+
+
+}
+
+.section-pictures, .section-videos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.section-videos iframe {
+    width: 100%;
+    height: 200px;
+
+}
+
+.bloc-btn-details-card {
+    display: flex;
+    justify-content: right;
+    margin: 10px 0 10px 0;
+    padding-right: 15px;
+}
+
+.bloc-btn-details-card img {
+    width: 30px;
+    height: auto;
+    margin-right: 5px;
+}
+
+#img-card-details {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 200px;
 }
 
 .bloc-description-tricks {
@@ -698,32 +904,164 @@ font-family: 'Sarpanch', sans-serif;
     border-radius: 15px 15px 0 0;
     font-size: 3vw;
 }
-
 .bloc-title-description h3 {
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
-
 .bloc-description-tricks p {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
     margin: 20px auto;
     width: 90%;
 }
-
 .bloc-info-details-tricks {
     display: flex;
     justify-content: space-evenly;
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
     font-size: 0.8rem;
+    margin-bottom: 25px;
 }
-
 .info-tricks {
-    margin: 10px 5px;
+    margin: 10px 5px 10px 5px;
+}
+.orange-bold-span {
+    color: #ff6a00;
+    font-weight: bold;
+}
+.return-list {
+    margin: 45px auto;
+}
+.section-trick-commentarys{
+    margin-top: 45px;
+}
+.section-trick-commentarys h4 {
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0d6efd;
+    line-height: 50px;
+    width: 100%;
+}
+.section-message-connect-commentary{
+    margin-bottom: 100px;
+}
+.label-commentary {
+    font-family: 'Montserrat', sans-serif;
+    margin: 15px auto;
+}
+.btn-valid-commentary {
+    margin-top: 15px;
+}
+.message-connect-commentary {
+    font-family: 'Montserrat', sans-serif;
+}
+.message-connect-commentary a {
+    font-family: 'Lobster Two', cursive;
+    font-size: 1.2rem;
+}
+.bloc-commentary {
+    box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.3);
+    border-top: 1px solid #3d3d3d;
+    margin-top: 35px;
+}
+.float-picture{
+    float: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50px;
+    top: -20px;
+    margin: 5px ;
+    width: 80px;
+    height: 80px;
+    border: 3px solid #ff5a00;
+
+}
+.bloc-commentary p{
+    margin:0;
+    padding: 15px;
+    text-align: justify;
+}
+.bloc-commentary h5 {
+    color: #FFFFFF;
+    clear: left;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    background-color: #4f4f4f;
+    padding: 10px;
+    margin: 0;
+    text-align: right;
+}
+
+.span-author {
+    color: #ff6a00;
+    font-weight: bold;
+}
+
+/**************************************  SECTION NEW TRICK **************************************/
+
+.bloc-new-trick {
+    padding: 15px;
+}
+
+.bloc-new-trick h1 {
+    font-family: 'Lobster Two', cursive;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #ff5a00;
+}
+
+#tricks_form_description, #tricks_form_name, #tricks_form_imageFile, #tricks_form_categorie {
+    width: 100%;
+}
+
+.form-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px
+}
+
+.link-list, .link-delete {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.link-list a {
+    text-decoration: none;
+}
+
+/**************************************  SECTION EDIT TRICK *****************************************/
+
+
+.edit-title {
+    font-family: 'Lobster Two', cursive;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #ff5a00;
+}
+
+.form-edit-tricks {
+    display: flex;
+    justify-content: center;
+}
+
+.form-edit-tricks form {
+    margin: auto;
+    width: 90%;
+}
+
+.div-form-edit-trick, .div-form-edit-trick-description {
+    margin: 0 auto 25px auto;
+    width: 90%;
+}
+
+.div-form-edit-trick-description {
+
 }
 
 
-/**************************************  SECTION FOOTER **********************************************/
+/**************************************  SECTION FOOTER *****************************************/
 .bloc-footer {
     display: flex;
     justify-content: space-around;
@@ -868,13 +1206,45 @@ font-family: 'Sarpanch', sans-serif;
     .bloc-title-description h3 {
         font-size: 1.6rem;
     }
-    .icon-card-show-details{
+
+    .icon-card-show-details {
         width: 30px;
         padding: 5px;
 
     }
+
+    .bloc-icon-poster {
+        top: 5px;
+        right: 5px;
+    }
 }
 
+/******************************* 750 PX *********************************/
+
+@media (max-width: 750px) {
+    .card-trick-details {
+        width: 12rem;
+    }
+
+    #img-card-details {
+        height: 150px;
+    }
+
+    .bloc-btn-details-card img {
+        width: 20px;
+    }
+
+    .bloc-trick-commentarys h4 {
+        font-size: 1rem;
+        line-height: 40px;
+    }
+
+    .label-commentary {
+        font-size: 0.8rem;
+    }
+
+
+}
 
 /******************************* 670 PX *********************************/
 @media (max-width: 670px) {
@@ -964,6 +1334,17 @@ font-family: 'Sarpanch', sans-serif;
         padding: 0;
         width: 80%;
     }
+
+    .bloc-info-details-tricks {
+        flex-direction: column;
+        margin-bottom: 15px;
+        padding: 18px;
+
+    }
+
+    .info-tricks {
+        margin: 10px 0 0 0;
+    }
 }
 
 
@@ -1010,11 +1391,13 @@ font-family: 'Sarpanch', sans-serif;
     .bloc-description-tricks p {
         font-size: 0.8rem;
     }
+
     .bloc-icon-relative-poster {
         top: 40px;
         right: 15px;
     }
-    .icon-card-show-details{
+
+    .icon-card-show-details {
         width: 25px;
         padding: 5px;
 
@@ -1030,6 +1413,15 @@ font-family: 'Sarpanch', sans-serif;
 
     .text-bloc-img h2 {
         font-size: 0.8rem;
+    }
+
+    .footer-bloc-tricks {
+        padding-left: 10px;
+        flex-direction: column;
+    }
+
+    .bloc-action-list-tricks {
+        margin-top: 10px;
     }
 }
 

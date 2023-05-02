@@ -25,7 +25,7 @@ class TricksDto
      * @Assert\File( maxSizeMessage = "L'image ne doit pas dépasser 5Mb.",
      *     maxSize = "5000k",
      *     mimeTypes = {"image/jpg", "image/jpeg","image/png"},
-     *     mimeTypesMessage = "Les images doivent être au format JPG ou PNG.")
+     *     mimeTypesMessage = "Les poster doivent être au format JPG ou PNG.")
      * @Assert\Regex("/^[a-zA-Z]+[0-9]+.+$/")
      */
     public $imageFile;

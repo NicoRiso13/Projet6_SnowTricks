@@ -1,4 +1,11 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="form-tricks ">
+    {{ form_start(form) }}
+    <div class="div-form-create-trick ">{{ form_row(form.name) }}</div>
+    <div class="div-form-create-trick ">{{ form_row(form.description) }}</div>
+    <div class="div-form-create-trick ">{{ form_row(form.imageFile) }}</div>
+    <div class="div-form-create-trick ">{{ form_row(form.categorie) }}</div>
+    <div class="form-button">
+        <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+    </div>
+    {{ form_end(form) }}
+</div>
