@@ -4,10 +4,8 @@
 
 {% block body %}
     <div class="bloc-details-tricks">
-
         <div class="bloc-title-details-tricks">
             <div class="poster col-12" style="background-image: url('/uploads/poster/{{ trick.poster }}') ">
-
                 {% if app.user %}
                     <div class="bloc-icon-poster">
                         <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}"><img
@@ -24,7 +22,6 @@
                 </div>
             </div>
         </div>
-
         <button class="btn btn-primary btn-display-media" type="button" data-bs-toggle="collapse"
                 data-bs-target="#view-medias" aria-expanded="true" aria-controls="collapseExample">
             Voir les médias
@@ -32,7 +29,6 @@
         <div class="collapsing " id="view-medias">
             <div class="bloc-medias">
                 <div class="section-pictures">
-
                     <div class="card-trick-details">
                         <div id="img-card-details"
                              style="background-image: url('/uploads/poster/{{ trick.poster }}')"></div>
@@ -46,11 +42,8 @@
                                         class="icon-card-details" alt="btn-delete"
                                         title="supprimer un trick"
                                         src="/img/icons/delete.png"></a>
-
                         </div>
                     </div>
-
-
                     <div class="card-trick-details">
                         <div id="img-card-details"
                              style="background-image: url('/uploads/poster/{{ trick.poster }}')"></div>
@@ -64,11 +57,8 @@
                                         class="icon-card-details" alt="btn-delete"
                                         title="supprimer un trick"
                                         src="/img/icons/delete.png"></a>
-
                         </div>
                     </div>
-
-
                     <div class="card-trick-details">
                         <div id="img-card-details"
                              style="background-image: url('/uploads/poster/{{ trick.poster }}')"></div>
@@ -82,10 +72,8 @@
                                         class="icon-card-details" alt="btn-delete"
                                         title="supprimer un trick"
                                         src="/img/icons/delete.png"></a>
-
                         </div>
                     </div>
-
                 </div>
                 <div class="section-videos">
                     <div class="card card-trick-details">
@@ -102,7 +90,6 @@
                                         class="icon-card-details" alt="btn-delete"
                                         title="supprimer un trick"
                                         src="/img/icons/delete.png"></a>
-
                         </div>
                     </div>
                     <div class="card card-trick-details">
@@ -120,7 +107,6 @@
                                         class="icon-card-details" alt="btn-delete"
                                         title="supprimer un trick"
                                         src="/img/icons/delete.png"></a>
-
                         </div>
                     </div>
                     <div class="card card-trick-details">
@@ -138,12 +124,9 @@
                                         class="icon-card-details" alt="btn-delete"
                                         title="supprimer un trick"
                                         src="/img/icons/delete.png"></a>
-
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
         <div class="bloc-description-tricks">
@@ -166,9 +149,7 @@
             <p class="info-tricks col-xl-3 col-lg-3 col-sm-3">Catégorie : <span
                         class="orange-bold-span"> {{ trick.categorie | capitalize }}</span></p>
         </div>
-
         {#   SECTION COMMENTAIRE #}
-
         <div class="section-trick-commentarys col-10">
             <h4>Espace commentaires</h4>
             {% if app.user %}
@@ -189,7 +170,17 @@
                         ou <a href="/register">créer un compte </a> !!</p>
                 </div>
             {% endif %}
-
+            <div class="bloc-commentary">
+                <div class="float-picture"
+                     style="background-image: url('/uploads/userPicture/userPicture1.png')">
+                </div>
+                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand
+                    un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
+                    polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la
+                    bureautique informatique, sans que son contenu n'en soit modifié.</p>
+                <h5>Réponse publiée par : <span class="span-author">Carlito</span></h5>
+            </div>
             <div class="bloc-commentary">
                 <div class="float-picture"
                      style="background-image: url('/uploads/userPicture/userPicture1.png')">
@@ -202,22 +193,7 @@
                 <h5>Réponse publiée par : <span class="span-author">Carlito</span></h5>
 
             </div>
-
-            <div class="bloc-commentary">
-                <div class="float-picture"
-                     style="background-image: url('/uploads/userPicture/userPicture1.png')">
-                </div>
-                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
-                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand
-                    un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
-                    polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la
-                    bureautique informatique, sans que son contenu n'en soit modifié.</p>
-                <h5>Réponse publiée par : <span class="span-author">Carlito</span></h5>
-
-            </div>
-
         </div>
-
         <div class="return-list">
             <a href="{{ path('app_tricks_index') }}">Retour à la liste des figures</a>
         </div>

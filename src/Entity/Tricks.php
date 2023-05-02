@@ -187,10 +187,10 @@ class Tricks
 
 
     /**
-     * @param $categorie
+     * @param string $categorie
      * @return void
      */
-    public function setCategorie($categorie): void
+    public function setCategorie(string $categorie): void
     {
         $this->categorie = $categorie;
     }

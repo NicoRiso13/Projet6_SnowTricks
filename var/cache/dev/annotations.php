@@ -86,10 +86,10 @@ return [[
 '[C]App%5CController%5CTricksController' => 1,
 'App%5CController%5CTricksController%23index' => 8,
 '[C]App%5CController%5CTricksController%23index' => 1,
-'App%5CController%5CTricksController%23new' => 9,
-'[C]App%5CController%5CTricksController%23new' => 1,
-'App%5CController%5CTricksController%23show' => 10,
+'App%5CController%5CTricksController%23show' => 9,
 '[C]App%5CController%5CTricksController%23show' => 1,
+'App%5CController%5CTricksController%23new' => 10,
+'[C]App%5CController%5CTricksController%23new' => 1,
 'App%5CController%5CTricksController%23edit' => 11,
 '[C]App%5CController%5CTricksController%23edit' => 1,
 'App%5CController%5CTricksController%23delete' => 12,
@@ -180,10 +180,6 @@ return [[
 '[C]App%5CEntity%5CTricks%23getPoster' => 1,
 'App%5CEntity%5CTricks%23setPoster' => 0,
 '[C]App%5CEntity%5CTricks%23setPoster' => 1,
-'App%5CEntity%5CTricks%23getImageFileName' => 0,
-'[C]App%5CEntity%5CTricks%23getImageFileName' => 1,
-'App%5CEntity%5CTricks%23setImageFileName' => 0,
-'[C]App%5CEntity%5CTricks%23setImageFileName' => 1,
 'App%5CEntity%5CTricks%23getMedias' => 0,
 '[C]App%5CEntity%5CTricks%23getMedias' => 1,
 'App%5CEntity%5CTricks%23addMedia' => 0,
@@ -206,8 +202,6 @@ return [[
 '[C]App%5CEntity%5CTricks%24categorie' => 1,
 'App%5CEntity%5CTricks%24poster' => 26,
 '[C]App%5CEntity%5CTricks%24poster' => 1,
-'App%5CEntity%5CTricks%24imageFileName' => 0,
-'[C]App%5CEntity%5CTricks%24imageFileName' => 1,
 'App%5CEntity%5CTricks%24medias' => 27,
 '[C]App%5CEntity%5CTricks%24medias' => 1,
 'App%5CEntity%5CUser' => 28,
@@ -814,7 +808,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1682368016,
+1 => 1683059916,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -985,15 +979,14 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/new',
+                    '/{id}',
                 ],
                 'name' => [
-                    'app_tricks_new',
+                    'app_tricks_show',
                 ],
                 'methods' => [
                     [
                         'GET',
-                        'POST',
                     ],
                 ],
             ],
@@ -1013,14 +1006,15 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/{id}',
+                    '/new',
                 ],
                 'name' => [
-                    'app_tricks_show',
+                    'app_tricks_new',
                 ],
                 'methods' => [
                     [
                         'GET',
+                        'POST',
                     ],
                 ],
             ],
@@ -1457,7 +1451,7 @@ return [[
         [
             'stdClass' => [
                 'mappedBy' => [
-                    'tricksId',
+                    'tricks',
                 ],
                 'targetEntity' => [
                     'Medias',
