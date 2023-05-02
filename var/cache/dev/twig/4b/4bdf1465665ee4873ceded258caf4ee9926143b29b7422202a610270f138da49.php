@@ -133,7 +133,7 @@ class __TwigTemplate_0b11b329a5e30d78c0340a6f8af33c999af0d37e7d26c6b206b6425e148
             echo "                    ";
             if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, $context["trick"], "poster", [], "any", false, false, false, 33))) {
                 // line 34
-                echo "                    <img class=\"img-trick-card\" src=\"/uploads/poster/";
+                echo "                    <img class=\"img-trick-card\" src=\"/uploads/images/";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trick"], "poster", [], "any", false, false, false, 34), "html", null, true);
                 echo "\" alt=\"img-trick-card\">
                     ";
@@ -247,7 +247,7 @@ class __TwigTemplate_0b11b329a5e30d78c0340a6f8af33c999af0d37e7d26c6b206b6425e148
                         <img class=\"img-trick-card\" src=\"/img/default-img\" alt=\"img-trick-card\">
                     {% endif %}
                     {% if trick.poster is not empty %}
-                    <img class=\"img-trick-card\" src=\"/uploads/poster/{{ trick.poster }}\" alt=\"img-trick-card\">
+                    <img class=\"img-trick-card\" src=\"/uploads/images/{{ trick.poster }}\" alt=\"img-trick-card\">
                     {% endif %}
                     <div class=\"footer-trick-card\">
                         <div class=\"col-8 title-card\">

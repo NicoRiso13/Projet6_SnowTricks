@@ -87,27 +87,25 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
 
         // line 6
         echo "    <div class=\"bloc-details-tricks\">
-
         <div class=\"bloc-title-details-tricks\">
             <div class=\"poster col-12\" style=\"background-image: url('/uploads/poster/";
-        // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 9, $this->source); })()), "poster", [], "any", false, false, false, 9), "html", null, true);
+        // line 8
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 8, $this->source); })()), "poster", [], "any", false, false, false, 8), "html", null, true);
         echo "') \">
-
                 ";
-        // line 11
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 11, $this->source); })()), "user", [], "any", false, false, false, 11)) {
-            // line 12
+        // line 9
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 9, $this->source); })()), "user", [], "any", false, false, false, 9)) {
+            // line 10
             echo "                    <div class=\"bloc-icon-poster\">
                         <a href=\"";
-            // line 13
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 13, $this->source); })()), "id", [], "any", false, false, false, 13)]), "html", null, true);
+            // line 11
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 11, $this->source); })()), "id", [], "any", false, false, false, 11)]), "html", null, true);
             echo "\"><img
                                     class=\"icon-card-show-details\" alt=\"btn-edit\" title=\"éditer un trick\"
                                     src=\"/img/icons/edit.png\"></a>
                         <a href=\"";
-            // line 16
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 16, $this->source); })()), "id", [], "any", false, false, false, 16)]), "html", null, true);
+            // line 14
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 14, $this->source); })()), "id", [], "any", false, false, false, 14)]), "html", null, true);
             echo "\" target=\"_blank\"><img
                                     class=\"icon-card-show-details\" alt=\"btn-delete\"
                                     title=\"supprimer un trick\"
@@ -115,16 +113,15 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                     </div>
                 ";
         }
-        // line 22
+        // line 20
         echo "                <div class=\"title-poster \">
                     <h1>";
-        // line 23
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 23, $this->source); })()), "name", [], "any", false, false, false, 23), "html", null, true);
+        // line 21
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 21, $this->source); })()), "name", [], "any", false, false, false, 21), "html", null, true);
         echo "</h1>
                 </div>
             </div>
         </div>
-
         <button class=\"btn btn-primary btn-display-media\" type=\"button\" data-bs-toggle=\"collapse\"
                 data-bs-target=\"#view-medias\" aria-expanded=\"true\" aria-controls=\"collapseExample\">
             Voir les médias
@@ -132,87 +129,78 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
         <div class=\"collapsing \" id=\"view-medias\">
             <div class=\"bloc-medias\">
                 <div class=\"section-pictures\">
-
                     <div class=\"card-trick-details\">
                         <div id=\"img-card-details\"
                              style=\"background-image: url('/uploads/poster/";
-        // line 38
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 38, $this->source); })()), "poster", [], "any", false, false, false, 38), "html", null, true);
+        // line 34
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 34, $this->source); })()), "poster", [], "any", false, false, false, 34), "html", null, true);
         echo "')\"></div>
                         <div class=\"bloc-btn-details-card\">
                             <a href=\"";
-        // line 40
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 40, $this->source); })()), "id", [], "any", false, false, false, 40)]), "html", null, true);
+        // line 36
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 36, $this->source); })()), "id", [], "any", false, false, false, 36)]), "html", null, true);
         echo "\" target=\"_blank\"><img
                                         class=\"icon-card-details\"
                                         alt=\"btn-edit\"
                                         title=\"éditer un trick\"
                                         src=\"/img/icons/edit.png\"></a>
                             <a href=\"";
-        // line 45
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 45, $this->source); })()), "id", [], "any", false, false, false, 45)]), "html", null, true);
+        // line 41
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 41, $this->source); })()), "id", [], "any", false, false, false, 41)]), "html", null, true);
         echo "\" target=\"_blank\"><img
                                         class=\"icon-card-details\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>
-
                         </div>
                     </div>
-
-
                     <div class=\"card-trick-details\">
                         <div id=\"img-card-details\"
                              style=\"background-image: url('/uploads/poster/";
+        // line 49
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 49, $this->source); })()), "poster", [], "any", false, false, false, 49), "html", null, true);
+        echo "')\"></div>
+                        <div class=\"bloc-btn-details-card\">
+                            <a href=\"";
+        // line 51
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 51, $this->source); })()), "id", [], "any", false, false, false, 51)]), "html", null, true);
+        echo "\" target=\"_blank\"><img
+                                        class=\"icon-card-details\"
+                                        alt=\"btn-edit\"
+                                        title=\"éditer un trick\"
+                                        src=\"/img/icons/edit.png\"></a>
+                            <a href=\"";
         // line 56
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 56, $this->source); })()), "poster", [], "any", false, false, false, 56), "html", null, true);
-        echo "')\"></div>
-                        <div class=\"bloc-btn-details-card\">
-                            <a href=\"";
-        // line 58
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 58, $this->source); })()), "id", [], "any", false, false, false, 58)]), "html", null, true);
-        echo "\" target=\"_blank\"><img
-                                        class=\"icon-card-details\"
-                                        alt=\"btn-edit\"
-                                        title=\"éditer un trick\"
-                                        src=\"/img/icons/edit.png\"></a>
-                            <a href=\"";
-        // line 63
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 63, $this->source); })()), "id", [], "any", false, false, false, 63)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 56, $this->source); })()), "id", [], "any", false, false, false, 56)]), "html", null, true);
         echo "\" target=\"_blank\"><img
                                         class=\"icon-card-details\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>
-
                         </div>
                     </div>
-
-
                     <div class=\"card-trick-details\">
                         <div id=\"img-card-details\"
                              style=\"background-image: url('/uploads/poster/";
-        // line 74
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 74, $this->source); })()), "poster", [], "any", false, false, false, 74), "html", null, true);
+        // line 64
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 64, $this->source); })()), "poster", [], "any", false, false, false, 64), "html", null, true);
         echo "')\"></div>
                         <div class=\"bloc-btn-details-card\">
                             <a href=\"";
-        // line 76
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 76, $this->source); })()), "id", [], "any", false, false, false, 76)]), "html", null, true);
+        // line 66
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 66, $this->source); })()), "id", [], "any", false, false, false, 66)]), "html", null, true);
         echo "\" target=\"_blank\"><img
                                         class=\"icon-card-details\"
                                         alt=\"btn-edit\"
                                         title=\"éditer un trick\"
                                         src=\"/img/icons/edit.png\"></a>
                             <a href=\"";
-        // line 81
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 81, $this->source); })()), "id", [], "any", false, false, false, 81)]), "html", null, true);
+        // line 71
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 71, $this->source); })()), "id", [], "any", false, false, false, 71)]), "html", null, true);
         echo "\" target=\"_blank\"><img
                                         class=\"icon-card-details\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>
-
                         </div>
                     </div>
-
                 </div>
                 <div class=\"section-videos\">
                     <div class=\"card card-trick-details\">
@@ -221,21 +209,20 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                                 allowfullscreen></iframe>
                         <div class=\"bloc-btn-details-card\">
                             <a href=\"";
-        // line 96
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 96, $this->source); })()), "id", [], "any", false, false, false, 96)]), "html", null, true);
+        // line 84
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 84, $this->source); })()), "id", [], "any", false, false, false, 84)]), "html", null, true);
         echo "\" target=\"_blank\"><img
                                         class=\"icon-card-details\"
                                         alt=\"btn-edit\"
                                         title=\"éditer un trick\"
                                         src=\"/img/icons/edit.png\"></a>
                             <a href=\"";
-        // line 101
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 101, $this->source); })()), "id", [], "any", false, false, false, 101)]), "html", null, true);
+        // line 89
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 89, $this->source); })()), "id", [], "any", false, false, false, 89)]), "html", null, true);
         echo "\" target=\"_blank\"><img
                                         class=\"icon-card-details\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>
-
                         </div>
                     </div>
                     <div class=\"card card-trick-details\">
@@ -245,21 +232,20 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                                 allowfullscreen></iframe>
                         <div class=\"bloc-btn-details-card\">
                             <a href=\"";
-        // line 114
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 114, $this->source); })()), "id", [], "any", false, false, false, 114)]), "html", null, true);
+        // line 101
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 101, $this->source); })()), "id", [], "any", false, false, false, 101)]), "html", null, true);
         echo "\" target=\"_blank\"><img
                                         class=\"icon-card-details\"
                                         alt=\"btn-edit\"
                                         title=\"éditer un trick\"
                                         src=\"/img/icons/edit.png\"></a>
                             <a href=\"";
-        // line 119
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 119, $this->source); })()), "id", [], "any", false, false, false, 119)]), "html", null, true);
+        // line 106
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 106, $this->source); })()), "id", [], "any", false, false, false, 106)]), "html", null, true);
         echo "\" target=\"_blank\"><img
                                         class=\"icon-card-details\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>
-
                         </div>
                     </div>
                     <div class=\"card card-trick-details\">
@@ -269,26 +255,23 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                                 allowfullscreen></iframe>
                         <div class=\"bloc-btn-details-card\">
                             <a href=\"";
-        // line 132
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 132, $this->source); })()), "id", [], "any", false, false, false, 132)]), "html", null, true);
+        // line 118
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 118, $this->source); })()), "id", [], "any", false, false, false, 118)]), "html", null, true);
         echo "\" target=\"_blank\"><img
                                         class=\"icon-card-details\"
                                         alt=\"btn-edit\"
                                         title=\"éditer un trick\"
                                         src=\"/img/icons/edit.png\"></a>
                             <a href=\"";
-        // line 137
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 137, $this->source); })()), "id", [], "any", false, false, false, 137)]), "html", null, true);
+        // line 123
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 123, $this->source); })()), "id", [], "any", false, false, false, 123)]), "html", null, true);
         echo "\" target=\"_blank\"><img
                                         class=\"icon-card-details\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>
-
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
         <div class=\"bloc-description-tricks\">
@@ -296,55 +279,53 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                 <h3>Description</h3>
             </div>
             <p>";
-        // line 153
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 153, $this->source); })()), "description", [], "any", false, false, false, 153), "html", null, true);
+        // line 136
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 136, $this->source); })()), "description", [], "any", false, false, false, 136), "html", null, true);
         echo "</p>
         </div>
         <div class=\"bloc-info-details-tricks\">
             <p class=\"info-tricks col-xl-3 col-lg-3 col-sm-3\">créé le
                 : ";
-        // line 157
-        ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 157, $this->source); })()), "createdAt", [], "any", false, false, false, 157)) ? (print (twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatDateTime($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 157, $this->source); })()), "createdAt", [], "any", false, false, false, 157), "medium", "medium", "dd MMMM YYYY", null, "gregorian", "fr"), "html", null, true))) : (print ("")));
+        // line 140
+        ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 140, $this->source); })()), "createdAt", [], "any", false, false, false, 140)) ? (print (twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatDateTime($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 140, $this->source); })()), "createdAt", [], "any", false, false, false, 140), "medium", "medium", "dd MMMM YYYY", null, "gregorian", "fr"), "html", null, true))) : (print ("")));
         echo " par <span
                         class=\"orange-bold-span\">";
-        // line 158
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 158, $this->source); })()), "user", [], "any", false, false, false, 158), "name", [], "any", false, false, false, 158), "html", null, true);
+        // line 141
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 141, $this->source); })()), "user", [], "any", false, false, false, 141), "name", [], "any", false, false, false, 141), "html", null, true);
         echo "</span></p>
             ";
-        // line 159
-        if (twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 159, $this->source); })()), "modifiedAT", [], "any", false, false, false, 159))) {
-            // line 160
+        // line 142
+        if (twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 142, $this->source); })()), "modifiedAT", [], "any", false, false, false, 142))) {
+            // line 143
             echo "                <p class=\"info-tricks col-xl-3 col-lg-3 col-sm-3\">Aucune modification n'a été effectuée</p>
             ";
         }
-        // line 162
+        // line 145
         echo "            ";
-        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 162, $this->source); })()), "modifiedAT", [], "any", false, false, false, 162))) {
-            // line 163
+        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 145, $this->source); })()), "modifiedAT", [], "any", false, false, false, 145))) {
+            // line 146
             echo "                <p class=\"info-tricks col-xl-3 col-lg-3 col-sm-3\">Dernière modification le
                     : <strong>";
-            // line 164
-            ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 164, $this->source); })()), "modifiedAt", [], "any", false, false, false, 164)) ? (print (twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatDateTime($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 164, $this->source); })()), "modifiedAt", [], "any", false, false, false, 164), "medium", "medium", "", null, "gregorian", "fr"), "html", null, true))) : (print ("")));
+            // line 147
+            ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 147, $this->source); })()), "modifiedAt", [], "any", false, false, false, 147)) ? (print (twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatDateTime($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 147, $this->source); })()), "modifiedAt", [], "any", false, false, false, 147), "medium", "medium", "", null, "gregorian", "fr"), "html", null, true))) : (print ("")));
             echo "</strong></p>
             ";
         }
-        // line 166
+        // line 149
         echo "            <p class=\"info-tricks col-xl-3 col-lg-3 col-sm-3\">Catégorie : <span
                         class=\"orange-bold-span\"> ";
-        // line 167
-        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 167, $this->source); })()), "categorie", [], "any", false, false, false, 167)), "html", null, true);
+        // line 150
+        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 150, $this->source); })()), "categorie", [], "any", false, false, false, 150)), "html", null, true);
         echo "</span></p>
         </div>
-
         ";
-        // line 171
-        echo "
-        <div class=\"section-trick-commentarys col-10\">
+        // line 153
+        echo "        <div class=\"section-trick-commentarys col-10\">
             <h4>Espace commentaires</h4>
             ";
-        // line 174
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 174, $this->source); })()), "user", [], "any", false, false, false, 174)) {
-            // line 175
+        // line 155
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 155, $this->source); })()), "user", [], "any", false, false, false, 155)) {
+            // line 156
             echo "                <div class=\"bloc-form-commentary col-12\">
                     <form class=\"commentary-form\" action=\"#\" method=\"post\">
                         <label class=\"label-commentary\" for=\"comment\">Ajoutez votre commentaire</label>
@@ -357,18 +338,28 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                 </div>
             ";
         }
-        // line 186
+        // line 167
         echo "            ";
-        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 186, $this->source); })()), "user", [], "any", false, false, false, 186)) {
-            // line 187
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 167, $this->source); })()), "user", [], "any", false, false, false, 167)) {
+            // line 168
             echo "                <div class=\"section-message-connect-commentary\">
                     <p class=\"message-connect-commentary\"> Pour laisser un commentaire veuillez vous <a href=\"/login\">identifier</a>
                         ou <a href=\"/register\">créer un compte </a> !!</p>
                 </div>
             ";
         }
-        // line 192
-        echo "
+        // line 173
+        echo "            <div class=\"bloc-commentary\">
+                <div class=\"float-picture\"
+                     style=\"background-image: url('/uploads/userPicture/userPicture1.png')\">
+                </div>
+                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand
+                    un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
+                    polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la
+                    bureautique informatique, sans que son contenu n'en soit modifié.</p>
+                <h5>Réponse publiée par : <span class=\"span-author\">Carlito</span></h5>
+            </div>
             <div class=\"bloc-commentary\">
                 <div class=\"float-picture\"
                      style=\"background-image: url('/uploads/userPicture/userPicture1.png')\">
@@ -381,42 +372,27 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                 <h5>Réponse publiée par : <span class=\"span-author\">Carlito</span></h5>
 
             </div>
-
-            <div class=\"bloc-commentary\">
-                <div class=\"float-picture\"
-                     style=\"background-image: url('/uploads/userPicture/userPicture1.png')\">
-                </div>
-                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
-                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand
-                    un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
-                    polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la
-                    bureautique informatique, sans que son contenu n'en soit modifié.</p>
-                <h5>Réponse publiée par : <span class=\"span-author\">Carlito</span></h5>
-
-            </div>
-
         </div>
-
         <div class=\"return-list\">
             <a href=\"";
-        // line 222
+        // line 198
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_index");
         echo "\">Retour à la liste des figures</a>
         </div>
         ";
-        // line 224
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 224, $this->source); })()), "user", [], "any", false, false, false, 224)) {
-            // line 225
+        // line 200
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 200, $this->source); })()), "user", [], "any", false, false, false, 200)) {
+            // line 201
             echo "            <a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 225, $this->source); })()), "id", [], "any", false, false, false, 225)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 201, $this->source); })()), "id", [], "any", false, false, false, 201)]), "html", null, true);
             echo "\">Modifier la figure</a>
             ";
-            // line 226
+            // line 202
             echo twig_include($this->env, $context, "tricks/_delete_form.html.twig");
             echo "
         ";
         }
-        // line 228
+        // line 204
         echo "    </div>
 ";
         
@@ -439,7 +415,7 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
 
     public function getDebugInfo()
     {
-        return array (  420 => 228,  415 => 226,  410 => 225,  408 => 224,  403 => 222,  371 => 192,  364 => 187,  361 => 186,  348 => 175,  346 => 174,  341 => 171,  335 => 167,  332 => 166,  327 => 164,  324 => 163,  321 => 162,  317 => 160,  315 => 159,  311 => 158,  307 => 157,  300 => 153,  281 => 137,  273 => 132,  257 => 119,  249 => 114,  233 => 101,  225 => 96,  207 => 81,  199 => 76,  194 => 74,  180 => 63,  172 => 58,  167 => 56,  153 => 45,  145 => 40,  140 => 38,  122 => 23,  119 => 22,  110 => 16,  104 => 13,  101 => 12,  99 => 11,  94 => 9,  89 => 6,  79 => 5,  59 => 3,  36 => 1,);
+        return array (  396 => 204,  391 => 202,  386 => 201,  384 => 200,  379 => 198,  352 => 173,  345 => 168,  342 => 167,  329 => 156,  327 => 155,  323 => 153,  318 => 150,  315 => 149,  310 => 147,  307 => 146,  304 => 145,  300 => 143,  298 => 142,  294 => 141,  290 => 140,  283 => 136,  267 => 123,  259 => 118,  244 => 106,  236 => 101,  221 => 89,  213 => 84,  197 => 71,  189 => 66,  184 => 64,  173 => 56,  165 => 51,  160 => 49,  149 => 41,  141 => 36,  136 => 34,  120 => 21,  117 => 20,  108 => 14,  102 => 11,  99 => 10,  97 => 9,  93 => 8,  89 => 6,  79 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -450,10 +426,8 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
 
 {% block body %}
     <div class=\"bloc-details-tricks\">
-
         <div class=\"bloc-title-details-tricks\">
             <div class=\"poster col-12\" style=\"background-image: url('/uploads/poster/{{ trick.poster }}') \">
-
                 {% if app.user %}
                     <div class=\"bloc-icon-poster\">
                         <a href=\"{{ path('app_tricks_edit', {'id': trick.id}) }}\"><img
@@ -470,7 +444,6 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                 </div>
             </div>
         </div>
-
         <button class=\"btn btn-primary btn-display-media\" type=\"button\" data-bs-toggle=\"collapse\"
                 data-bs-target=\"#view-medias\" aria-expanded=\"true\" aria-controls=\"collapseExample\">
             Voir les médias
@@ -478,7 +451,6 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
         <div class=\"collapsing \" id=\"view-medias\">
             <div class=\"bloc-medias\">
                 <div class=\"section-pictures\">
-
                     <div class=\"card-trick-details\">
                         <div id=\"img-card-details\"
                              style=\"background-image: url('/uploads/poster/{{ trick.poster }}')\"></div>
@@ -492,11 +464,8 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                                         class=\"icon-card-details\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>
-
                         </div>
                     </div>
-
-
                     <div class=\"card-trick-details\">
                         <div id=\"img-card-details\"
                              style=\"background-image: url('/uploads/poster/{{ trick.poster }}')\"></div>
@@ -510,11 +479,8 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                                         class=\"icon-card-details\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>
-
                         </div>
                     </div>
-
-
                     <div class=\"card-trick-details\">
                         <div id=\"img-card-details\"
                              style=\"background-image: url('/uploads/poster/{{ trick.poster }}')\"></div>
@@ -528,10 +494,8 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                                         class=\"icon-card-details\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>
-
                         </div>
                     </div>
-
                 </div>
                 <div class=\"section-videos\">
                     <div class=\"card card-trick-details\">
@@ -548,7 +512,6 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                                         class=\"icon-card-details\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>
-
                         </div>
                     </div>
                     <div class=\"card card-trick-details\">
@@ -566,7 +529,6 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                                         class=\"icon-card-details\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>
-
                         </div>
                     </div>
                     <div class=\"card card-trick-details\">
@@ -584,12 +546,9 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                                         class=\"icon-card-details\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>
-
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
         <div class=\"bloc-description-tricks\">
@@ -612,9 +571,7 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
             <p class=\"info-tricks col-xl-3 col-lg-3 col-sm-3\">Catégorie : <span
                         class=\"orange-bold-span\"> {{ trick.categorie | capitalize }}</span></p>
         </div>
-
         {#   SECTION COMMENTAIRE #}
-
         <div class=\"section-trick-commentarys col-10\">
             <h4>Espace commentaires</h4>
             {% if app.user %}
@@ -635,7 +592,17 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                         ou <a href=\"/register\">créer un compte </a> !!</p>
                 </div>
             {% endif %}
-
+            <div class=\"bloc-commentary\">
+                <div class=\"float-picture\"
+                     style=\"background-image: url('/uploads/userPicture/userPicture1.png')\">
+                </div>
+                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand
+                    un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
+                    polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la
+                    bureautique informatique, sans que son contenu n'en soit modifié.</p>
+                <h5>Réponse publiée par : <span class=\"span-author\">Carlito</span></h5>
+            </div>
             <div class=\"bloc-commentary\">
                 <div class=\"float-picture\"
                      style=\"background-image: url('/uploads/userPicture/userPicture1.png')\">
@@ -648,22 +615,7 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                 <h5>Réponse publiée par : <span class=\"span-author\">Carlito</span></h5>
 
             </div>
-
-            <div class=\"bloc-commentary\">
-                <div class=\"float-picture\"
-                     style=\"background-image: url('/uploads/userPicture/userPicture1.png')\">
-                </div>
-                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
-                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand
-                    un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
-                    polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la
-                    bureautique informatique, sans que son contenu n'en soit modifié.</p>
-                <h5>Réponse publiée par : <span class=\"span-author\">Carlito</span></h5>
-
-            </div>
-
         </div>
-
         <div class=\"return-list\">
             <a href=\"{{ path('app_tricks_index') }}\">Retour à la liste des figures</a>
         </div>

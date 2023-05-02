@@ -808,7 +808,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1683059916,
+1 => 1683061281,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -850,6 +850,11 @@ return [[
                 'name' => [
                     'app_login',
                 ],
+                'methods' => [
+                    [
+                        'GET',
+                    ],
+                ],
             ],
         ],
         [
@@ -871,6 +876,12 @@ return [[
                 ],
                 'name' => [
                     'app_logout',
+                ],
+                'methods' => [
+                    [
+                        'GET',
+                        'POST',
+                    ],
                 ],
             ],
         ],
@@ -894,6 +905,12 @@ return [[
                 'name' => [
                     'app_register',
                 ],
+                'methods' => [
+                    [
+                        'GET',
+                        'POST',
+                    ],
+                ],
             ],
         ],
         [
@@ -915,6 +932,12 @@ return [[
                 ],
                 'name' => [
                     'app_verify_email',
+                ],
+                'methods' => [
+                    [
+                        'GET',
+                        'POST',
+                    ],
                 ],
             ],
         ],

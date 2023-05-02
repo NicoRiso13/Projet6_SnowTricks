@@ -89,7 +89,7 @@ class __TwigTemplate_7126b135e5019eddc5583057f94863243f6a882a5c3925f482ec7228c6f
         echo "    <div class=\"bloc-details-tricks\">
 
         <div class=\"bloc-title-details-tricks\">
-            <div class=\"poster col-12\" style=\"background-image: url('/uploads/poster/";
+            <div class=\"poster col-12\" style=\"background-image: url('/uploads/images/";
         // line 9
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 9, $this->source); })()), "poster", [], "any", false, false, false, 9), "html", null, true);
         echo "') \">
@@ -241,7 +241,7 @@ class __TwigTemplate_7126b135e5019eddc5583057f94863243f6a882a5c3925f482ec7228c6f
     <div class=\"bloc-details-tricks\">
 
         <div class=\"bloc-title-details-tricks\">
-            <div class=\"poster col-12\" style=\"background-image: url('/uploads/poster/{{ trick.poster }}') \">
+            <div class=\"poster col-12\" style=\"background-image: url('/uploads/images/{{ trick.poster }}') \">
 
                 {% if app.user %}
                     <div class=\"bloc-icon-poster\">
