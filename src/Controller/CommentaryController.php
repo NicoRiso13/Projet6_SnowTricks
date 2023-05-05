@@ -37,16 +37,4 @@ class CommentaryController extends AbstractController
         ]);
     }
 
-
-    /**
-     * @Route("/{id}", name="app_commentary_delete", methods={"POST"})
-     */
-    public function delete(Request $request, Commentary $commentary, CommentaryRepository $commentarysRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete' . $commentary->getId(), $request->request->get('_token'))) {
-            $commentarysRepository->remove($commentary, true);
-        }
-
-        return $this->redirectToRoute('app_commentary_index', [], Response::HTTP_SEE_OTHER);
-    }
 }

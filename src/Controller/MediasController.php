@@ -86,7 +86,6 @@ class MediasController extends AbstractController
         if ($user === null) {
             return $this->renderForm('bundles/TwigBundle/Exception/error404.html.twig');
         }
-
             $mediasRepository->remove($media, true);
 
         return $this->redirectToRoute('app_medias_index', [], Response::HTTP_SEE_OTHER);
