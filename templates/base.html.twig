@@ -19,6 +19,9 @@
 <header class="container-fluid header-contain">
     {{ include('elements/nav.twig') }}
 </header>
+{% for flash in app.flashes ('success') %}
+    <div class="alert alert-success">{{ flash }}</div>
+{% endfor %}
 
 
 <main class="main-content">
@@ -70,7 +73,7 @@
                 {% endif %}
 
                 <li class="nav-footer-link">
-                    <a class="nav-link " href="{{ path('app_tricks_index') }}">Les Tricks</a>
+                    <a class="nav-link " href="{{ path('app_trick_index') }}">Les Tricks</a>
                 </li>
                 {% if is_granted("ROLE_ADMIN") %}
                     <li class="nav-footer-link">

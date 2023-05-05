@@ -69,15 +69,30 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
         echo twig_include($this->env, $context, "elements/nav.twig");
         echo "
 </header>
-
+";
+        // line 22
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 22, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 22));
+        foreach ($context['_seq'] as $context["_key"] => $context["flash"]) {
+            // line 23
+            echo "    <div class=\"alert alert-success\">";
+            echo twig_escape_filter($this->env, $context["flash"], "html", null, true);
+            echo "</div>
+";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 25
+        echo "
 
 <main class=\"main-content\">
 
 
     ";
-        // line 27
-        $this->displayBlock('body', $context, $blocks);
         // line 30
+        $this->displayBlock('body', $context, $blocks);
+        // line 33
         echo "
 </main>
 
@@ -105,50 +120,50 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
 
             <ul>
                 ";
-        // line 56
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 56, $this->source); })()), "user", [], "any", false, false, false, 56)) {
-            // line 57
+        // line 59
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 59, $this->source); })()), "user", [], "any", false, false, false, 59)) {
+            // line 60
             echo "                    <li class=\"nav-footer-link-logout\">
                         <a class=\"nav-link logout\" href=\"";
-            // line 58
+            // line 61
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">Se déconnecter</a>
                     </li>
                 ";
         }
-        // line 61
+        // line 64
         echo "
 
                 <li class=\"nav-footer-link\">
                     <a class=\"nav-link active\" href=\"/\">Accueil</a>
                 </li>
                 ";
-        // line 66
-        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 66, $this->source); })()), "user", [], "any", false, false, false, 66)) {
-            // line 67
+        // line 69
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 69, $this->source); })()), "user", [], "any", false, false, false, 69)) {
+            // line 70
             echo "                    <li class=\"nav-footer-link-login\">
                         <a class=\"nav-link \" href=\"/login\">Se connecter/S'inscrire</a>
                     </li>
                 ";
         }
-        // line 71
+        // line 74
         echo "
                 <li class=\"nav-footer-link\">
                     <a class=\"nav-link \" href=\"";
-        // line 73
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_index");
+        // line 76
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_index");
         echo "\">Les Tricks</a>
                 </li>
                 ";
-        // line 75
+        // line 78
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-            // line 76
+            // line 79
             echo "                    <li class=\"nav-footer-link\">
                         <a class=\"nav-link link-admin \" href=\"/admin-manager\">Administration</a>
                     </li>
                 ";
         }
-        // line 80
+        // line 83
         echo "
                 <li class=\"nav-footer-link\">
                     <a class=\"nav-link \" href=\"#\">▲ Haut de page ▲</a>
@@ -199,7 +214,7 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
 
     }
 
-    // line 27
+    // line 30
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -209,7 +224,7 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 28
+        // line 31
         echo "
     ";
         
@@ -232,7 +247,7 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
 
     public function getDebugInfo()
     {
-        return array (  213 => 28,  203 => 27,  184 => 7,  152 => 80,  146 => 76,  144 => 75,  139 => 73,  135 => 71,  129 => 67,  127 => 66,  120 => 61,  114 => 58,  111 => 57,  109 => 56,  81 => 30,  79 => 27,  69 => 20,  53 => 7,  45 => 1,);
+        return array (  228 => 31,  218 => 30,  199 => 7,  167 => 83,  161 => 79,  159 => 78,  154 => 76,  150 => 74,  144 => 70,  142 => 69,  135 => 64,  129 => 61,  126 => 60,  124 => 59,  96 => 33,  94 => 30,  87 => 25,  78 => 23,  74 => 22,  69 => 20,  53 => 7,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -258,6 +273,9 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
 <header class=\"container-fluid header-contain\">
     {{ include('elements/nav.twig') }}
 </header>
+{% for flash in app.flashes ('success') %}
+    <div class=\"alert alert-success\">{{ flash }}</div>
+{% endfor %}
 
 
 <main class=\"main-content\">
@@ -309,7 +327,7 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
                 {% endif %}
 
                 <li class=\"nav-footer-link\">
-                    <a class=\"nav-link \" href=\"{{ path('app_tricks_index') }}\">Les Tricks</a>
+                    <a class=\"nav-link \" href=\"{{ path('app_trick_index') }}\">Les Tricks</a>
                 </li>
                 {% if is_granted(\"ROLE_ADMIN\") %}
                     <li class=\"nav-footer-link\">

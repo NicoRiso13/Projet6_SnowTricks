@@ -91,7 +91,7 @@ class __TwigTemplate_bc21388980cc366ff6e30ed706fe67c72f588c24b1ace0e0b64abe1c134
             <h1>404</h1>
         </div>
         <P class=\"oups\"> Oups !!</P>
-        <P class=\"message-404\"> La page que vous recherchez n'existe pas </P>
+        <P class=\"message-404\"> Vous n'avez pas le droit d'accéder à cette page </P>
     </div>
 
 ";
@@ -133,7 +133,7 @@ class __TwigTemplate_bc21388980cc366ff6e30ed706fe67c72f588c24b1ace0e0b64abe1c134
             <h1>404</h1>
         </div>
         <P class=\"oups\"> Oups !!</P>
-        <P class=\"message-404\"> La page que vous recherchez n'existe pas </P>
+        <P class=\"message-404\"> Vous n'avez pas le droit d'accéder à cette page </P>
     </div>
 
 {% endblock %}

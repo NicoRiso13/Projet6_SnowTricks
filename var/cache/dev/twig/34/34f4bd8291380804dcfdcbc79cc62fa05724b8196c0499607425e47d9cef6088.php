@@ -41,7 +41,7 @@ class __TwigTemplate_7acea9b5bdc028f49ef85e05c8ac12dd29083e304fb71ae0ac56b7ae1a8
 
         // line 1
         echo "<form method=\"post\" action=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 1, $this->source); })()), "id", [], "any", false, false, false, 1)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 1, $this->source); })()), "id", [], "any", false, false, false, 1)]), "html", null, true);
         echo "\" onsubmit=\"return confirm('Êtes-vous sur de vouloir supprimer cette figure ?');\">
     <input type=\"hidden\" name=\"_token\" value=\"";
         // line 2
@@ -75,7 +75,7 @@ class __TwigTemplate_7acea9b5bdc028f49ef85e05c8ac12dd29083e304fb71ae0ac56b7ae1a8
 
     public function getSourceContext()
     {
-        return new Source("<form method=\"post\" action=\"{{ path('app_tricks_delete', {'id': trick.id}) }}\" onsubmit=\"return confirm('Êtes-vous sur de vouloir supprimer cette figure ?');\">
+        return new Source("<form method=\"post\" action=\"{{ path('app_trick_delete', {'id': trick.id}) }}\" onsubmit=\"return confirm('Êtes-vous sur de vouloir supprimer cette figure ?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ trick.id) }}\">
     <button class=\"btn\">Supprimer la figure</button>
 </form>

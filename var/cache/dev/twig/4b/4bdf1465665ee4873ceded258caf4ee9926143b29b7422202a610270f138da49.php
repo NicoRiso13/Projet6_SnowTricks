@@ -107,7 +107,7 @@ class __TwigTemplate_0b11b329a5e30d78c0340a6f8af33c999af0d37e7d26c6b206b6425e148
             echo "        <div class=\"bloc-btn-new-tricks\">
             <a class=\"btn btn-primary\" href=\"";
             // line 23
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_new");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_new");
             echo "\">Ajouter une nouvelle figure</a>
         </div>
         ";
@@ -126,16 +126,16 @@ class __TwigTemplate_0b11b329a5e30d78c0340a6f8af33c999af0d37e7d26c6b206b6425e148
             // line 30
             if (twig_test_empty(twig_get_attribute($this->env, $this->source, $context["trick"], "poster", [], "any", false, false, false, 30))) {
                 // line 31
-                echo "                        <img class=\"img-trick-card\" src=\"/img/default-img\" alt=\"img-trick-card\">
+                echo "                    <div class=\"img-trick-card\" style=\"background-image:url('/img/default-img.jpg')\"></div>
                     ";
             }
             // line 33
             echo "                    ";
             if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, $context["trick"], "poster", [], "any", false, false, false, 33))) {
                 // line 34
-                echo "                    <img class=\"img-trick-card\" src=\"/uploads/images/";
+                echo "                        <div class=\"img-trick-card\" style=\"background-image:url('/uploads/poster/";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trick"], "poster", [], "any", false, false, false, 34), "html", null, true);
-                echo "\" alt=\"img-trick-card\">
+                echo "')\"></div>
                     ";
             }
             // line 36
@@ -143,7 +143,7 @@ class __TwigTemplate_0b11b329a5e30d78c0340a6f8af33c999af0d37e7d26c6b206b6425e148
                         <div class=\"col-8 title-card\">
                             <a href=\"";
             // line 38
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_show", ["id" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 38)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_show", ["id" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 38)]), "html", null, true);
             echo "\" target=\"_blank\">
                                 <h5>";
             // line 39
@@ -161,13 +161,13 @@ class __TwigTemplate_0b11b329a5e30d78c0340a6f8af33c999af0d37e7d26c6b206b6425e148
                 echo "                        <div class=\"col-4 bloc-btn-footer-card\">
                             <a href=\"";
                 // line 44
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 44)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 44)]), "html", null, true);
                 echo "\" target=\"_blank\"><img
                                         class=\"icon-card\" alt=\"btn-edit\" title=\"éditer un trick\"
                                         src=\"/img/icons/edit.png\"></a>
                             <a href=\"";
                 // line 47
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 47)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 47)]), "html", null, true);
                 echo "\" target=\"_blank\"><img
                                         class=\"icon-card\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
@@ -236,7 +236,7 @@ class __TwigTemplate_0b11b329a5e30d78c0340a6f8af33c999af0d37e7d26c6b206b6425e148
         <hr class=\"separator-list-homepage\">
         {% if app.user %}
         <div class=\"bloc-btn-new-tricks\">
-            <a class=\"btn btn-primary\" href=\"{{ path('app_tricks_new') }}\">Ajouter une nouvelle figure</a>
+            <a class=\"btn btn-primary\" href=\"{{ path('app_trick_new') }}\">Ajouter une nouvelle figure</a>
         </div>
         {% endif %}
 
@@ -244,23 +244,23 @@ class __TwigTemplate_0b11b329a5e30d78c0340a6f8af33c999af0d37e7d26c6b206b6425e148
             {% for trick in tricks %}
                 <div class=\"trick-card \">
                     {% if trick.poster is empty %}
-                        <img class=\"img-trick-card\" src=\"/img/default-img\" alt=\"img-trick-card\">
+                    <div class=\"img-trick-card\" style=\"background-image:url('/img/default-img.jpg')\"></div>
                     {% endif %}
                     {% if trick.poster is not empty %}
-                    <img class=\"img-trick-card\" src=\"/uploads/images/{{ trick.poster }}\" alt=\"img-trick-card\">
+                        <div class=\"img-trick-card\" style=\"background-image:url('/uploads/poster/{{ trick.poster }}')\"></div>
                     {% endif %}
                     <div class=\"footer-trick-card\">
                         <div class=\"col-8 title-card\">
-                            <a href=\"{{ path('app_tricks_show', {'id': trick.id}) }}\" target=\"_blank\">
+                            <a href=\"{{ path('app_trick_show', {'id': trick.id}) }}\" target=\"_blank\">
                                 <h5>{{ trick.name }}</h5></a>
                             <h6>Catégorie : {{ trick.categorie | capitalize }}</h6>
                         </div>
                         {% if app.user %}
                         <div class=\"col-4 bloc-btn-footer-card\">
-                            <a href=\"{{ path('app_tricks_edit', {'id': trick.id}) }}\" target=\"_blank\"><img
+                            <a href=\"{{ path('app_trick_edit', {'id': trick.id}) }}\" target=\"_blank\"><img
                                         class=\"icon-card\" alt=\"btn-edit\" title=\"éditer un trick\"
                                         src=\"/img/icons/edit.png\"></a>
-                            <a href=\"{{ path('app_tricks_delete', {'id': trick.id}) }}\" target=\"_blank\"><img
+                            <a href=\"{{ path('app_trick_delete', {'id': trick.id}) }}\" target=\"_blank\"><img
                                         class=\"icon-card\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>

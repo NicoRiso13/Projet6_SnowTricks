@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Tricks;
+use App\Entity\Trick;
 use App\Repository\TricksRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

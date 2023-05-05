@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -19,12 +17,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private ?string $email;
+    private string $email;
 
     /**
      * @ORM\Column(type="json")
@@ -40,7 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private ?string $firstname;
+    private string $firstname;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -50,7 +48,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $picture;
+    private ?string $picture = null;
 
     /**
      * @ORM\Column(type="datetime_immutable")
@@ -58,16 +56,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?\DateTimeImmutable $createdAt;
 
 
-    public function __construct(?int $id, ?string $email, string $password, ?string $firstname, string $name, ?string $picture)
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private Bool $isVerified ;
+
+
+
+
+
+
+    public function __construct(string $email, string $password, string $firstname, string $name)
     {
-        $this->id = $id;
         $this->email = $email;
         $this->roles = ['ROLE_USER'];
         $this->password = $password;
         $this->firstname = $firstname;
         $this->name = $name;
-        $this->picture = $picture;
         $this->createdAt = new \DateTimeImmutable();
+        $this->isVerified = false;
+
     }
 
 
@@ -159,7 +167,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->password = "";
     }
 
-    public function getFirstname(): ?string
+    public function getFirstname(): string
     {
         return $this->firstname;
     }
@@ -206,5 +214,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+
+    public function setIsVerified(bool $isVerified): void
+    {
+        $this->isVerified = $isVerified;
+    }
+
+
+
+
+
 
 }

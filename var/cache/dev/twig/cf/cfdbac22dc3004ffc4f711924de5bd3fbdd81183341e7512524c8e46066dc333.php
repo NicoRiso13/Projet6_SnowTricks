@@ -100,7 +100,7 @@ class __TwigTemplate_f5eed20d0ef39fe1a19c6a9397ae2635beeef62f1056f96ee274f618e90
                 <li class=\"nav-item\">
                     <a class=\"nav-link nav-link-active\" href=\"";
         // line 46
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_index");
         echo "\">Les tricks</a>
                 </li>
                 ";
@@ -200,7 +200,7 @@ class __TwigTemplate_f5eed20d0ef39fe1a19c6a9397ae2635beeef62f1056f96ee274f618e90
                 {% endif %}
 
                 <li class=\"nav-item\">
-                    <a class=\"nav-link nav-link-active\" href=\"{{ path('app_tricks_index') }}\">Les tricks</a>
+                    <a class=\"nav-link nav-link-active\" href=\"{{ path('app_trick_index') }}\">Les tricks</a>
                 </li>
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class=\"nav-item\">

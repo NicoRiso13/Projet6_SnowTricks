@@ -4,9 +4,10 @@
 
 return [[
 
-'App__Entity__Commentarys__CLASSMETADATA__' => 0,
-'App__Entity__Tricks__CLASSMETADATA__' => 1,
-'App__Entity__Users__CLASSMETADATA__' => 2,
+'App__Entity__Commentary__CLASSMETADATA__' => 0,
+'App__Entity__Media__CLASSMETADATA__' => 1,
+'App__Entity__Trick__CLASSMETADATA__' => 2,
+'App__Entity__User__CLASSMETADATA__' => 3,
 
 ], [
 
@@ -20,16 +21,16 @@ return [[
         [
             'stdClass' => [
                 'name' => [
-                    'App\\Entity\\Commentarys',
+                    'App\\Entity\\Commentary',
                 ],
                 'namespace' => [
                     'App\\Entity',
                 ],
                 'rootEntityName' => [
-                    'App\\Entity\\Commentarys',
+                    'App\\Entity\\Commentary',
                 ],
                 'customRepositoryClassName' => [
-                    'App\\Repository\\CommentarysRepository',
+                    'App\\Entity\\CommentarysRepository',
                 ],
                 'identifier' => [
                     [
@@ -51,6 +52,26 @@ return [[
                             'precision' => null,
                             'id' => true,
                             'columnName' => 'id',
+                        ],
+                        'user' => [
+                            'fieldName' => 'user',
+                            'type' => 'integer',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => false,
+                            'precision' => null,
+                            'columnName' => 'user',
+                        ],
+                        'trick' => [
+                            'fieldName' => 'trick',
+                            'type' => 'integer',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => false,
+                            'precision' => null,
+                            'columnName' => 'trick',
                         ],
                         'content' => [
                             'fieldName' => 'content',
@@ -77,6 +98,8 @@ return [[
                 'fieldNames' => [
                     [
                         'id' => 'id',
+                        'user' => 'user',
+                        'trick' => 'trick',
                         'content' => 'content',
                         'created_at' => 'createdAt',
                     ],
@@ -84,89 +107,15 @@ return [[
                 'columnNames' => [
                     [
                         'id' => 'id',
+                        'user' => 'user',
+                        'trick' => 'trick',
                         'content' => 'content',
                         'createdAt' => 'created_at',
                     ],
                 ],
                 'table' => [
                     [
-                        'name' => 'commentarys',
-                    ],
-                ],
-                'associationMappings' => [
-                    [
-                        'userId' => [
-                            'fieldName' => 'userId',
-                            'joinColumns' => [
-                                [
-                                    'name' => 'user_id_id',
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'onDelete' => null,
-                                    'columnDefinition' => null,
-                                    'referencedColumnName' => 'id',
-                                ],
-                            ],
-                            'cascade' => [],
-                            'inversedBy' => 'commentarys',
-                            'targetEntity' => 'App\\Entity\\User',
-                            'fetch' => 2,
-                            'type' => 2,
-                            'mappedBy' => null,
-                            'isOwningSide' => true,
-                            'sourceEntity' => 'App\\Entity\\Commentarys',
-                            'isCascadeRemove' => false,
-                            'isCascadePersist' => false,
-                            'isCascadeRefresh' => false,
-                            'isCascadeMerge' => false,
-                            'isCascadeDetach' => false,
-                            'sourceToTargetKeyColumns' => [
-                                'user_id_id' => 'id',
-                            ],
-                            'joinColumnFieldNames' => [
-                                'user_id_id' => 'user_id_id',
-                            ],
-                            'targetToSourceKeyColumns' => [
-                                'id' => 'user_id_id',
-                            ],
-                            'orphanRemoval' => false,
-                        ],
-                        'tricksId' => [
-                            'fieldName' => 'tricksId',
-                            'joinColumns' => [
-                                [
-                                    'name' => 'tricks_id_id',
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'onDelete' => null,
-                                    'columnDefinition' => null,
-                                    'referencedColumnName' => 'id',
-                                ],
-                            ],
-                            'cascade' => [],
-                            'inversedBy' => 'commentarys',
-                            'targetEntity' => 'App\\Entity\\tricks',
-                            'fetch' => 2,
-                            'type' => 2,
-                            'mappedBy' => null,
-                            'isOwningSide' => true,
-                            'sourceEntity' => 'App\\Entity\\Commentarys',
-                            'isCascadeRemove' => false,
-                            'isCascadePersist' => false,
-                            'isCascadeRefresh' => false,
-                            'isCascadeMerge' => false,
-                            'isCascadeDetach' => false,
-                            'sourceToTargetKeyColumns' => [
-                                'tricks_id_id' => 'id',
-                            ],
-                            'joinColumnFieldNames' => [
-                                'tricks_id_id' => 'tricks_id_id',
-                            ],
-                            'targetToSourceKeyColumns' => [
-                                'id' => 'tricks_id_id',
-                            ],
-                            'orphanRemoval' => false,
-                        ],
+                        'name' => 'commentary',
                     ],
                 ],
                 'idGenerator' => [
@@ -188,13 +137,145 @@ return [[
         [
             'stdClass' => [
                 'name' => [
-                    'App\\Entity\\Tricks',
+                    'App\\Entity\\Media',
                 ],
                 'namespace' => [
                     'App\\Entity',
                 ],
                 'rootEntityName' => [
-                    'App\\Entity\\Tricks',
+                    'App\\Entity\\Media',
+                ],
+                'customRepositoryClassName' => [
+                    'App\\Repository\\MediasRepository',
+                ],
+                'identifier' => [
+                    [
+                        'id',
+                    ],
+                ],
+                'generatorType' => [
+                    4,
+                ],
+                'fieldMappings' => [
+                    [
+                        'id' => [
+                            'fieldName' => 'id',
+                            'type' => 'integer',
+                            'scale' => null,
+                            'length' => null,
+                            'unique' => false,
+                            'nullable' => false,
+                            'precision' => null,
+                            'id' => true,
+                            'columnName' => 'id',
+                        ],
+                        'pictures' => [
+                            'fieldName' => 'pictures',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => false,
+                            'precision' => null,
+                            'columnName' => 'pictures',
+                        ],
+                        'videos' => [
+                            'fieldName' => 'videos',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => false,
+                            'precision' => null,
+                            'columnName' => 'videos',
+                        ],
+                    ],
+                ],
+                'fieldNames' => [
+                    [
+                        'id' => 'id',
+                        'pictures' => 'pictures',
+                        'videos' => 'videos',
+                    ],
+                ],
+                'columnNames' => [
+                    [
+                        'id' => 'id',
+                        'pictures' => 'pictures',
+                        'videos' => 'videos',
+                    ],
+                ],
+                'table' => [
+                    [
+                        'name' => 'media',
+                    ],
+                ],
+                'associationMappings' => [
+                    [
+                        'tricks' => [
+                            'fieldName' => 'tricks',
+                            'joinColumns' => [
+                                [
+                                    'name' => 'tricks_id',
+                                    'unique' => false,
+                                    'nullable' => false,
+                                    'onDelete' => null,
+                                    'columnDefinition' => null,
+                                    'referencedColumnName' => 'id',
+                                ],
+                            ],
+                            'cascade' => [],
+                            'inversedBy' => 'medias',
+                            'targetEntity' => 'App\\Entity\\Trick',
+                            'fetch' => 2,
+                            'type' => 2,
+                            'mappedBy' => null,
+                            'isOwningSide' => true,
+                            'sourceEntity' => 'App\\Entity\\Media',
+                            'isCascadeRemove' => false,
+                            'isCascadePersist' => false,
+                            'isCascadeRefresh' => false,
+                            'isCascadeMerge' => false,
+                            'isCascadeDetach' => false,
+                            'sourceToTargetKeyColumns' => [
+                                'tricks_id' => 'id',
+                            ],
+                            'joinColumnFieldNames' => [
+                                'tricks_id' => 'tricks_id',
+                            ],
+                            'targetToSourceKeyColumns' => [
+                                'id' => 'tricks_id',
+                            ],
+                            'orphanRemoval' => false,
+                        ],
+                    ],
+                ],
+                'idGenerator' => [
+                    $o[1],
+                ],
+            ],
+        ],
+        $o[0],
+        []
+    );
+},
+2 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+            clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'name' => [
+                    'App\\Entity\\Trick',
+                ],
+                'namespace' => [
+                    'App\\Entity',
+                ],
+                'rootEntityName' => [
+                    'App\\Entity\\Trick',
                 ],
                 'customRepositoryClassName' => [
                     'App\\Repository\\TricksRepository',
@@ -224,41 +305,21 @@ return [[
                             'fieldName' => 'name',
                             'type' => 'string',
                             'scale' => null,
-                            'length' => 50,
+                            'length' => 100,
                             'unique' => false,
                             'nullable' => false,
                             'precision' => null,
                             'columnName' => 'name',
                         ],
-                        'descritpion' => [
-                            'fieldName' => 'descritpion',
+                        'description' => [
+                            'fieldName' => 'description',
                             'type' => 'text',
                             'scale' => null,
                             'length' => null,
                             'unique' => false,
                             'nullable' => false,
                             'precision' => null,
-                            'columnName' => 'descritpion',
-                        ],
-                        'pictures' => [
-                            'fieldName' => 'pictures',
-                            'type' => 'string',
-                            'scale' => null,
-                            'length' => 255,
-                            'unique' => false,
-                            'nullable' => true,
-                            'precision' => null,
-                            'columnName' => 'pictures',
-                        ],
-                        'videos' => [
-                            'fieldName' => 'videos',
-                            'type' => 'string',
-                            'scale' => null,
-                            'length' => 255,
-                            'unique' => false,
-                            'nullable' => true,
-                            'precision' => null,
-                            'columnName' => 'videos',
+                            'columnName' => 'description',
                         ],
                         'createdAt' => [
                             'fieldName' => 'createdAt',
@@ -280,80 +341,104 @@ return [[
                             'precision' => null,
                             'columnName' => 'modified_at',
                         ],
+                        'categorie' => [
+                            'fieldName' => 'categorie',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 50,
+                            'unique' => false,
+                            'nullable' => false,
+                            'precision' => null,
+                            'columnName' => 'categorie',
+                        ],
+                        'poster' => [
+                            'fieldName' => 'poster',
+                            'type' => 'string',
+                            'scale' => null,
+                            'length' => 255,
+                            'unique' => false,
+                            'nullable' => true,
+                            'precision' => null,
+                            'columnName' => 'poster',
+                        ],
                     ],
                 ],
                 'fieldNames' => [
                     [
                         'id' => 'id',
                         'name' => 'name',
-                        'descritpion' => 'descritpion',
-                        'pictures' => 'pictures',
-                        'videos' => 'videos',
+                        'description' => 'description',
                         'created_at' => 'createdAt',
                         'modified_at' => 'modifiedAt',
+                        'categorie' => 'categorie',
+                        'poster' => 'poster',
                     ],
                 ],
                 'columnNames' => [
                     [
                         'id' => 'id',
                         'name' => 'name',
-                        'descritpion' => 'descritpion',
-                        'pictures' => 'pictures',
-                        'videos' => 'videos',
+                        'description' => 'description',
                         'createdAt' => 'created_at',
                         'modifiedAt' => 'modified_at',
+                        'categorie' => 'categorie',
+                        'poster' => 'poster',
                     ],
                 ],
                 'table' => [
                     [
-                        'name' => 'tricks',
+                        'name' => 'trick',
                     ],
                 ],
                 'associationMappings' => [
                     [
-                        'userId' => [
-                            'fieldName' => 'userId',
+                        'user' => [
+                            'fieldName' => 'user',
                             'joinColumns' => [
                                 [
-                                    'name' => 'user_id_id',
+                                    'name' => 'user_id',
+                                    'unique' => false,
+                                    'nullable' => false,
+                                    'onDelete' => null,
+                                    'columnDefinition' => null,
                                     'referencedColumnName' => 'id',
                                 ],
                             ],
                             'cascade' => [],
-                            'inversedBy' => 'tricks',
+                            'inversedBy' => null,
                             'targetEntity' => 'App\\Entity\\User',
                             'fetch' => 2,
                             'type' => 2,
                             'mappedBy' => null,
                             'isOwningSide' => true,
-                            'sourceEntity' => 'App\\Entity\\Tricks',
+                            'sourceEntity' => 'App\\Entity\\Trick',
                             'isCascadeRemove' => false,
                             'isCascadePersist' => false,
                             'isCascadeRefresh' => false,
                             'isCascadeMerge' => false,
                             'isCascadeDetach' => false,
                             'sourceToTargetKeyColumns' => [
-                                'user_id_id' => 'id',
+                                'user_id' => 'id',
                             ],
                             'joinColumnFieldNames' => [
-                                'user_id_id' => 'user_id_id',
+                                'user_id' => 'user_id',
                             ],
                             'targetToSourceKeyColumns' => [
-                                'id' => 'user_id_id',
+                                'id' => 'user_id',
                             ],
                             'orphanRemoval' => false,
                         ],
-                        'commentarys' => [
-                            'fieldName' => 'commentarys',
-                            'mappedBy' => 'tricksId',
-                            'targetEntity' => 'App\\Entity\\Commentarys',
+                        'medias' => [
+                            'fieldName' => 'medias',
+                            'mappedBy' => 'tricks',
+                            'targetEntity' => 'App\\Entity\\Media',
                             'cascade' => [],
                             'orphanRemoval' => false,
                             'fetch' => 2,
                             'type' => 4,
                             'inversedBy' => null,
                             'isOwningSide' => false,
-                            'sourceEntity' => 'App\\Entity\\Tricks',
+                            'sourceEntity' => 'App\\Entity\\Trick',
                             'isCascadeRemove' => false,
                             'isCascadePersist' => false,
                             'isCascadeRefresh' => false,
@@ -371,7 +456,7 @@ return [[
         []
     );
 },
-2 => static function () {
+3 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
@@ -390,7 +475,7 @@ return [[
                     'App\\Entity\\User',
                 ],
                 'customRepositoryClassName' => [
-                    'App\\Repository\\UsersRepository',
+                    'App\\Repository\\UserRepository',
                 ],
                 'identifier' => [
                     [
@@ -443,15 +528,15 @@ return [[
                             'precision' => null,
                             'columnName' => 'password',
                         ],
-                        'surname' => [
-                            'fieldName' => 'surname',
+                        'firstname' => [
+                            'fieldName' => 'firstname',
                             'type' => 'string',
                             'scale' => null,
                             'length' => 50,
                             'unique' => false,
                             'nullable' => false,
                             'precision' => null,
-                            'columnName' => 'surname',
+                            'columnName' => 'firstname',
                         ],
                         'name' => [
                             'fieldName' => 'name',
@@ -501,7 +586,7 @@ return [[
                         'email' => 'email',
                         'roles' => 'roles',
                         'password' => 'password',
-                        'surname' => 'surname',
+                        'firstname' => 'firstname',
                         'name' => 'name',
                         'picture' => 'picture',
                         'created_at' => 'createdAt',
@@ -514,7 +599,7 @@ return [[
                         'email' => 'email',
                         'roles' => 'roles',
                         'password' => 'password',
-                        'surname' => 'surname',
+                        'firstname' => 'firstname',
                         'name' => 'name',
                         'picture' => 'picture',
                         'createdAt' => 'created_at',
@@ -523,7 +608,7 @@ return [[
                 ],
                 'table' => [
                     [
-                        'name' => 'users',
+                        'name' => 'user',
                     ],
                 ],
                 'idGenerator' => [

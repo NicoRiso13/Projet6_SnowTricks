@@ -7,13 +7,13 @@
 
         <h1>Liste des figures</h1>
         {% if app.user %}
-        <div class="link-create-trick"><a class="btn btn-primary" href="{{ path('app_tricks_new') }}">Créer une nouvelle
+        <div class="link-create-trick"><a class="btn btn-primary" href="{{ path('app_trick_new') }}">Créer une nouvelle
                 figure</a>
         </div>
         {% endif %}
         {% for trick in tricks %}
             <div class="bloc-tricks">
-                <a class="info-list-trick " href="{{ path('app_tricks_show', {'id': trick.id}) }}" target="_blank">
+                <a class="info-list-trick " href="{{ path('app_trick_show', {'id': trick.id}) }}" target="_blank">
                     <h2 class="p-2 back-grey">{{ trick.name }}</h2>
                     <div class="absolute-div">
                         <h3>Voir la figure</h3>
@@ -26,12 +26,12 @@
                                 class="orange-bold-span">{{ trick.user.name }}</span></p>
                     {% if app.user %}
                         <div class="bloc-action-list-tricks">
-                            <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}" target="_blank"><img
+                            <a href="{{ path('app_trick_edit', {'id': trick.id}) }}" target="_blank"><img
                                         class="icon-card-index"
                                         alt="btn-edit"
                                         title="éditer un trick"
                                         src="/img/icons/edit.png"></a>
-                            <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img
+                            <a href="{{ path('app_trick_delete', {'id': trick.id}) }}" target="_blank"><img
                                         class="icon-card-index" alt="btn-delete"
                                         title="supprimer un trick"
                                         src="/img/icons/delete.png"></a>

@@ -93,7 +93,7 @@ class __TwigTemplate_4157ceff39ac921f0cf37d22035049dd81d390409d3e3b68be781c64528
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 9, $this->source); })()), "user", [], "any", false, false, false, 9)) {
             // line 10
             echo "        <div class=\"link-create-trick\"><a class=\"btn btn-primary\" href=\"";
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_new");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_new");
             echo "\">Créer une nouvelle
                 figure</a>
         </div>
@@ -109,7 +109,7 @@ class __TwigTemplate_4157ceff39ac921f0cf37d22035049dd81d390409d3e3b68be781c64528
             echo "            <div class=\"bloc-tricks\">
                 <a class=\"info-list-trick \" href=\"";
             // line 16
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_show", ["id" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 16)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_show", ["id" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 16)]), "html", null, true);
             echo "\" target=\"_blank\">
                     <h2 class=\"p-2 back-grey\">";
             // line 17
@@ -140,7 +140,7 @@ class __TwigTemplate_4157ceff39ac921f0cf37d22035049dd81d390409d3e3b68be781c64528
                 echo "                        <div class=\"bloc-action-list-tricks\">
                             <a href=\"";
                 // line 29
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 29)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 29)]), "html", null, true);
                 echo "\" target=\"_blank\"><img
                                         class=\"icon-card-index\"
                                         alt=\"btn-edit\"
@@ -148,7 +148,7 @@ class __TwigTemplate_4157ceff39ac921f0cf37d22035049dd81d390409d3e3b68be781c64528
                                         src=\"/img/icons/edit.png\"></a>
                             <a href=\"";
                 // line 34
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 34)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 34)]), "html", null, true);
                 echo "\" target=\"_blank\"><img
                                         class=\"icon-card-index\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
@@ -211,13 +211,13 @@ class __TwigTemplate_4157ceff39ac921f0cf37d22035049dd81d390409d3e3b68be781c64528
 
         <h1>Liste des figures</h1>
         {% if app.user %}
-        <div class=\"link-create-trick\"><a class=\"btn btn-primary\" href=\"{{ path('app_tricks_new') }}\">Créer une nouvelle
+        <div class=\"link-create-trick\"><a class=\"btn btn-primary\" href=\"{{ path('app_trick_new') }}\">Créer une nouvelle
                 figure</a>
         </div>
         {% endif %}
         {% for trick in tricks %}
             <div class=\"bloc-tricks\">
-                <a class=\"info-list-trick \" href=\"{{ path('app_tricks_show', {'id': trick.id}) }}\" target=\"_blank\">
+                <a class=\"info-list-trick \" href=\"{{ path('app_trick_show', {'id': trick.id}) }}\" target=\"_blank\">
                     <h2 class=\"p-2 back-grey\">{{ trick.name }}</h2>
                     <div class=\"absolute-div\">
                         <h3>Voir la figure</h3>
@@ -230,12 +230,12 @@ class __TwigTemplate_4157ceff39ac921f0cf37d22035049dd81d390409d3e3b68be781c64528
                                 class=\"orange-bold-span\">{{ trick.user.name }}</span></p>
                     {% if app.user %}
                         <div class=\"bloc-action-list-tricks\">
-                            <a href=\"{{ path('app_tricks_edit', {'id': trick.id}) }}\" target=\"_blank\"><img
+                            <a href=\"{{ path('app_trick_edit', {'id': trick.id}) }}\" target=\"_blank\"><img
                                         class=\"icon-card-index\"
                                         alt=\"btn-edit\"
                                         title=\"éditer un trick\"
                                         src=\"/img/icons/edit.png\"></a>
-                            <a href=\"{{ path('app_tricks_delete', {'id': trick.id}) }}\" target=\"_blank\"><img
+                            <a href=\"{{ path('app_trick_delete', {'id': trick.id}) }}\" target=\"_blank\"><img
                                         class=\"icon-card-index\" alt=\"btn-delete\"
                                         title=\"supprimer un trick\"
                                         src=\"/img/icons/delete.png\"></a>

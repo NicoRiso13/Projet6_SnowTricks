@@ -89,37 +89,16 @@ class __TwigTemplate_7126b135e5019eddc5583057f94863243f6a882a5c3925f482ec7228c6f
         echo "    <div class=\"bloc-details-tricks\">
 
         <div class=\"bloc-title-details-tricks\">
-            <div class=\"poster col-12\" style=\"background-image: url('/uploads/images/";
+            <div class=\"poster col-12\" style=\"background-image: url('/uploads/poster/";
         // line 9
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 9, $this->source); })()), "poster", [], "any", false, false, false, 9), "html", null, true);
         echo "') \">
 
-                ";
-        // line 11
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 11, $this->source); })()), "user", [], "any", false, false, false, 11)) {
-            // line 12
-            echo "                    <div class=\"bloc-icon-poster\">
-                        <a href=\"";
-            // line 13
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 13, $this->source); })()), "id", [], "any", false, false, false, 13)]), "html", null, true);
-            echo "\" ><img
-                                    class=\"icon-card-show-details\" alt=\"btn-edit\" title=\"éditer un trick\"
-                                    src=\"/img/icons/edit.png\"></a>
-                        <a href=\"";
-            // line 16
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 16, $this->source); })()), "id", [], "any", false, false, false, 16)]), "html", null, true);
-            echo "\" target=\"_blank\"><img
-                                    class=\"icon-card-show-details\" alt=\"btn-delete\"
-                                    title=\"supprimer un trick\"
-                                    src=\"/img/icons/delete.png\"></a>
-                    </div>
-                ";
-        }
-        // line 22
-        echo "                <div class=\"title-poster \">
+
+                <div class=\"title-poster \">
                     <h1>";
-        // line 23
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 23, $this->source); })()), "name", [], "any", false, false, false, 23), "html", null, true);
+        // line 13
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 13, $this->source); })()), "name", [], "any", false, false, false, 13), "html", null, true);
         echo "</h1>
                 </div>
             </div>
@@ -128,36 +107,36 @@ class __TwigTemplate_7126b135e5019eddc5583057f94863243f6a882a5c3925f482ec7228c6f
         <div class=\"bloc-info-details-tricks\">
             <p class=\"info-tricks col-xl-3 col-lg-3 col-sm-3\">créé le
                 : ";
-        // line 30
-        ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 30, $this->source); })()), "createdAt", [], "any", false, false, false, 30)) ? (print (twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatDateTime($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 30, $this->source); })()), "createdAt", [], "any", false, false, false, 30), "medium", "medium", "dd MMMM YYYY", null, "gregorian", "fr"), "html", null, true))) : (print ("")));
+        // line 20
+        ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 20, $this->source); })()), "createdAt", [], "any", false, false, false, 20)) ? (print (twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatDateTime($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 20, $this->source); })()), "createdAt", [], "any", false, false, false, 20), "medium", "medium", "dd MMMM YYYY", null, "gregorian", "fr"), "html", null, true))) : (print ("")));
         echo " par <span
                         class=\"orange-bold-span\">";
-        // line 31
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 31, $this->source); })()), "user", [], "any", false, false, false, 31), "name", [], "any", false, false, false, 31), "html", null, true);
+        // line 21
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 21, $this->source); })()), "user", [], "any", false, false, false, 21), "name", [], "any", false, false, false, 21), "html", null, true);
         echo "</span></p>
             ";
-        // line 32
-        if (twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 32, $this->source); })()), "modifiedAT", [], "any", false, false, false, 32))) {
-            // line 33
+        // line 22
+        if (twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 22, $this->source); })()), "modifiedAT", [], "any", false, false, false, 22))) {
+            // line 23
             echo "                <p class=\"info-tricks col-xl-3 col-lg-3 col-sm-3\">Aucune modification n'a été effectuée</p>
             ";
         }
-        // line 35
+        // line 25
         echo "            ";
-        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 35, $this->source); })()), "modifiedAT", [], "any", false, false, false, 35))) {
-            // line 36
+        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 25, $this->source); })()), "modifiedAT", [], "any", false, false, false, 25))) {
+            // line 26
             echo "                <p class=\"info-tricks col-xl-3 col-lg-3 col-sm-3\">Dernière modification le
                     : ";
-            // line 37
-            ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 37, $this->source); })()), "modifiedAt", [], "any", false, false, false, 37)) ? (print (twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatDateTime($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 37, $this->source); })()), "modifiedAt", [], "any", false, false, false, 37), "medium", "medium", "", null, "gregorian", "fr"), "html", null, true))) : (print ("")));
+            // line 27
+            ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 27, $this->source); })()), "modifiedAt", [], "any", false, false, false, 27)) ? (print (twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatDateTime($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 27, $this->source); })()), "modifiedAt", [], "any", false, false, false, 27), "medium", "medium", "", null, "gregorian", "fr"), "html", null, true))) : (print ("")));
             echo "</p>
             ";
         }
-        // line 39
+        // line 29
         echo "            <p class=\"info-tricks col-xl-3 col-lg-3 col-sm-3\">Catégorie : <span
                         class=\"orange-bold-span\"> ";
-        // line 40
-        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 40, $this->source); })()), "categorie", [], "any", false, false, false, 40)), "html", null, true);
+        // line 30
+        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 30, $this->source); })()), "categorie", [], "any", false, false, false, 30)), "html", null, true);
         echo "</span></p>
         </div>
 
@@ -167,44 +146,44 @@ class __TwigTemplate_7126b135e5019eddc5583057f94863243f6a882a5c3925f482ec7228c6f
 
     <div class=\"form-edit-tricks \">
         ";
-        // line 48
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 48, $this->source); })()), 'form_start');
+        // line 38
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 38, $this->source); })()), 'form_start');
         echo "
         <div class=\"div-form-edit-trick\">";
-        // line 49
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 49, $this->source); })()), "name", [], "any", false, false, false, 49), 'row');
+        // line 39
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 39, $this->source); })()), "name", [], "any", false, false, false, 39), 'row');
         echo "</div>
         <div class=\"div-form-edit-trick-description\">";
-        // line 50
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 50, $this->source); })()), "description", [], "any", false, false, false, 50), 'row');
+        // line 40
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 40, $this->source); })()), "description", [], "any", false, false, false, 40), 'row');
         echo "</div>
         <div class=\"div-form-edit-trick\">";
-        // line 51
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 51, $this->source); })()), "imageFile", [], "any", false, false, false, 51), 'row');
+        // line 41
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 41, $this->source); })()), "imageFile", [], "any", false, false, false, 41), 'row');
         echo "</div>
         <div class=\"div-form-edit-trick\">";
-        // line 52
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 52, $this->source); })()), "categorie", [], "any", false, false, false, 52), 'row');
+        // line 42
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 42, $this->source); })()), "categorie", [], "any", false, false, false, 42), 'row');
         echo "</div>
         <div class=\"form-button\">
             <button class=\"btn btn-primary\">";
-        // line 54
-        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 54, $this->source); })()), "Mettre à jour")) : ("Mettre à jour")), "html", null, true);
+        // line 44
+        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 44, $this->source); })()), "Mettre à jour")) : ("Mettre à jour")), "html", null, true);
         echo "</button>
         </div>
         ";
-        // line 56
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 56, $this->source); })()), 'form_end');
+        // line 46
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 46, $this->source); })()), 'form_end');
         echo "
     </div>
 
     <div class=\"link-list\"><a href=\"";
-        // line 59
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_index");
+        // line 49
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_index");
         echo "\">Retour à la liste des figures</a></div>
 
     <div class=\"link-delete\">";
-        // line 61
+        // line 51
         echo twig_include($this->env, $context, "tricks/_delete_form.html.twig");
         echo "</div>
 ";
@@ -228,7 +207,7 @@ class __TwigTemplate_7126b135e5019eddc5583057f94863243f6a882a5c3925f482ec7228c6f
 
     public function getDebugInfo()
     {
-        return array (  208 => 61,  203 => 59,  197 => 56,  192 => 54,  187 => 52,  183 => 51,  179 => 50,  175 => 49,  171 => 48,  160 => 40,  157 => 39,  152 => 37,  149 => 36,  146 => 35,  142 => 33,  140 => 32,  136 => 31,  132 => 30,  122 => 23,  119 => 22,  110 => 16,  104 => 13,  101 => 12,  99 => 11,  94 => 9,  89 => 6,  79 => 5,  59 => 3,  36 => 1,);
+        return array (  187 => 51,  182 => 49,  176 => 46,  171 => 44,  166 => 42,  162 => 41,  158 => 40,  154 => 39,  150 => 38,  139 => 30,  136 => 29,  131 => 27,  128 => 26,  125 => 25,  121 => 23,  119 => 22,  115 => 21,  111 => 20,  101 => 13,  94 => 9,  89 => 6,  79 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -241,19 +220,9 @@ class __TwigTemplate_7126b135e5019eddc5583057f94863243f6a882a5c3925f482ec7228c6f
     <div class=\"bloc-details-tricks\">
 
         <div class=\"bloc-title-details-tricks\">
-            <div class=\"poster col-12\" style=\"background-image: url('/uploads/images/{{ trick.poster }}') \">
+            <div class=\"poster col-12\" style=\"background-image: url('/uploads/poster/{{ trick.poster }}') \">
 
-                {% if app.user %}
-                    <div class=\"bloc-icon-poster\">
-                        <a href=\"{{ path('app_tricks_edit', {'id': trick.id}) }}\" ><img
-                                    class=\"icon-card-show-details\" alt=\"btn-edit\" title=\"éditer un trick\"
-                                    src=\"/img/icons/edit.png\"></a>
-                        <a href=\"{{ path('app_tricks_delete', {'id': trick.id}) }}\" target=\"_blank\"><img
-                                    class=\"icon-card-show-details\" alt=\"btn-delete\"
-                                    title=\"supprimer un trick\"
-                                    src=\"/img/icons/delete.png\"></a>
-                    </div>
-                {% endif %}
+
                 <div class=\"title-poster \">
                     <h1>{{ trick.name }}</h1>
                 </div>
@@ -291,7 +260,7 @@ class __TwigTemplate_7126b135e5019eddc5583057f94863243f6a882a5c3925f482ec7228c6f
         {{ form_end(form) }}
     </div>
 
-    <div class=\"link-list\"><a href=\"{{ path('app_tricks_index') }}\">Retour à la liste des figures</a></div>
+    <div class=\"link-list\"><a href=\"{{ path('app_trick_index') }}\">Retour à la liste des figures</a></div>
 
     <div class=\"link-delete\">{{ include('tricks/_delete_form.html.twig') }}</div>
 {% endblock %}

@@ -507,6 +507,13 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Controller\CommentaryController" class="App\Controller\CommentaryController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.GNc8e5B.App\Controller\CommentaryController"/>
+      </call>
+    </service>
     <service id="App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -519,6 +526,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.GNc8e5B.App\Controller\LoginController"/>
+      </call>
+    </service>
+    <service id="App\Controller\MediasController" class="App\Controller\MediasController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.GNc8e5B.App\Controller\MediasController"/>
       </call>
     </service>
     <service id="App\Controller\RegistrationController" class="App\Controller\RegistrationController" public="true" autowire="true" autoconfigure="true">
@@ -536,14 +550,21 @@
         <argument type="service" id=".service_locator.GNc8e5B.App\Controller\TricksController"/>
       </call>
     </service>
+    <service id="App\DTO\CommentaryDto" class="App\DTO\CommentaryDto" autowire="true" autoconfigure="true"/>
     <service id="App\DTO\TricksDto" class="App\DTO\TricksDto" autowire="true" autoconfigure="true"/>
+    <service id="App\Form\CommentaryType" class="App\Form\CommentaryType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\MediasType" class="App\Form\MediasType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\TricksFormType" class="App\Form\TricksFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Repository\CommentarysRepository" class="App\Repository\CommentarysRepository" autowire="true" autoconfigure="true">
+    <service id="App\Repository\CommentaryRepository" class="App\Repository\CommentaryRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -1386,6 +1407,8 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\CommentaryType</argument>
+        <argument>App\Form\MediasType</argument>
         <argument>App\Form\RegistrationFormType</argument>
         <argument>App\Form\TricksFormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
@@ -3737,7 +3760,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.79p6Jin"/>
+      <argument type="service" id=".service_locator.WcER2Hl"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4653,7 +4676,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.j40g7yP"/>
+      <argument type="service" id=".service_locator.V.DQWgi"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -7720,24 +7743,34 @@
       <argument type="service" id="symfonycasts.verify_email.token_generator"/>
       <argument>3600</argument>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CommentaryController" class="App\Controller\CommentaryController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CommentaryController" class="App\Controller\CommentaryController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CommentaryController" class="App\Controller\CommentaryController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LoginController" class="App\Controller\LoginController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LoginController" class="App\Controller\LoginController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\LoginController" class="App\Controller\LoginController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MediasController" class="App\Controller\MediasController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MediasController" class="App\Controller\MediasController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\MediasController" class="App\Controller\MediasController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TricksController" class="App\Controller\TricksController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TricksController" class="App\Controller\TricksController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\TricksController" class="App\Controller\TricksController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CommentaryType" class="App\Form\CommentaryType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CommentaryType" class="App\Form\CommentaryType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MediasType" class="App\Form\MediasType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\MediasType" class="App\Form\MediasType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TricksFormType" class="App\Form\TricksFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\TricksFormType" class="App\Form\TricksFormType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommentarysRepository" class="App\Repository\CommentarysRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\CommentarysRepository" class="App\Repository\CommentarysRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommentaryRepository" class="App\Repository\CommentaryRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CommentaryRepository" class="App\Repository\CommentaryRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MediasRepository" class="App\Repository\MediasRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\MediasRepository" class="App\Repository\MediasRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TricksRepository" class="App\Repository\TricksRepository" autowire="true" abstract="true"/>
@@ -8118,6 +8151,25 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
+    <service id=".service_locator.VG8fgSq" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="commentarysRepository" type="service_closure" id="App\Repository\CommentaryRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.darfCsK" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="commentary" type="service_closure" id=".errored..service_locator.darfCsK.App\Entity\Commentary"/>
+      </argument>
+    </service>
+    <service id=".service_locator.TiZPFxn" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="commentary" type="service_closure" id=".errored..service_locator.TiZPFxn.App\Entity\Commentary"/>
+        <argument key="commentarysRepository" type="service_closure" id="App\Repository\CommentaryRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.4ZU5zm2" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8128,6 +8180,25 @@
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
+      </argument>
+    </service>
+    <service id=".service_locator.V1KEb4E" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="mediasRepository" type="service_closure" id="App\Repository\MediasRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.UaeJ5Px" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="media" type="service_closure" id=".errored..service_locator.UaeJ5Px.App\Entity\Media"/>
+      </argument>
+    </service>
+    <service id=".service_locator.WyxO2ta" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="media" type="service_closure" id=".errored..service_locator.WyxO2ta.App\Entity\Media"/>
+        <argument key="mediasRepository" type="service_closure" id="App\Repository\MediasRepository"/>
       </argument>
     </service>
     <service id=".service_locator.W1hlQDJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -8145,12 +8216,6 @@
         <argument key="translator" type="service_closure" id="translator.data_collector"/>
       </argument>
     </service>
-    <service id=".service_locator.hAV0MEA" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="trick" type="service_closure" id=".errored..service_locator.hAV0MEA.App\Entity\Tricks"/>
-      </argument>
-    </service>
     <service id=".service_locator.hZX6e_L" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8158,46 +8223,67 @@
         <argument key="tricksRepository" type="service_closure" id="App\Repository\TricksRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.Gmkk6NY" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.gsGUEOT" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="slugger" type="service_closure" id="slugger"/>
-        <argument key="trick" type="service_closure" id=".errored..service_locator.Gmkk6NY.App\Entity\Tricks"/>
+        <argument key="trick" type="service_closure" id=".errored..service_locator.gsGUEOT.App\Entity\Trick"/>
         <argument key="tricksRepository" type="service_closure" id="App\Repository\TricksRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.B27dF8z" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.PtYfkb." class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="trick" type="service_closure" id=".errored..service_locator.B27dF8z.App\Entity\Tricks"/>
+        <argument key="commentaryRepository" type="service_closure" id="App\Repository\CommentaryRepository"/>
+        <argument key="trick" type="service_closure" id=".errored..service_locator.PtYfkb..App\Entity\Trick"/>
+      </argument>
+    </service>
+    <service id=".service_locator.H1Uqm_u" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="trick" type="service_closure" id=".errored..service_locator.H1Uqm_u.App\Entity\Trick"/>
         <argument key="tricksRepository" type="service_closure" id="App\Repository\TricksRepository"/>
       </argument>
     </service>
-    <service id=".service_locator._E7cC_A" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.bd1r.gT" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\CommentaryController::delete" type="service_closure" id=".service_locator.TiZPFxn"/>
+        <argument key="App\Controller\CommentaryController::index" type="service_closure" id=".service_locator.VG8fgSq"/>
+        <argument key="App\Controller\CommentaryController::show" type="service_closure" id=".service_locator.darfCsK"/>
         <argument key="App\Controller\HomeController::home" type="service_closure" id=".service_locator.4ZU5zm2"/>
         <argument key="App\Controller\LoginController::login" type="service_closure" id=".service_locator.UDgw6Ol"/>
+        <argument key="App\Controller\MediasController::delete" type="service_closure" id=".service_locator.WyxO2ta"/>
+        <argument key="App\Controller\MediasController::edit" type="service_closure" id=".service_locator.WyxO2ta"/>
+        <argument key="App\Controller\MediasController::new" type="service_closure" id=".service_locator.V1KEb4E"/>
+        <argument key="App\Controller\MediasController::show" type="service_closure" id=".service_locator.UaeJ5Px"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.W1hlQDJ"/>
         <argument key="App\Controller\RegistrationController::verifyUserEmail" type="service_closure" id=".service_locator.mzjt3rI"/>
-        <argument key="App\Controller\TricksController::delete" type="service_closure" id=".service_locator.B27dF8z"/>
-        <argument key="App\Controller\TricksController::edit" type="service_closure" id=".service_locator.Gmkk6NY"/>
+        <argument key="App\Controller\TricksController::delete" type="service_closure" id=".service_locator.H1Uqm_u"/>
+        <argument key="App\Controller\TricksController::edit" type="service_closure" id=".service_locator.gsGUEOT"/>
         <argument key="App\Controller\TricksController::index" type="service_closure" id=".service_locator.4ZU5zm2"/>
         <argument key="App\Controller\TricksController::new" type="service_closure" id=".service_locator.hZX6e_L"/>
-        <argument key="App\Controller\TricksController::show" type="service_closure" id=".service_locator.hAV0MEA"/>
+        <argument key="App\Controller\TricksController::show" type="service_closure" id=".service_locator.PtYfkb."/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
+        <argument key="App\Controller\CommentaryController:delete" type="service_closure" id=".service_locator.TiZPFxn"/>
+        <argument key="App\Controller\CommentaryController:index" type="service_closure" id=".service_locator.VG8fgSq"/>
+        <argument key="App\Controller\CommentaryController:show" type="service_closure" id=".service_locator.darfCsK"/>
         <argument key="App\Controller\HomeController:home" type="service_closure" id=".service_locator.4ZU5zm2"/>
         <argument key="App\Controller\LoginController:login" type="service_closure" id=".service_locator.UDgw6Ol"/>
+        <argument key="App\Controller\MediasController:delete" type="service_closure" id=".service_locator.WyxO2ta"/>
+        <argument key="App\Controller\MediasController:edit" type="service_closure" id=".service_locator.WyxO2ta"/>
+        <argument key="App\Controller\MediasController:new" type="service_closure" id=".service_locator.V1KEb4E"/>
+        <argument key="App\Controller\MediasController:show" type="service_closure" id=".service_locator.UaeJ5Px"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.W1hlQDJ"/>
         <argument key="App\Controller\RegistrationController:verifyUserEmail" type="service_closure" id=".service_locator.mzjt3rI"/>
-        <argument key="App\Controller\TricksController:delete" type="service_closure" id=".service_locator.B27dF8z"/>
-        <argument key="App\Controller\TricksController:edit" type="service_closure" id=".service_locator.Gmkk6NY"/>
+        <argument key="App\Controller\TricksController:delete" type="service_closure" id=".service_locator.H1Uqm_u"/>
+        <argument key="App\Controller\TricksController:edit" type="service_closure" id=".service_locator.gsGUEOT"/>
         <argument key="App\Controller\TricksController:index" type="service_closure" id=".service_locator.4ZU5zm2"/>
         <argument key="App\Controller\TricksController:new" type="service_closure" id=".service_locator.hZX6e_L"/>
-        <argument key="App\Controller\TricksController:show" type="service_closure" id=".service_locator.hAV0MEA"/>
+        <argument key="App\Controller\TricksController:show" type="service_closure" id=".service_locator.PtYfkb."/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
       </argument>
@@ -8261,9 +8347,11 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.79p6Jin" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.WcER2Hl" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\CommentaryType" type="service_closure" id="App\Form\CommentaryType"/>
+        <argument key="App\Form\MediasType" type="service_closure" id="App\Form\MediasType"/>
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
         <argument key="App\Form\TricksFormType" type="service_closure" id="App\Form\TricksFormType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
@@ -8351,10 +8439,10 @@
         <argument key="doctrine.orm.messenger.doctrine_schema_subscriber" type="service_closure" id="doctrine.orm.messenger.doctrine_schema_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.j40g7yP" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.V.DQWgi" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Repository\CommentarysRepository" type="service_closure" id="App\Repository\CommentarysRepository"/>
+        <argument key="App\Repository\CommentaryRepository" type="service_closure" id="App\Repository\CommentaryRepository"/>
         <argument key="App\Repository\MediasRepository" type="service_closure" id="App\Repository\MediasRepository"/>
         <argument key="App\Repository\TricksRepository" type="service_closure" id="App\Repository\TricksRepository"/>
         <argument key="App\Repository\UserRepository" type="service_closure" id="App\Repository\UserRepository"/>
@@ -8626,6 +8714,12 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.GNc8e5B.App\Controller\CommentaryController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\CommentaryController"/>
+      <argument>App\Controller\CommentaryController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.GNc8e5B" method="withContext"/>
+    </service>
     <service id=".service_locator.GNc8e5B.App\Controller\HomeController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\HomeController"/>
       <argument>App\Controller\HomeController</argument>
@@ -8635,6 +8729,12 @@
     <service id=".service_locator.GNc8e5B.App\Controller\LoginController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\LoginController"/>
       <argument>App\Controller\LoginController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.GNc8e5B" method="withContext"/>
+    </service>
+    <service id=".service_locator.GNc8e5B.App\Controller\MediasController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MediasController"/>
+      <argument>App\Controller\MediasController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.GNc8e5B" method="withContext"/>
     </service>
@@ -8878,12 +8978,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator._E7cC_A"/>
+      <argument type="service" id=".service_locator.bd1r.gT"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator._E7cC_A"/>
+      <argument type="service" id=".service_locator.bd1r.gT"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8955,9 +9055,13 @@
       <argument type="service" id="api_platform.identifiers_extractor.cached"/>
     </service>
     <service id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
-    <service id=".errored..service_locator.hAV0MEA.App\Entity\Tricks" class="App\Entity\Tricks"/>
-    <service id=".errored..service_locator.Gmkk6NY.App\Entity\Tricks" class="App\Entity\Tricks"/>
-    <service id=".errored..service_locator.B27dF8z.App\Entity\Tricks" class="App\Entity\Tricks"/>
+    <service id=".errored..service_locator.darfCsK.App\Entity\Commentary" class="App\Entity\Commentary"/>
+    <service id=".errored..service_locator.TiZPFxn.App\Entity\Commentary" class="App\Entity\Commentary"/>
+    <service id=".errored..service_locator.UaeJ5Px.App\Entity\Media" class="App\Entity\Media"/>
+    <service id=".errored..service_locator.WyxO2ta.App\Entity\Media" class="App\Entity\Media"/>
+    <service id=".errored..service_locator.gsGUEOT.App\Entity\Trick" class="App\Entity\Trick"/>
+    <service id=".errored..service_locator.PtYfkb..App\Entity\Trick" class="App\Entity\Trick"/>
+    <service id=".errored..service_locator.H1Uqm_u.App\Entity\Trick" class="App\Entity\Trick"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -10078,7 +10182,7 @@
     <service id="SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface" alias="symfonycasts.verify_email.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator._E7cC_A"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.bd1r.gT"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -10107,10 +10211,11 @@
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.P1mK_tE" alias=".service_locator.W1hlQDJ"/>
     <service id=".service_locator.3ieA.0X" alias=".service_locator.hZX6e_L"/>
-    <service id=".service_locator.Rug.MCt" alias=".service_locator.Gmkk6NY"/>
-    <service id=".service_locator.6o_eGxN" alias=".service_locator._E7cC_A"/>
+    <service id=".service_locator.uwhSryt" alias=".service_locator.gsGUEOT"/>
+    <service id=".service_locator.4fd7h96" alias=".service_locator.PtYfkb."/>
+    <service id=".service_locator.Ynpl5Ng" alias=".service_locator.bd1r.gT"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
-    <service id=".service_locator.Nu1mk0j" alias=".service_locator.79p6Jin"/>
+    <service id=".service_locator.Ig_TnxV" alias=".service_locator.WcER2Hl"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.W9y3dzm" alias=".service_locator.GNc8e5B"/>
@@ -10173,14 +10278,20 @@
     <service id="api_platform.metadata.property.metadata_factory.cached.legacy.inner" alias="api_platform.metadata.property.metadata_factory.validator.legacy"/>
     <service id="api_platform.subresource_operation_factory" alias="api_platform.subresource_operation_factory.cached"/>
     <service id=".service_locator.JBAFp66" alias=".service_locator.KfbR3DY"/>
+    <service id=".service_locator.kAzwMYB" alias=".service_locator.VG8fgSq"/>
+    <service id=".service_locator.6vWFpaz" alias=".service_locator.darfCsK"/>
+    <service id=".service_locator.DLc_hGw" alias=".service_locator.TiZPFxn"/>
     <service id=".service_locator.6KyDHhI" alias=".service_locator.4ZU5zm2"/>
     <service id=".service_locator.kXCVHeG" alias=".service_locator.UDgw6Ol"/>
+    <service id=".service_locator.EvmvW5r" alias=".service_locator.V1KEb4E"/>
+    <service id=".service_locator.6dTMkY_" alias=".service_locator.UaeJ5Px"/>
+    <service id=".service_locator.WnMZdvH" alias=".service_locator.WyxO2ta"/>
     <service id=".service_locator..r1ONPN" alias=".service_locator.W1hlQDJ"/>
     <service id=".service_locator.x2Wrf61" alias=".service_locator.mzjt3rI"/>
-    <service id=".service_locator.OzbLfhU" alias=".service_locator.hAV0MEA"/>
     <service id=".service_locator.NK.eu6G" alias=".service_locator.hZX6e_L"/>
-    <service id=".service_locator.f7g1ivT" alias=".service_locator.Gmkk6NY"/>
-    <service id=".service_locator.QH96sP1" alias=".service_locator.B27dF8z"/>
+    <service id=".service_locator.gxnVK4P" alias=".service_locator.gsGUEOT"/>
+    <service id=".service_locator.CDoZyHt" alias=".service_locator.PtYfkb."/>
+    <service id=".service_locator.P6mAS6i" alias=".service_locator.H1Uqm_u"/>
     <service id=".service_locator.Wd_D6Iy" alias=".service_locator.GNc8e5B"/>
     <service id=".service_locator.L0rFhJm" alias=".service_locator.GVyCdgr"/>
     <service id=".service_locator.9YCWxeJ" alias=".service_locator.dw8O4oN"/>

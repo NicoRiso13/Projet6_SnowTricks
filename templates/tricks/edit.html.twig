@@ -6,19 +6,9 @@
     <div class="bloc-details-tricks">
 
         <div class="bloc-title-details-tricks">
-            <div class="poster col-12" style="background-image: url('/uploads/images/{{ trick.poster }}') ">
+            <div class="poster col-12" style="background-image: url('/uploads/poster/{{ trick.poster }}') ">
 
-                {% if app.user %}
-                    <div class="bloc-icon-poster">
-                        <a href="{{ path('app_tricks_edit', {'id': trick.id}) }}" ><img
-                                    class="icon-card-show-details" alt="btn-edit" title="éditer un trick"
-                                    src="/img/icons/edit.png"></a>
-                        <a href="{{ path('app_tricks_delete', {'id': trick.id}) }}" target="_blank"><img
-                                    class="icon-card-show-details" alt="btn-delete"
-                                    title="supprimer un trick"
-                                    src="/img/icons/delete.png"></a>
-                    </div>
-                {% endif %}
+
                 <div class="title-poster ">
                     <h1>{{ trick.name }}</h1>
                 </div>
@@ -56,7 +46,7 @@
         {{ form_end(form) }}
     </div>
 
-    <div class="link-list"><a href="{{ path('app_tricks_index') }}">Retour à la liste des figures</a></div>
+    <div class="link-list"><a href="{{ path('app_trick_index') }}">Retour à la liste des figures</a></div>
 
     <div class="link-delete">{{ include('tricks/_delete_form.html.twig') }}</div>
 {% endblock %}

@@ -96,7 +96,7 @@ class __TwigTemplate_aced4a50363a5c9ae93591e85f1454a24c76b2c1480cfc5ae63d594d966
 
         <div class=\"link-list\"><a href=\"";
         // line 12
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_index");
         echo "\">Retour à la liste des figures</a></div>
 
     </div>
@@ -137,7 +137,7 @@ class __TwigTemplate_aced4a50363a5c9ae93591e85f1454a24c76b2c1480cfc5ae63d594d966
 
         {{ include('tricks/_form.html.twig', {'button_label': 'Créer la figure'}) }}
 
-        <div class=\"link-list\"><a href=\"{{ path('app_tricks_index') }}\">Retour à la liste des figures</a></div>
+        <div class=\"link-list\"><a href=\"{{ path('app_trick_index') }}\">Retour à la liste des figures</a></div>
 
     </div>
 {% endblock %}
