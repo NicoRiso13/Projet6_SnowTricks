@@ -11,7 +11,6 @@ use App\Form\CommentaryType;
 use App\Form\TricksFormType;
 use App\Repository\CommentaryRepository;
 use App\Repository\TricksRepository;
-use Doctrine\ORM\Mapping\OrderBy;
 use Monolog\DateTimeImmutable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
@@ -136,7 +135,7 @@ class TricksController extends AbstractController
     /**
      * @Route("/{id}", name="app_trick_show", methods={"GET","POST"})
      */
-    public function show(Trick $trick, Request $request, CommentaryRepository $commentaryRepository): Response
+    public function show(Trick $trick, Request $request, CommentaryRepository $commentaryRepository, User $user): Response
     {
 
         $form = $this->createForm(CommentaryType::class);
@@ -153,10 +152,11 @@ class TricksController extends AbstractController
             $commentary = new Commentary($user,$trick,$data->comment);
             $commentaryRepository->add($commentary, true);
             $this->addFlash('success', 'Le commentaire a été ajouté avec succès !');
-            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);
+            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId(), ]);
 
         }
         return $this->render('tricks/show.html.twig', [
+            'user' => $user,
             'trick' => $trick,
             'formCommentary' => $form->createView(),
         ]);

@@ -61,7 +61,7 @@ class __TwigTemplate_f5eed20d0ef39fe1a19c6a9397ae2635beeef62f1056f96ee274f618e90
                     <p class=\"connected\">Connecté avec le compte :<span
                                 class=\"user-email\">";
             // line 17
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 17, $this->source); })()), "user", [], "any", false, false, false, 17), "userIdentifier", [], "any", false, false, false, 17), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $this->extensions['Twig\Extra\String\StringExtension']->createUnicodeString(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 17, $this->source); })()), "user", [], "any", false, false, false, 17), "userIdentifier", [], "any", false, false, false, 17)), "truncate", [0 => 15, 1 => "..."], "method", false, false, false, 17), "html", null, true);
             echo "</span></p>
                     <p class=\"connected-pseudo\"></p>
 
@@ -117,11 +117,17 @@ class __TwigTemplate_f5eed20d0ef39fe1a19c6a9397ae2635beeef62f1056f96ee274f618e90
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 53, $this->source); })()), "user", [], "any", false, false, false, 53)) {
             // line 54
             echo "                    <li class=\"nav-item\">
+                        <a class=\"nav-link \" href=\"";
+            // line 55
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_show", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 55, $this->source); })()), "user", [], "any", false, false, false, 55), "id", [], "any", false, false, false, 55)]), "html", null, true);
+            echo "\">Mon compte</a>
+                    </li>
+                    <li class=\"nav-item\">
                         <a class=\"nav-link \" href=\"/logout\">Se déconnecter</a>
                     </li>
                 ";
         }
-        // line 58
+        // line 61
         echo "
 
             </ul>
@@ -150,7 +156,7 @@ class __TwigTemplate_f5eed20d0ef39fe1a19c6a9397ae2635beeef62f1056f96ee274f618e90
 
     public function getDebugInfo()
     {
-        return array (  125 => 58,  119 => 54,  116 => 53,  110 => 49,  108 => 48,  103 => 46,  99 => 44,  93 => 40,  91 => 39,  72 => 22,  64 => 17,  59 => 14,  57 => 13,  43 => 1,);
+        return array (  131 => 61,  122 => 55,  119 => 54,  116 => 53,  110 => 49,  108 => 48,  103 => 46,  99 => 44,  93 => 40,  91 => 39,  72 => 22,  64 => 17,  59 => 14,  57 => 13,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -171,7 +177,7 @@ class __TwigTemplate_f5eed20d0ef39fe1a19c6a9397ae2635beeef62f1056f96ee274f618e90
                 <div class=\"bloc-connected\">
                     <img class=\"icon-Connect\" src=\"/img/icons/iconConnect.png\" alt=\"iconConnect\">
                     <p class=\"connected\">Connecté avec le compte :<span
-                                class=\"user-email\">{{ app.user.userIdentifier }}</span></p>
+                                class=\"user-email\">{{ app.user.userIdentifier | u.truncate(15,'...')}}</span></p>
                     <p class=\"connected-pseudo\"></p>
 
                 </div>
@@ -200,7 +206,7 @@ class __TwigTemplate_f5eed20d0ef39fe1a19c6a9397ae2635beeef62f1056f96ee274f618e90
                 {% endif %}
 
                 <li class=\"nav-item\">
-                    <a class=\"nav-link nav-link-active\" href=\"{{ path('app_trick_index') }}\">Les tricks</a>
+                    <a class=\"nav-link nav-link-active\" href=\"{{ path('app_trick_index')}}\">Les tricks</a>
                 </li>
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class=\"nav-item\">
@@ -208,6 +214,9 @@ class __TwigTemplate_f5eed20d0ef39fe1a19c6a9397ae2635beeef62f1056f96ee274f618e90
                     </li>
                 {% endif %}
                 {% if app.user %}
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link \" href=\"{{ path('app_user_show', {'id': app.user.id}) }}\">Mon compte</a>
+                    </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link \" href=\"/logout\">Se déconnecter</a>
                     </li>

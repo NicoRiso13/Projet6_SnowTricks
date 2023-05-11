@@ -362,48 +362,66 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
         $context['_seq'] = twig_ensure_traversable(twig_sort_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 169, $this->source); })()), "commentarys", [], "any", false, false, false, 169), function ($__a__, $__b__) use ($context, $macros) { $context["a"] = $__a__; $context["b"] = $__b__; return (twig_get_attribute($this->env, $this->source, (isset($context["b"]) || array_key_exists("b", $context) ? $context["b"] : (function () { throw new RuntimeError('Variable "b" does not exist.', 169, $this->source); })()), "createdAt", [], "any", false, false, false, 169) <=> twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new RuntimeError('Variable "a" does not exist.', 169, $this->source); })()), "createdAt", [], "any", false, false, false, 169)); }));
         foreach ($context['_seq'] as $context["_key"] => $context["commentary"]) {
             // line 170
-            echo "            <div class=\"bloc-commentary\">
-                <div class=\"float-picture\"
-                     style=\"background-image: url('/uploads/userPicture/userPicture1.png')\">
-                </div>
-                <p>";
-            // line 174
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentary"], "content", [], "any", false, false, false, 174), "html", null, true);
+            echo "                <div class=\"bloc-commentary\">
+                    ";
+            // line 171
+            if (twig_test_empty(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["commentary"], "user", [], "any", false, false, false, 171), "picture", [], "any", false, false, false, 171))) {
+                // line 172
+                echo "                        <div class=\"float-picture\"
+                             style=\"background-image: url('/uploads/userPicture/defaut_user_picture.png')\">
+                        </div>
+                    ";
+            } else {
+                // line 176
+                echo "                        <div class=\"float-picture\"
+                             style=\"background-image: url('/uploads/userPicture/";
+                // line 177
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["commentary"], "user", [], "any", false, false, false, 177), "picture", [], "any", false, false, false, 177), "html", null, true);
+                echo "')\">
+                        </div>
+                    ";
+            }
+            // line 180
+            echo "
+                    <p>";
+            // line 181
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentary"], "content", [], "any", false, false, false, 181), "html", null, true);
             echo "</p>
-                <h5>Réponse publiée par : <span class=\"span-author\">";
-            // line 175
-            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["commentary"], "user", [], "any", false, false, false, 175), "name", [], "any", false, false, false, 175)), "html", null, true);
-            echo "</span></h5>
-            </div>
+                    <h5>Réponse publiée par : <span class=\"span-author\">";
+            // line 182
+            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["commentary"], "user", [], "any", false, false, false, 182), "name", [], "any", false, false, false, 182)), "html", null, true);
+            echo "</span>
+                    </h5>
+                </div>
             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['commentary'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 178
+        // line 186
         echo "        </div>
 
 
         <div class=\"return-list\">
             <a href=\"";
-        // line 182
+        // line 190
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_index");
         echo "\">Retour à la liste des figures</a>
         </div>
         ";
-        // line 184
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 184, $this->source); })()), "user", [], "any", false, false, false, 184)) {
-            // line 185
+        // line 192
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 192, $this->source); })()), "user", [], "any", false, false, false, 192)) {
+            // line 193
             echo "            <a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 185, $this->source); })()), "id", [], "any", false, false, false, 185)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 193, $this->source); })()), "id", [], "any", false, false, false, 193)]), "html", null, true);
             echo "\">Modifier la figure</a>
             ";
-            // line 186
+            // line 194
             echo twig_include($this->env, $context, "tricks/_delete_form.html.twig");
             echo "
         ";
         }
-        // line 188
+        // line 196
         echo "    </div>
 ";
         
@@ -426,7 +444,7 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
 
     public function getDebugInfo()
     {
-        return array (  407 => 188,  402 => 186,  397 => 185,  395 => 184,  390 => 182,  384 => 178,  375 => 175,  371 => 174,  365 => 170,  360 => 169,  353 => 164,  350 => 163,  344 => 160,  340 => 159,  336 => 158,  332 => 157,  329 => 156,  327 => 155,  323 => 153,  318 => 150,  315 => 149,  310 => 147,  307 => 146,  304 => 145,  300 => 143,  298 => 142,  294 => 141,  290 => 140,  283 => 136,  267 => 123,  259 => 118,  244 => 106,  236 => 101,  221 => 89,  213 => 84,  197 => 71,  189 => 66,  184 => 64,  173 => 56,  165 => 51,  160 => 49,  149 => 41,  141 => 36,  136 => 34,  120 => 21,  117 => 20,  108 => 14,  102 => 11,  99 => 10,  97 => 9,  93 => 8,  89 => 6,  79 => 5,  59 => 3,  36 => 1,);
+        return array (  425 => 196,  420 => 194,  415 => 193,  413 => 192,  408 => 190,  402 => 186,  392 => 182,  388 => 181,  385 => 180,  379 => 177,  376 => 176,  370 => 172,  368 => 171,  365 => 170,  360 => 169,  353 => 164,  350 => 163,  344 => 160,  340 => 159,  336 => 158,  332 => 157,  329 => 156,  327 => 155,  323 => 153,  318 => 150,  315 => 149,  310 => 147,  307 => 146,  304 => 145,  300 => 143,  298 => 142,  294 => 141,  290 => 140,  283 => 136,  267 => 123,  259 => 118,  244 => 106,  236 => 101,  221 => 89,  213 => 84,  197 => 71,  189 => 66,  184 => 64,  173 => 56,  165 => 51,  160 => 49,  149 => 41,  141 => 36,  136 => 34,  120 => 21,  117 => 20,  108 => 14,  102 => 11,  99 => 10,  97 => 9,  93 => 8,  89 => 6,  79 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -577,7 +595,7 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
             {% endif %}
             {% if trick.modifiedAT is not empty %}
                 <p class=\"info-tricks col-xl-3 col-lg-3 col-sm-3\">Dernière modification le
-                    : <strong>{{ trick.modifiedAt ? trick.modifiedAt|format_datetime(locale='fr')}}</strong></p>
+                    : <strong>{{ trick.modifiedAt ? trick.modifiedAt|format_datetime(locale='fr') }}</strong></p>
             {% endif %}
             <p class=\"info-tricks col-xl-3 col-lg-3 col-sm-3\">Catégorie : <span
                         class=\"orange-bold-span\"> {{ trick.categorie | capitalize }}</span></p>
@@ -600,13 +618,21 @@ class __TwigTemplate_54b6024f2e438f3cb9e5b6a22d15e8f903c308288c8e30da857354bbfe5
                 </div>
             {% endif %}
             {% for commentary in trick.commentarys | sort((a, b) => b.createdAt <=> a.createdAt) %}
-            <div class=\"bloc-commentary\">
-                <div class=\"float-picture\"
-                     style=\"background-image: url('/uploads/userPicture/userPicture1.png')\">
+                <div class=\"bloc-commentary\">
+                    {% if commentary.user.picture is empty %}
+                        <div class=\"float-picture\"
+                             style=\"background-image: url('/uploads/userPicture/defaut_user_picture.png')\">
+                        </div>
+                    {% else %}
+                        <div class=\"float-picture\"
+                             style=\"background-image: url('/uploads/userPicture/{{ commentary.user.picture }}')\">
+                        </div>
+                    {% endif %}
+
+                    <p>{{ commentary.content }}</p>
+                    <h5>Réponse publiée par : <span class=\"span-author\">{{ commentary.user.name | capitalize }}</span>
+                    </h5>
                 </div>
-                <p>{{ commentary.content }}</p>
-                <h5>Réponse publiée par : <span class=\"span-author\">{{ commentary.user.name | capitalize}}</span></h5>
-            </div>
             {% endfor %}
         </div>
 

@@ -40,23 +40,21 @@ class __TwigTemplate_7fdad9b507830f7fc5d55320f4a8b0fe82d85fd6e4d41eb3913017f9aac
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "registration/confirmation_email.html.twig"));
 
         // line 1
-        echo "<h1>Hi! Please confirm your email!</h1>
+        echo "<h1>Confirmer mon Email</h1>
 
 <p>
-    Please confirm your email address by clicking the following link: <br><br>
+    Veuillez confirmer votre adresse e-mail en cliquant sur le lien suivant: <br><br>
     <a href=\"";
         // line 5
         echo twig_escape_filter($this->env, (isset($context["signedUrl"]) || array_key_exists("signedUrl", $context) ? $context["signedUrl"] : (function () { throw new RuntimeError('Variable "signedUrl" does not exist.', 5, $this->source); })()), "html", null, true);
-        echo "\">Confirm my Email</a>.
-    This link will expire in ";
+        echo "\">Confirmer mon Email</a>.
+    Ce lien expirera dans  ";
         // line 6
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans((isset($context["expiresAtMessageKey"]) || array_key_exists("expiresAtMessageKey", $context) ? $context["expiresAtMessageKey"] : (function () { throw new RuntimeError('Variable "expiresAtMessageKey" does not exist.', 6, $this->source); })()), (isset($context["expiresAtMessageData"]) || array_key_exists("expiresAtMessageData", $context) ? $context["expiresAtMessageData"] : (function () { throw new RuntimeError('Variable "expiresAtMessageData" does not exist.', 6, $this->source); })()), "VerifyEmailBundle"), "html", null, true);
         echo ".
 </p>
 
-<p>
-    Cheers!
-</p>
+<p>Bravo !!</p>
 ";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -83,17 +81,15 @@ class __TwigTemplate_7fdad9b507830f7fc5d55320f4a8b0fe82d85fd6e4d41eb3913017f9aac
 
     public function getSourceContext()
     {
-        return new Source("<h1>Hi! Please confirm your email!</h1>
+        return new Source("<h1>Confirmer mon Email</h1>
 
 <p>
-    Please confirm your email address by clicking the following link: <br><br>
-    <a href=\"{{ signedUrl }}\">Confirm my Email</a>.
-    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+    Veuillez confirmer votre adresse e-mail en cliquant sur le lien suivant: <br><br>
+    <a href=\"{{ signedUrl }}\">Confirmer mon Email</a>.
+    Ce lien expirera dans  {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
 </p>
 
-<p>
-    Cheers!
-</p>
+<p>Bravo !!</p>
 ", "registration/confirmation_email.html.twig", "C:\\wamp64\\www\\SnowTricks\\templates\\registration\\confirmation_email.html.twig");
     }
 }

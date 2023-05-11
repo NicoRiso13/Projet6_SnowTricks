@@ -24,14 +24,22 @@ font-family: 'Orbitron', sans-serif;
 font-family: 'Sarpanch', sans-serif;
 
 */
+
 * a {
     text-decoration: none;
     color: #1f9aff;
 }
-
 * a:hover {
     color: #ff5a00;
     transition: 0.5s;
+}
+* h1{
+    text-transform: capitalize;
+    font-family: 'Lobster Two', cursive;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #ff5a00;
 }
 
 /**************************************  ERREUR 404 **********************************************/
@@ -158,9 +166,11 @@ font-family: 'Sarpanch', sans-serif;
 .user-email {
     font-weight: bold;
     margin-left: 5px;
+    word-wrap: anywhere;
 }
 
 .bloc-connected p {
+    word-wrap: break-word;
     margin: 0 0 0 10px;
     font-family: 'Montserrat', sans-serif;
     color: white;
@@ -267,6 +277,16 @@ font-family: 'Sarpanch', sans-serif;
 .bloc-register form {
     width: 70%;
 }
+#registration-form{
+    width: 90%;
+}
+#registration-form input{
+    border: none;
+    background-color: #ececec;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    padding: 8px ;
+}
 
 .bloc-register {
     display: flex;
@@ -278,14 +298,7 @@ font-family: 'Sarpanch', sans-serif;
     border-radius: 30px;
     backdrop-filter: blur(15px);
     box-shadow: 5px 5px 25px #676767;
-}
-
-.bloc-register h1 {
-    font-family: 'Lobster Two', cursive;
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #ff5a00;
+    border: 1px solid #3b3b3b;
 }
 
 .bloc-register ul {
@@ -317,12 +330,13 @@ font-family: 'Sarpanch', sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 70px;
+    margin-bottom: 70px;
 }
 
 .btn-register {
     width: 45%;
+    line-height: 30px;
     padding: 2px 10px;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.8rem;
@@ -350,7 +364,7 @@ font-family: 'Sarpanch', sans-serif;
 }
 
 .bloc-login {
-    margin: 50px 0 50px 0;
+    margin: 70px 0 80px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -358,22 +372,21 @@ font-family: 'Sarpanch', sans-serif;
     border-radius: 30px;
     backdrop-filter: blur(15px);
     box-shadow: 5px 5px 25px #676767;
-    height: 450px;
+    border: 1px solid #3b3b3b;
+}
+#inputEmail{
+    margin-bottom: 15px;
+}
 
+.checkbox{
+    margin-top: 10px;
 }
 
 .bloc-btn-login {
     display: flex;
     justify-content: space-between;
     width: 100%;
-}
-
-.bloc-login h1 {
-    font-family: 'Lobster Two', cursive;
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 50px;
-    color: #ff5a00;
+    margin-top: 40px;
 }
 
 .login-label {
@@ -407,11 +420,11 @@ font-family: 'Sarpanch', sans-serif;
 .forget-password {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.7rem;
-    font-weight: lighter;
     text-decoration: none;
-    color: #262626;
+    color: #5b5b5b;
     text-align: center;
-    margin-bottom: 15px;
+    margin-top: 10px;
+
 }
 
 .create-account-text, .create-account-link {
@@ -480,6 +493,7 @@ font-family: 'Sarpanch', sans-serif;
     position: absolute;
     box-sizing: border-box;
     padding: 50px;
+    top: 10vw;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 15px;
     text-align: center;
@@ -621,6 +635,11 @@ font-family: 'Sarpanch', sans-serif;
     color: #343434;
 }
 
+
+/****************************************************************************************************
+***************************************  SECTION TRICKS  **********************************************
+****************************************************************************************************/
+
 /**************************************  SECTION FORM TRICKS **************************************/
 
 .form-tricks {
@@ -639,14 +658,6 @@ font-family: 'Sarpanch', sans-serif;
     flex-direction: column;
     align-items: center;
     padding: 25px;
-}
-
-.bloc-index-trick h1 {
-    font-family: 'Lobster Two', cursive;
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 50px;
-    color: #ff5a00;
 }
 
 .bloc-tricks {
@@ -910,15 +921,18 @@ font-family: 'Sarpanch', sans-serif;
     border-radius: 15px 15px 0 0;
     font-size: 3vw;
 }
+
 .bloc-title-description h3 {
     font-size: 1.7rem;
 }
+
 .bloc-description-tricks p {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
     margin: 20px auto;
     width: 90%;
 }
+
 .bloc-info-details-tricks {
     display: flex;
     justify-content: space-evenly;
@@ -927,78 +941,95 @@ font-family: 'Sarpanch', sans-serif;
     font-size: 0.8rem;
     margin-bottom: 25px;
 }
+
 .info-tricks {
     margin: 10px 5px 10px 5px;
 }
+
 .orange-bold-span {
     color: #ff6a00;
     font-weight: bold;
 }
+
 .return-list {
     margin: 45px auto;
 }
-.section-trick-commentarys{
+
+.section-trick-commentarys {
     margin-top: 45px;
 }
+
 .section-trick-commentarys h4 {
     color: #FFFFFF;
     font-family: 'Montserrat', sans-serif;
     background-color: #0d6efd;
-    line-height: 50px;
+    line-height: 30px;
+    padding: 15px 0;
     width: 100%;
 }
-.section-message-connect-commentary{
+
+.section-message-connect-commentary {
     margin-bottom: 100px;
 }
+
 .label-commentary {
     font-family: 'Montserrat', sans-serif;
     margin: 15px auto;
 }
+
 .btn-valid-commentary {
     margin-top: 15px;
 }
+
 .message-connect-commentary {
     font-family: 'Montserrat', sans-serif;
 }
+
 .message-connect-commentary a {
     font-family: 'Lobster Two', cursive;
     font-size: 1.2rem;
 }
+
 .bloc-commentary {
     box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.3);
     border-top: 1px solid #3d3d3d;
     margin-top: 50px;
     background-color: #e1e1e1;
 }
-.content-commentary label{
-    font-family: 'Montserrat', sans-serif;
-    margin-top: 25px;
-}
-#commentary_comment{
-    width: 100%;
 
+.content-commentary label {
+    display: none;
 }
-#commentary_comment:focus{
+
+#commentary_comment {
+    width: 100%;
+    padding: 10px;
+}
+
+#commentary_comment:focus {
     background-color: #f3f3f3;
 }
-.float-picture{
+
+.float-picture {
     float: left;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 50px;
     top: -20px;
-    margin: 5px ;
+    margin: 5px;
     width: 80px;
     height: 80px;
     border: 3px solid #ff5a00;
 
 }
-.bloc-commentary p{
-    margin:0;
+
+.bloc-commentary p {
+    margin: 0;
     padding: 15px;
     text-align: justify;
 }
+
 .bloc-commentary h5 {
     color: #FFFFFF;
     clear: left;
@@ -1019,14 +1050,6 @@ font-family: 'Sarpanch', sans-serif;
 
 .bloc-new-trick {
     padding: 15px;
-}
-
-.bloc-new-trick h1 {
-    font-family: 'Lobster Two', cursive;
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 50px;
-    color: #ff5a00;
 }
 
 #tricks_form_description, #tricks_form_name, #tricks_form_imageFile, #tricks_form_categorie {
@@ -1073,23 +1096,228 @@ font-family: 'Sarpanch', sans-serif;
     margin: 0 auto 25px auto;
     width: 90%;
 }
-.div-form-edit-trick label{
+
+.div-form-edit-trick label {
     font-weight: bold;
 }
-.div-form-edit-trick-description label{
+
+.div-form-edit-trick-description label {
     font-weight: bold;
 }
 
 
+/****************************************************************************************************
+***************************************  SECTION USER **********************************************
+****************************************************************************************************/
+
+/************************************ SECTION DETAILS USER ******************************************/
+
+.bloc-user-page {
+    padding: 25px;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+
+
+}
+.bloc-details-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 1500px;
+
+}
+
+.user-picture {
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background-size: cover;
+    border: 5px solid orange;
+    width: 150px;
+    height: 150px;
+    min-width: 15vw;
+    min-height: 15vw;
+    border-radius: 400px;
+    margin: 0;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
+}
+
+.icon-add-picture {
+    border: 5px solid white;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 400px;
+    position: absolute;
+    bottom: -40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+}
+
+.icon-add-picture:hover {
+    transition-duration: 0.3s;
+    background-color: #1f9aff;
+    border: 5px solid #1f9aff;
+    bottom: -35px;
+}
+
+.bloc-user-info {
+    top: 10vw;
+    position: absolute;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 180px;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
+}
+
+.infos-user {
+    margin-bottom: 20px;
+}
+
+.infos-user h2 {
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Lobster Two', cursive;
+    color: #ff5a00;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+.infos-user p {
+    padding: 10px;
+    text-align: left;
+    font-size: 1.4rem;
+    word-wrap: break-word;
+    font-family: 'Montserrat', sans-serif;
+    color: #595959;
+    background-color: #f3f3f3;
+}
+
+.btn-modify-account {
+    margin: 50px auto 70px auto;
+}
+
+
+/************************************ SECTION MODIFY USER ******************************************/
+#form-modify-user {
+    width: 100%;
+}
+
+.infos-modify-user {
+    margin: 0 auto 20px auto;
+}
+
+.infos-modify-user label {
+    display: block;
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Lobster Two', cursive;
+    color: #ff5a00;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+.infos-modify-user input {
+    border: none;
+    background-color: #f3f3f3;
+    width: 100%;
+    padding: 10px;
+    text-transform: capitalize;
+    text-align: left;
+    font-size: 1.4rem;
+    word-wrap: break-word;
+    font-family: 'Montserrat', sans-serif;
+    color: #595959;
+}
+
+.btn-valid-user-modify {
+
+}
+
+.link-reset-password {
+    margin: 40px auto 0 auto;
+    display: block;
+    text-align: center;
+
+}
+
+.form-button-modify-user {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+}
+
+/************************************ SECTION FORGET PASSWORD ******************************************/
+
+.bloc-password{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 700px
+}
+.bloc-form-password{
+    padding: 50px 10px;
+    border-radius: 25px;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
+}
+.raw-form-forget-password{
+    width: 100%;
+}
+#form-password{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.bloc-form-password p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+    padding: 10px;
+}
+.bloc-form-password label{
+    display: none;
+}
+#forget_password_form_email, #reset_password_form_email, #reset_password_form_password{
+    display: block;
+    border: none;
+    background-color: #f3f3f3;
+    width: 70%;
+    margin: 15px auto 20px auto;
+    padding: 10px;
+}
+
+/************************************ SECTION RESET PASSWORD ******************************************/
+
+
+.form-button{
+    margin-top: 50px;
+}
 /**************************************  SECTION FOOTER *****************************************/
+.footer-content {
+    width: 100%;
+}
+
 .bloc-footer {
     display: flex;
     justify-content: space-around;
     flex-direction: row-reverse;
     padding: 10px;
     background-color: #252525;
-
-
 }
 
 .bloc-picto {
@@ -1126,22 +1354,21 @@ font-family: 'Sarpanch', sans-serif;
 
 .nav-footer-link-logout:hover {
     color: #ff5a00;
-    font-size: 0.9rem;
-    margin: -1.2px;
+
+
     text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
 }
 
 .nav-footer-link:hover {
     color: #00c4ff;
-    font-size: 0.9rem;
-    margin: -1.2px;
+
     text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
 }
 
 .nav-footer-link-login:hover {
     color: #00c4ff;
-    font-size: 0.9rem;
-    margin: -1.2px -6.3px;
+
+
     text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
 }
 
@@ -1181,6 +1408,15 @@ font-family: 'Sarpanch', sans-serif;
 
 /************************************ MEDIA QUERIES ***********************************************/
 
+/******************************* 1500 PX *********************************/
+@media (max-width: 1500px) {
+    #user_modify_form_picture {
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 /******************************* 1190 PX *********************************/
 @media (max-width: 1190px) {
     .bloc-list-tricks {
@@ -1193,6 +1429,25 @@ font-family: 'Sarpanch', sans-serif;
 
     .text-bloc-img h2 {
         font-size: 1.5rem;
+    }
+}
+
+/******************************* 1000 PX *********************************/
+@media (max-width: 1000px) {
+    .bloc-user-info {
+        padding-top: 120px;
+        top: 100px;
+    }
+
+
+    .icon-add-picture {
+        bottom: -30px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon-add-picture:hover {
+        bottom: -25px;
     }
 }
 
@@ -1242,6 +1497,10 @@ font-family: 'Sarpanch', sans-serif;
 /******************************* 750 PX *********************************/
 
 @media (max-width: 750px) {
+
+    .bloc-register h1{
+        font-size: 2rem;
+    }
     .card-trick-details {
         width: 12rem;
     }
@@ -1263,6 +1522,14 @@ font-family: 'Sarpanch', sans-serif;
         font-size: 0.8rem;
     }
 
+    .text-bloc-img {
+        top: 20vw;
+    }
+
+    .btn-modify-account {
+        font-size: 0.9rem;
+    }
+
 
 }
 
@@ -1273,6 +1540,7 @@ font-family: 'Sarpanch', sans-serif;
 
         min-height: 500px;
     }
+
     .bloc-list-tricks {
 
         grid-template-columns: repeat(2, 1fr);
@@ -1285,6 +1553,7 @@ font-family: 'Sarpanch', sans-serif;
     .bloc-description-tricks p {
         font-size: 1rem;
     }
+
     .text-bloc-img h1 {
         font-size: 4rem;
     }
@@ -1292,11 +1561,45 @@ font-family: 'Sarpanch', sans-serif;
     .text-bloc-img h2 {
         font-size: 1.3rem;
     }
+
+    .infos-user {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .infos-user h2, .infos-modify-user label {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .infos-user p, .infos-modify-user input {
+        font-size: 1.1rem;
+        text-align: center;
+        padding: 5px 10px;
+    }
+
+    .btn-valid-user-modify {
+        padding: 5px 3px;
+        font-size: 0.7rem;
+    }
+
+    .btn-modify-account {
+        font-size: 0.8rem;
+    }
+    .link-reset-password{
+        font-size: 0.7rem;
+    }
+
 }
 
 
 /******************************* 637 PX *********************************/
 @media (max-width: 637px) {
+
+    #registration-form input{
+        font-size: 0.7rem;
+        padding: 5px ;
+    }
     .bloc-nav-1 {
         display: flex;
         flex-direction: column;
@@ -1330,6 +1633,7 @@ font-family: 'Sarpanch', sans-serif;
     .bloc-img {
         min-height: 400px;
     }
+
     .text-bloc-img h1 {
         font-size: 3rem;
     }
@@ -1381,24 +1685,36 @@ font-family: 'Sarpanch', sans-serif;
     .info-tricks {
         margin: 10px 0 0 0;
     }
+    .bloc-user-page h1 {
+        font-size: 2rem;
+    }
 }
 
 
 /******************************* 475 PX *********************************/
 @media (max-width: 475px) {
-    .bloc-list-tricks {
 
+    #title-bloc-password{
+        font-size: 1.5rem;
+    }
+    #forget_password_form_email, #reset_password_form_email, #reset_password_form_password{
+        font-size: 0.7rem;
+    }
+    .bloc-form-password p{
+        font-size: 0.7rem;
+    }
+    .bloc-list-tricks {
         grid-template-columns: repeat(1, 1fr);
     }
-
     .bloc-login h1 {
         font-size: 1.5rem;
         margin-bottom: 15px;
     }
-
     .bloc-btn-login {
         flex-direction: column;
         align-items: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     .btn-login-form {
@@ -1438,6 +1754,30 @@ font-family: 'Sarpanch', sans-serif;
         padding: 5px;
 
     }
+
+    .section-trick-commentarys h4 {
+        font-size: 1rem;
+        padding: 5px 0;
+    }
+
+    .text-bloc-img {
+        top: 30vw;
+    }
+
+    .infos-user h2, .infos-modify-user label {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .infos-user p, .infos-modify-user input {
+        font-size: 0.8rem;
+        text-align: center;
+        padding: 5px 10px;
+    }
+
+    .btn-modify-account {
+        font-size: 0.6rem;
+    }
 }
 
 
@@ -1446,16 +1786,13 @@ font-family: 'Sarpanch', sans-serif;
     .text-bloc-img h1 {
         font-size: 2.5rem;
     }
-
     .text-bloc-img h2 {
         font-size: 0.7rem;
     }
-
     .footer-bloc-tricks {
         padding-left: 10px;
         flex-direction: column;
     }
-
     .bloc-action-list-tricks {
         margin-top: 10px;
     }
@@ -1466,11 +1803,9 @@ font-family: 'Sarpanch', sans-serif;
     .text-bloc-img h1 {
         font-size: 2rem;
     }
-
     .text-bloc-img h2 {
         font-size: 0.5rem;
     }
-
     .bloc-btn-footer-card {
         display: flex;
         justify-content: flex-start;

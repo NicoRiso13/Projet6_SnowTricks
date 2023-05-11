@@ -101,7 +101,7 @@ class __TwigTemplate_14b25ceddf7caaaf4441ef610f03afdaa9e1de52615d606122a57c91dc2
 
 
 
-        <div class=\"bloc-login col-8 col-sm-6 col-lg-3 col-xl-3\">
+        <div class=\"bloc-login col-8 col-sm-6 col-lg-5 col-xl-4 col-xxl-3\">
             <h1>Identifiez-vous</h1>
             <label class=\"login-label\" for=\"inputEmail\">Email</label>
             <input type=\"email\" value=\"";
@@ -117,15 +117,17 @@ class __TwigTemplate_14b25ceddf7caaaf4441ef610f03afdaa9e1de52615d606122a57c91dc2
                    value=\"";
         // line 25
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
-        echo "\"
-            >
+        echo "\">
             <div class=\"checkbox \">
                 <label class=\"bloc-remenber-me\">
                     <input type=\"checkbox\" name=\"_remember_me\"> <span
                             class=\"remenber-login-text\">Se souvenir de moi</span>
                 </label>
             </div>
-            <a href=\"#\" class=\"forget-password col-8\">Mot de passe oublié?</a>
+            <a href=\"";
+        // line 32
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forget_password");
+        echo "\" class=\"forget-password col-6\">Mot de passe oublié ?</a>
             <div class=\"bloc-btn-login\">
                 <button class=\"btn btn-lg btn-primary btn-login-form \" type=\"submit\">
                     Connexion
@@ -157,7 +159,7 @@ class __TwigTemplate_14b25ceddf7caaaf4441ef610f03afdaa9e1de52615d606122a57c91dc2
 
     public function getDebugInfo()
     {
-        return array (  119 => 25,  109 => 18,  99 => 10,  93 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  129 => 32,  119 => 25,  109 => 18,  99 => 10,  93 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -176,7 +178,7 @@ class __TwigTemplate_14b25ceddf7caaaf4441ef610f03afdaa9e1de52615d606122a57c91dc2
 
 
 
-        <div class=\"bloc-login col-8 col-sm-6 col-lg-3 col-xl-3\">
+        <div class=\"bloc-login col-8 col-sm-6 col-lg-5 col-xl-4 col-xxl-3\">
             <h1>Identifiez-vous</h1>
             <label class=\"login-label\" for=\"inputEmail\">Email</label>
             <input type=\"email\" value=\"{{ last_username }}\" name=\"email\" id=\"inputEmail\" class=\"form-control\"
@@ -186,15 +188,14 @@ class __TwigTemplate_14b25ceddf7caaaf4441ef610f03afdaa9e1de52615d606122a57c91dc2
                    autocomplete=\"current-password\" required>
 
             <input type=\"hidden\" name=\"_csrf_token\"
-                   value=\"{{ csrf_token('authenticate') }}\"
-            >
+                   value=\"{{ csrf_token('authenticate') }}\">
             <div class=\"checkbox \">
                 <label class=\"bloc-remenber-me\">
                     <input type=\"checkbox\" name=\"_remember_me\"> <span
                             class=\"remenber-login-text\">Se souvenir de moi</span>
                 </label>
             </div>
-            <a href=\"#\" class=\"forget-password col-8\">Mot de passe oublié?</a>
+            <a href=\"{{ path('app_forget_password')}}\" class=\"forget-password col-6\">Mot de passe oublié ?</a>
             <div class=\"bloc-btn-login\">
                 <button class=\"btn btn-lg btn-primary btn-login-form \" type=\"submit\">
                     Connexion

@@ -15,8 +15,10 @@ class CommentaryType extends AbstractType
     {
         $builder
             ->add('comment', TextAreaType::class,[
-                'label' => 'Ajouter un commentaire',
-                'attr' => array('rows' => '3'),
+                'attr' => [
+                    'rows' => 3,
+                    'placeholder' => 'Ajoutez un commentaire...'
+                ],
                 'data_class' => null,
             ])
         ;

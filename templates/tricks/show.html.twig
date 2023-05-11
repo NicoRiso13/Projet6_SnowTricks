@@ -144,7 +144,7 @@
             {% endif %}
             {% if trick.modifiedAT is not empty %}
                 <p class="info-tricks col-xl-3 col-lg-3 col-sm-3">Dernière modification le
-                    : <strong>{{ trick.modifiedAt ? trick.modifiedAt|format_datetime(locale='fr')}}</strong></p>
+                    : <strong>{{ trick.modifiedAt ? trick.modifiedAt|format_datetime(locale='fr') }}</strong></p>
             {% endif %}
             <p class="info-tricks col-xl-3 col-lg-3 col-sm-3">Catégorie : <span
                         class="orange-bold-span"> {{ trick.categorie | capitalize }}</span></p>
@@ -167,13 +167,21 @@
                 </div>
             {% endif %}
             {% for commentary in trick.commentarys | sort((a, b) => b.createdAt <=> a.createdAt) %}
-            <div class="bloc-commentary">
-                <div class="float-picture"
-                     style="background-image: url('/uploads/userPicture/userPicture1.png')">
+                <div class="bloc-commentary">
+                    {% if commentary.user.picture is empty %}
+                        <div class="float-picture"
+                             style="background-image: url('/uploads/userPicture/defaut_user_picture.png')">
+                        </div>
+                    {% else %}
+                        <div class="float-picture"
+                             style="background-image: url('/uploads/userPicture/{{ commentary.user.picture }}')">
+                        </div>
+                    {% endif %}
+
+                    <p>{{ commentary.content }}</p>
+                    <h5>Réponse publiée par : <span class="span-author">{{ commentary.user.name | capitalize }}</span>
+                    </h5>
                 </div>
-                <p>{{ commentary.content }}</p>
-                <h5>Réponse publiée par : <span class="span-author">{{ commentary.user.name | capitalize}}</span></h5>
-            </div>
             {% endfor %}
         </div>
 

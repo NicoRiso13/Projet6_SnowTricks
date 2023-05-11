@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SnowTricks | Modifier mon compte{% endblock %}
+
+{% block body %}
+    <div class="bloc-user-page">
+        <h1>Modifier mon Compte</h1>
+        <div class="bloc-details-user">
+            {% if user.picture is not empty %}
+                <div class="user-picture"
+                     style="background-image: url('/uploads/userPicture/{{ user.picture }}')">
+
+                    <button class="icon-add-picture" type="button" onclick="editPicture()"
+                            style="background-image: url('/img/icons/icon-add-userPicture.svg')"
+                            title="Modifier la photo de profil"></button>
+                </div>
+            {% else %}
+
+                <div class="user-picture"
+                     style="background-image: url('/uploads/userPicture/defaut_user_picture.png')">
+
+                    <button class="icon-add-picture" type="button" onclick="editPicture()"
+                            style="background-image: url('/img/icons/icon-add-userPicture.svg')"
+                            title="Modifier la photo de profil"></button>
+
+                </div>
+            {% endif %}
+
+
+            <div class="bloc-user-info container-fluid col-10 col-sm-7 col-lg-6 col-xl-5 col-xxl-4">
+
+                {{ form_start(form, {'attr':{'id' : 'form-modify-user'}}) }}
+                <div class="infos-modify-user col-9">{{ form_row(form.firstname) }}</div>
+                <div class="infos-modify-user col-9">{{ form_row(form.name) }}</div>
+                <div class="infos-modify-user col-8" hidden="hidden">{{ form_row(form.picture) }}</div>
+                <div class="infos-modify-user col-9">{{ form_row(form.email) }}</div>
+                <a href="{{ path('app_user_reset_password',{'id':app.user.id}) }}" class="link-reset-password col-8 col-sm-8 col-l-5 col-lg-6 col-xl-7">Réinitialiser le mot de passe</a>
+                <div class="form-button-modify-user">
+                    <button class="btn btn-primary btn-valid-user-modify">{{ button_label|default('Mettre à jour') }}</button>
+                </div>
+                {{ form_end(form) }}
+
+
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function editPicture() {
+            document.getElementById("user_modify_form_picture").click();
+        }
+    </script>
+{% endblock %}
