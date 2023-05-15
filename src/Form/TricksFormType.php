@@ -31,7 +31,6 @@ class TricksFormType extends AbstractType
             ->add('imageFile', FileType::class,[
                 'data_class' => null,
                 'label' => 'Télécharger un poster',
-                'mapped' => false,
                 'required' =>false,
 
 

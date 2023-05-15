@@ -2,8 +2,7 @@
 
 namespace App\Form;
 
-use App\DTO\UserDto;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use App\DTO\UserModifyDto;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -25,15 +24,8 @@ class UserModifyFormType extends AbstractType
                 'data_class' => null,
             ])
 
-            ->add('email', EmailType::class, [
-                'label' => 'Email',
-                'data_class' => null,
-
-            ])
-
             ->add('picture', FileType::class,[
                 'data_class' => null,
-                'mapped' => false,
                 'required' =>false,
 
 
@@ -43,7 +35,7 @@ class UserModifyFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => UserDto::class,
+            'data_class' => UserModifyDto::class,
         ]);
     }
 

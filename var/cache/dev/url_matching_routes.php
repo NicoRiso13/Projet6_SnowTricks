@@ -15,6 +15,8 @@ return [
         '/password/forget_password' => [[['_route' => 'app_forget_password', '_controller' => 'App\\Controller\\PasswordController::forgetPassword'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/verify/email' => [[['_route' => 'app_verify_email', '_controller' => 'App\\Controller\\RegistrationController::verifyUserEmail'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/reset-password' => [[['_route' => 'app_forgot_password_request', '_controller' => 'App\\Controller\\ResetPasswordController::request'], null, null, null, false, false, null]],
+        '/reset-password/check-email' => [[['_route' => 'app_check_email', '_controller' => 'App\\Controller\\ResetPasswordController::checkEmail'], null, null, null, false, false, null]],
         '/tricks' => [[['_route' => 'app_trick_index', '_controller' => 'App\\Controller\\TricksController::index'], null, ['GET' => 0], null, true, false, null]],
         '/tricks/new' => [[['_route' => 'app_trick_new', '_controller' => 'App\\Controller\\TricksController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/_profiler' => [[['_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'], null, null, null, true, false, null]],
@@ -32,39 +34,40 @@ return [
                     .'|/edit(*:65)'
                     .'|(*:72)'
                 .')'
+                .'|/reset\\-password/reset(?:/([^/]++))?(*:116)'
                 .'|/tricks/([^/]++)(?'
                     .'|/(?'
-                        .'|edit(*:107)'
-                        .'|delete(*:121)'
+                        .'|edit(*:151)'
+                        .'|delete(*:165)'
                     .')'
-                    .'|(*:130)'
+                    .'|(*:174)'
                 .')'
                 .'|/user/([^/]++)/(?'
-                    .'|account(*:164)'
-                    .'|edit_account(*:184)'
-                    .'|reset(*:197)'
+                    .'|account(*:208)'
+                    .'|edit_account(*:228)'
+                    .'|reset(*:241)'
                 .')'
                 .'|/api(?'
-                    .'|/\\.well\\-known/genid/([^/]++)(*:242)'
-                    .'|(?:/(index)(?:\\.([^/]++))?)?(*:278)'
+                    .'|/\\.well\\-known/genid/([^/]++)(*:286)'
+                    .'|(?:/(index)(?:\\.([^/]++))?)?(*:322)'
                     .'|/(?'
-                        .'|docs(?:\\.([^/]++))?(*:309)'
-                        .'|contexts/([^.]+)(?:\\.(jsonld))?(*:348)'
+                        .'|docs(?:\\.([^/]++))?(*:353)'
+                        .'|contexts/([^.]+)(?:\\.(jsonld))?(*:392)'
                     .')'
                 .')'
                 .'|/_(?'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:389)'
-                    .'|wdt/([^/]++)(*:409)'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:433)'
+                    .'|wdt/([^/]++)(*:453)'
                     .'|profiler/([^/]++)(?'
                         .'|/(?'
-                            .'|search/results(*:455)'
-                            .'|router(*:469)'
+                            .'|search/results(*:499)'
+                            .'|router(*:513)'
                             .'|exception(?'
-                                .'|(*:489)'
-                                .'|\\.css(*:502)'
+                                .'|(*:533)'
+                                .'|\\.css(*:546)'
                             .')'
                         .')'
-                        .'|(*:512)'
+                        .'|(*:556)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -74,23 +77,24 @@ return [
         53 => [[['_route' => 'app_medias_show', '_controller' => 'App\\Controller\\MediasController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         65 => [[['_route' => 'app_medias_edit', '_controller' => 'App\\Controller\\MediasController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         72 => [[['_route' => 'app_medias_delete', '_controller' => 'App\\Controller\\MediasController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        107 => [[['_route' => 'app_trick_edit', '_controller' => 'App\\Controller\\TricksController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        121 => [[['_route' => 'app_trick_delete', '_controller' => 'App\\Controller\\TricksController::delete'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        130 => [[['_route' => 'app_trick_show', '_controller' => 'App\\Controller\\TricksController::show'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        164 => [[['_route' => 'app_user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        184 => [[['_route' => 'app_user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        197 => [[['_route' => 'app_user_reset_password', '_controller' => 'App\\Controller\\UserController::resetPassword'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        242 => [[['_route' => 'api_genid', '_controller' => 'api_platform.action.not_exposed', '_api_respond' => 'true'], ['id'], null, null, false, true, null]],
-        278 => [[['_route' => 'api_entrypoint', '_controller' => 'api_platform.action.entrypoint', '_format' => '', '_api_respond' => 'true', 'index' => 'index'], ['index', '_format'], null, null, false, true, null]],
-        309 => [[['_route' => 'api_doc', '_controller' => 'api_platform.action.documentation', '_format' => '', '_api_respond' => 'true'], ['_format'], null, null, false, true, null]],
-        348 => [[['_route' => 'api_jsonld_context', '_controller' => 'api_platform.jsonld.action.context', '_format' => 'jsonld', '_api_respond' => 'true'], ['shortName', '_format'], null, null, false, true, null]],
-        389 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        409 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        455 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        469 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        489 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        502 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        512 => [
+        116 => [[['_route' => 'app_reset_password', 'token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], ['token'], null, null, false, true, null]],
+        151 => [[['_route' => 'app_trick_edit', '_controller' => 'App\\Controller\\TricksController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        165 => [[['_route' => 'app_trick_delete', '_controller' => 'App\\Controller\\TricksController::delete'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        174 => [[['_route' => 'app_trick_show', '_controller' => 'App\\Controller\\TricksController::show'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        208 => [[['_route' => 'app_user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        228 => [[['_route' => 'app_user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        241 => [[['_route' => 'app_user_reset_password', '_controller' => 'App\\Controller\\UserController::resetPassword'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        286 => [[['_route' => 'api_genid', '_controller' => 'api_platform.action.not_exposed', '_api_respond' => 'true'], ['id'], null, null, false, true, null]],
+        322 => [[['_route' => 'api_entrypoint', '_controller' => 'api_platform.action.entrypoint', '_format' => '', '_api_respond' => 'true', 'index' => 'index'], ['index', '_format'], null, null, false, true, null]],
+        353 => [[['_route' => 'api_doc', '_controller' => 'api_platform.action.documentation', '_format' => '', '_api_respond' => 'true'], ['_format'], null, null, false, true, null]],
+        392 => [[['_route' => 'api_jsonld_context', '_controller' => 'api_platform.jsonld.action.context', '_format' => 'jsonld', '_api_respond' => 'true'], ['shortName', '_format'], null, null, false, true, null]],
+        433 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        453 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        499 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        513 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        533 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        546 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        556 => [
             [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

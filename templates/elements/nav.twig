@@ -45,11 +45,6 @@
                 <li class="nav-item">
                     <a class="nav-link nav-link-active" href="{{ path('app_trick_index')}}">Les tricks</a>
                 </li>
-                {% if is_granted('ROLE_ADMIN') %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin-manager">Administration</a>
-                    </li>
-                {% endif %}
                 {% if app.user %}
                     <li class="nav-item">
                         <a class="nav-link " href="{{ path('app_user_show', {'id': app.user.id}) }}">Mon compte</a>

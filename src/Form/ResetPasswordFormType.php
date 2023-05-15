@@ -2,43 +2,54 @@
 
 namespace App\Form;
 
-use App\DTO\ResetPasswordDto;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ResetPasswordFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class,
-                [
-                    'data_class' => null,
-                    'attr' => [
-                        'placeholder' => 'Saisissez votre Email'
-                    ]
+            ->add('plainPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'first_options' => [
+                    'attr' => ['autocomplete' => 'new-password',
+                       'placeholder'  => 'Nouveau mot de passe'
 
-                ]
-            )
-            ->add('password', PasswordType::class,
-                [
-                    'data_class' => null,
-                    'attr' => [
-                        'placeholder' => 'Saisissez votre Mot de passe'
-                    ]
-
-                ]
-            );
-
+                        ],
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => 'Veuillez saisir un mot de passe',
+                        ]),
+                        new Length([
+                            'min' => 6,
+                            'minMessage' => 'Your password should be at least {{ limit }} characters',
+                            // max length allowed by Symfony for security reasons
+                            'max' => 4096,
+                        ]),
+                    ],
+                    'label' => 'New password',
+                ],
+                'second_options' => [
+                    'attr' => ['autocomplete' => 'new-password',
+                    'placeholder'  => 'Confirmer mot de passe'],
+                    'label' => 'Repeat Password',
+                ],
+                'invalid_message' => 'The password fields must match.',
+                // Instead of being set onto the object directly,
+                // this is read and encoded in the controller
+                'mapped' => false,
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([
-            'data_class' => ResetPasswordDto::class,
-        ]);
+        $resolver->setDefaults([]);
     }
 }

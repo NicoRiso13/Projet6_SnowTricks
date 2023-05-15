@@ -6,15 +6,13 @@
     <div class="bloc-details-tricks">
         <div class="bloc-title-details-tricks">
             <div class="poster col-12" style="background-image: url('/uploads/poster/{{ trick.poster }}') ">
-                {% if app.user %}
+
+                {% if app.user and app.user.isVerified == 1 %}
                     <div class="bloc-icon-poster">
                         <a href="{{ path('app_trick_edit', {'id': trick.id}) }}"><img
                                     class="icon-card-show-details" alt="btn-edit" title="éditer un trick"
                                     src="/img/icons/edit.png"></a>
-                        <a href="{{ path('app_trick_delete', {'id': trick.id}) }}" target="_blank"><img
-                                    class="icon-card-show-details" alt="btn-delete"
-                                    title="supprimer un trick"
-                                    src="/img/icons/delete.png"></a>
+                        {{ include('tricks/_delete_form_show.html.twig') }}
                     </div>
                 {% endif %}
                 <div class="title-poster ">
@@ -156,7 +154,7 @@
                 <div class="bloc-form-commentary col-12">
                     {{ form_start(formCommentary) }}
                     <div class="content-commentary">{{ form_widget(formCommentary) }}</div>
-                    <button class="btn btn-primary">{{ button_label|default('Envoyer') }}</button>
+                    <button class="btn btn-success">{{ button_label|default('Envoyer') }}</button>
                     {{ form_end(formCommentary) }}
                 </div>
             {% endif %}
@@ -185,13 +183,11 @@
             {% endfor %}
         </div>
 
-
+        {% if app.user %}
+            <a class="btn btn-primary link-modify-trick" href="{{ path('app_trick_edit', {'id': trick.id}) }}">Modifier la figure</a>
+        {% endif %}
         <div class="return-list">
             <a href="{{ path('app_trick_index') }}">Retour à la liste des figures</a>
         </div>
-        {% if app.user %}
-            <a href="{{ path('app_trick_edit', {'id': trick.id}) }}">Modifier la figure</a>
-            {{ include('tricks/_delete_form.html.twig') }}
-        {% endif %}
     </div>
 {% endblock %}

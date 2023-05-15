@@ -2,6 +2,7 @@
 
 namespace App\DTO;
 
+use App\Validator\UniqueEmail;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class UserDto
@@ -23,6 +24,7 @@ class UserDto
 
 
     /**
+     * @UniqueEmail()
      * @Assert\NotBlank()
      * @Assert\Type("string")
      * @Assert\Regex("/^[a-zA-Z.0-9@]+/")
@@ -34,9 +36,15 @@ class UserDto
      *     maxSize = "5000k",
      *     mimeTypes = {"image/jpg", "image/jpeg","image/png"},
      *     mimeTypesMessage = "Les poster doivent être au format JPG ou PNG.")
-     * @Assert\Regex("/^[a-zA-Z]+[0-9]+.+$/")
      */
     public $picture;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
+     * @Assert\Regex("/^[a-zA-Z.0-9@]+/")
+     */
+    public $password;
 
 
 

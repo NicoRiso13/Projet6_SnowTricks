@@ -686,6 +686,7 @@ font-family: 'Sarpanch', sans-serif;
     position: absolute;
     overflow: hidden;
     transition: .5s ease;
+
 }
 
 .absolute-div h3 {
@@ -694,6 +695,7 @@ font-family: 'Sarpanch', sans-serif;
     text-align: center;
     word-break: keep-all;
     opacity: 0;
+
 }
 
 .info-list-trick:hover .absolute-div {
@@ -779,6 +781,9 @@ font-family: 'Sarpanch', sans-serif;
 .link-create-trick a {
     text-decoration: none;
 }
+.btn-icon-delete{
+    padding: 0;
+}
 
 
 /**************************************  SECTION DETAILS TRICKS **************************************/
@@ -831,6 +836,7 @@ font-family: 'Sarpanch', sans-serif;
 }
 
 .bloc-icon-poster {
+    display: flex;
     position: absolute;
     top: 15px;
     right: 15px;
@@ -952,7 +958,7 @@ font-family: 'Sarpanch', sans-serif;
 }
 
 .return-list {
-    margin: 45px auto;
+    margin: 15px auto 45px auto;
 }
 
 .section-trick-commentarys {
@@ -1045,6 +1051,9 @@ font-family: 'Sarpanch', sans-serif;
     color: #ff6a00;
     font-weight: bold;
 }
+.link-modify-trick{
+    margin-top: 40px;
+}
 
 /**************************************  SECTION NEW TRICK **************************************/
 
@@ -1057,6 +1066,7 @@ font-family: 'Sarpanch', sans-serif;
 }
 
 .form-button {
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 25px
@@ -1303,9 +1313,28 @@ font-family: 'Sarpanch', sans-serif;
 
 /************************************ SECTION RESET PASSWORD ******************************************/
 
+.bloc-info-reset-password{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: auto;
+}
 
-.form-button{
-    margin-top: 50px;
+.bloc-info-reset-password h2{
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+}
+#reset_password_form_plainPassword_first, #reset_password_form_plainPassword_second{
+    width: 100%;
+    margin: 15px auto;
+}
+.btn-reset-password{
+    margin: auto;
+    width: 100%;
 }
 /**************************************  SECTION FOOTER *****************************************/
 .footer-content {
@@ -1528,6 +1557,10 @@ font-family: 'Sarpanch', sans-serif;
 
     .btn-modify-account {
         font-size: 0.9rem;
+    }
+    .bloc-info-reset-password h2{
+        font-size: 1.2rem;
+
     }
 
 

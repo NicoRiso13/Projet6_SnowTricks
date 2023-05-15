@@ -33,8 +33,11 @@
                 <div class="infos-modify-user col-9">{{ form_row(form.firstname) }}</div>
                 <div class="infos-modify-user col-9">{{ form_row(form.name) }}</div>
                 <div class="infos-modify-user col-8" hidden="hidden">{{ form_row(form.picture) }}</div>
-                <div class="infos-modify-user col-9">{{ form_row(form.email) }}</div>
-                <a href="{{ path('app_user_reset_password',{'id':app.user.id}) }}" class="link-reset-password col-8 col-sm-8 col-l-5 col-lg-6 col-xl-7">Réinitialiser le mot de passe</a>
+                <div class="infos-modify-user col-9">
+                    <label>Email</label>
+                    <input disabled="disabled" placeholder="{{ user.email }}">
+                </div>
+                <a href="{{ path('app_forgot_password_request')}}" class="link-reset-password col-8 col-sm-8 col-l-5 col-lg-6 col-xl-7">Réinitialiser le mot de passe</a>
                 <div class="form-button-modify-user">
                     <button class="btn btn-primary btn-valid-user-modify">{{ button_label|default('Mettre à jour') }}</button>
                 </div>

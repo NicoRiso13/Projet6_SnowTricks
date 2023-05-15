@@ -19,6 +19,11 @@
 <header class="container-fluid header-contain">
     {{ include('elements/nav.twig') }}
 </header>
+{% if app.user and app.user.isVerified == false %}
+    <div class="alert alert-warning" role="alert">
+        Vous devez obliogatoirement valider votre email pour pouvoir modifier votre compte, ajouter ou modifier une figure et laisser des commentaires
+    </div>
+    {% endif %}
 {% for flash in app.flashes ('success') %}
     <div class="alert alert-success">{{ flash }}</div>
 {% endfor %}

@@ -32,10 +32,9 @@ class TricksController extends AbstractController
     public function index(TricksRepository $tricksRepository): Response
     {
         return $this->render('tricks/index.html.twig', [
-            'tricks' => $tricksRepository->findBy(array(),array('createdAt'=> 'DESC')),
+            'tricks' => $tricksRepository->findBy(array(), array('createdAt' => 'DESC')),
         ]);
     }
-
 
 
     /**
@@ -44,7 +43,7 @@ class TricksController extends AbstractController
     public function new(Request $request, TricksRepository $tricksRepository, SluggerInterface $slugger): Response
     {
 
-       $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
 
 
         $form = $this->createForm(TricksFormType::class);
@@ -74,7 +73,8 @@ class TricksController extends AbstractController
             $trick = new Trick(null, $user, $data->name, $data->description, $data->categorie);
             $trick->setPoster($newFilename);
             $tricksRepository->add($trick, true);
-            $this->addFlash('success', 'La figure a été ajoutée avec succès !');
+            $trickName = $trick->getName();
+            $this->addFlash('success', "La figure $trickName a été ajoutée avec succès !");
             echo($newFilename);
 
             return $this->redirectToRoute('app_trick_index', [], Response::HTTP_SEE_OTHER);
@@ -103,6 +103,7 @@ class TricksController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $imageFile */
+            $imageFile = $form->get('imageFile')->getData();
             if ($trickDto->imageFile) {
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
@@ -115,13 +116,15 @@ class TricksController extends AbstractController
                 } catch (FileException $e) {
 
                 }
+                $trick->setPoster($newFilename);
             }
             $trick->setName($trickDto->name);
             $trick->setDescription($trickDto->description);
             $trick->setCategorie($trickDto->categorie);
             $trick->setModifiedAt($modifiedAt);
+            $trickName = $trick->getName();
             $tricksRepository->add($trick, true);
-            $this->addFlash('success', 'La figure a été mise a jour avec succès !');
+            $this->addFlash('success', "La figure $trickName a été mise a jour avec succès !");
             return $this->redirectToRoute('app_trick_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -142,17 +145,18 @@ class TricksController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $user = $this->getUser();
             $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
-            if(!$user instanceof User){
+            if (!$user instanceof User) {
                 throw new BadRequestException();
             }
             /** @var CommentaryDto $data */
             $data = $form->getData();
-            $commentary = new Commentary($user,$trick,$data->comment);
+            $commentary = new Commentary($user, $trick, $data->comment);
             $commentaryRepository->add($commentary, true);
             $this->addFlash('success', 'Le commentaire a été ajouté avec succès !');
-            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId(), ]);
+            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId(),]);
 
         }
         return $this->render('tricks/show.html.twig', [
@@ -163,12 +167,10 @@ class TricksController extends AbstractController
     }
 
 
-
-
     /**
      * @Route("/{id}/delete", name="app_trick_delete", methods={"GET","POST"})
      */
-    public function delete( Trick $trick, TricksRepository $tricksRepository): Response
+    public function delete(Trick $trick, TricksRepository $tricksRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
 

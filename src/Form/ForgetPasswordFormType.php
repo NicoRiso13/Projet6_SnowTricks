@@ -15,7 +15,6 @@ class ForgetPasswordFormType extends AbstractType
         $builder
             ->add('email', EmailType::class,
                 [
-                    'data_class' => null,
                     'attr' => [
                         'placeholder' => 'Saisissez votre Email'
                     ]

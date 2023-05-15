@@ -71,10 +71,18 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
 </header>
 ";
         // line 22
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 22, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 22));
-        foreach ($context['_seq'] as $context["_key"] => $context["flash"]) {
+        if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 22, $this->source); })()), "user", [], "any", false, false, false, 22) && (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 22, $this->source); })()), "user", [], "any", false, false, false, 22), "isVerified", [], "any", false, false, false, 22), false)))) {
             // line 23
+            echo "    <div class=\"alert alert-warning\" role=\"alert\">
+        Vous devez obliogatoirement valider votre email pour pouvoir modifier votre compte, ajouter ou modifier une figure et laisser des commentaires
+    </div>
+    ";
+        }
+        // line 27
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 27, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 27));
+        foreach ($context['_seq'] as $context["_key"] => $context["flash"]) {
+            // line 28
             echo "    <div class=\"alert alert-success\">";
             echo twig_escape_filter($this->env, $context["flash"], "html", null, true);
             echo "</div>
@@ -83,16 +91,16 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 25
+        // line 30
         echo "
 
 <main class=\"main-content\">
 
 
     ";
-        // line 30
+        // line 35
         $this->displayBlock('body', $context, $blocks);
-        // line 33
+        // line 38
         echo "
 </main>
 
@@ -120,50 +128,50 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
 
             <ul>
                 ";
-        // line 59
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 59, $this->source); })()), "user", [], "any", false, false, false, 59)) {
-            // line 60
+        // line 64
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 64, $this->source); })()), "user", [], "any", false, false, false, 64)) {
+            // line 65
             echo "                    <li class=\"nav-footer-link-logout\">
                         <a class=\"nav-link logout\" href=\"";
-            // line 61
+            // line 66
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">Se déconnecter</a>
                     </li>
                 ";
         }
-        // line 64
+        // line 69
         echo "
 
                 <li class=\"nav-footer-link\">
                     <a class=\"nav-link active\" href=\"/\">Accueil</a>
                 </li>
                 ";
-        // line 69
-        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 69, $this->source); })()), "user", [], "any", false, false, false, 69)) {
-            // line 70
+        // line 74
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 74, $this->source); })()), "user", [], "any", false, false, false, 74)) {
+            // line 75
             echo "                    <li class=\"nav-footer-link-login\">
                         <a class=\"nav-link \" href=\"/login\">Se connecter/S'inscrire</a>
                     </li>
                 ";
         }
-        // line 74
+        // line 79
         echo "
                 <li class=\"nav-footer-link\">
                     <a class=\"nav-link \" href=\"";
-        // line 76
+        // line 81
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_index");
         echo "\">Les Tricks</a>
                 </li>
                 ";
-        // line 78
+        // line 83
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-            // line 79
+            // line 84
             echo "                    <li class=\"nav-footer-link\">
                         <a class=\"nav-link link-admin \" href=\"/admin-manager\">Administration</a>
                     </li>
                 ";
         }
-        // line 83
+        // line 88
         echo "
                 <li class=\"nav-footer-link\">
                     <a class=\"nav-link \" href=\"#\">▲ Haut de page ▲</a>
@@ -214,7 +222,7 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
 
     }
 
-    // line 30
+    // line 35
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -224,7 +232,7 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 31
+        // line 36
         echo "
     ";
         
@@ -247,7 +255,7 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
 
     public function getDebugInfo()
     {
-        return array (  228 => 31,  218 => 30,  199 => 7,  167 => 83,  161 => 79,  159 => 78,  154 => 76,  150 => 74,  144 => 70,  142 => 69,  135 => 64,  129 => 61,  126 => 60,  124 => 59,  96 => 33,  94 => 30,  87 => 25,  78 => 23,  74 => 22,  69 => 20,  53 => 7,  45 => 1,);
+        return array (  236 => 36,  226 => 35,  207 => 7,  175 => 88,  169 => 84,  167 => 83,  162 => 81,  158 => 79,  152 => 75,  150 => 74,  143 => 69,  137 => 66,  134 => 65,  132 => 64,  104 => 38,  102 => 35,  95 => 30,  86 => 28,  82 => 27,  76 => 23,  74 => 22,  69 => 20,  53 => 7,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -273,6 +281,11 @@ class __TwigTemplate_7bcf376a9e48010fd03f68c0cb824c9d6310c5033974be2b59b90565ace
 <header class=\"container-fluid header-contain\">
     {{ include('elements/nav.twig') }}
 </header>
+{% if app.user and app.user.isVerified == false %}
+    <div class=\"alert alert-warning\" role=\"alert\">
+        Vous devez obliogatoirement valider votre email pour pouvoir modifier votre compte, ajouter ou modifier une figure et laisser des commentaires
+    </div>
+    {% endif %}
 {% for flash in app.flashes ('success') %}
     <div class=\"alert alert-success\">{{ flash }}</div>
 {% endfor %}

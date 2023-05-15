@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\DTO\ForgetPasswordDto;
 use App\DTO\ResetPasswordDto;
 use App\DTO\UserDto;
+use App\DTO\UserModifyDto;
 use App\Entity\User;
 use App\Form\ForgetPasswordFormType;
 use App\Form\ResetPasswordFormType;
@@ -42,15 +43,15 @@ class UserController extends AbstractController
     public function edit(Request $request, User $user, UserRepository $userRepository, SluggerInterface $slugger): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
-        $userDto = new UserDto();
+        $userDto = new UserModifyDto();
         $userDto->firstname = $user->getFirstname();
         $userDto->name = $user->getName();
-        $userDto->email = $user->getEmail();
         $form = $this->createForm(UserModifyFormType::class, $userDto);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $picture */
+            $picture = $form->get('picture')->getData();
             if ($userDto->picture) {
                 $originalFilename = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
@@ -63,18 +64,19 @@ class UserController extends AbstractController
                 } catch (FileException $e) {
 
                 }
+                $user->setPicture($newFilename);
             }
             $user->setFirstname($userDto->firstname);
             $user->setName($userDto->name);
-            $user->setEmail($userDto->email);
             $userRepository->add($user, true);
-
-            $this->addFlash('success', 'Le compte a été mis à jour avec succès !');
+            $userMail = $user->getEmail();
+            $this->addFlash('success', "Le compte $userMail a été mis à jour avec succès !");
             return $this->redirectToRoute('app_user_show', ['id' => $user->getId()], Response::HTTP_SEE_OTHER);
         }
         return $this->renderform('user/edit.html.twig', [
             'user' => $user,
             'form' => $form,
+
         ]);
     }
 
@@ -103,7 +105,4 @@ class UserController extends AbstractController
     }
 
 
-
-
-
-    }
+}

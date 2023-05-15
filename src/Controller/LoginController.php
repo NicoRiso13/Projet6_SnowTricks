@@ -15,7 +15,7 @@ class LoginController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
          if ($this->getUser()) {
-             return $this->redirectToRoute('/');
+             return $this->redirectToRoute('accueil');
          }
 
         // obtenir l'erreur de connexion s'il y en a une
@@ -31,6 +31,6 @@ class LoginController extends AbstractController
      */
     public function logout(): void
     {
-        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        throw new \LogicException('Cette méthode peut être vide - elle sera interceptée par la clé de déconnexion de votre pare-feu.');
     }
 }

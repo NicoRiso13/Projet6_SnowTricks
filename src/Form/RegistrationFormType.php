@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\DTO\UserDto;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -37,7 +38,6 @@ class RegistrationFormType extends AbstractType
             ))
 
             ->add('password', PasswordType::class, [
-                'mapped' => false,
                 'attr' => array(
                     'label' => 'Mot de passe',
                     'placeholder' => 'Saisissez un Mot de passe',
@@ -60,7 +60,7 @@ class RegistrationFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => UserDto::class,
         ]);
     }
 }

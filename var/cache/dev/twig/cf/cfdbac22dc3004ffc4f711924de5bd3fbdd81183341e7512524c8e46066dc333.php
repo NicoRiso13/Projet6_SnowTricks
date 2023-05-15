@@ -105,21 +105,12 @@ class __TwigTemplate_f5eed20d0ef39fe1a19c6a9397ae2635beeef62f1056f96ee274f618e90
                 </li>
                 ";
         // line 48
-        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 48, $this->source); })()), "user", [], "any", false, false, false, 48)) {
             // line 49
             echo "                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"/admin-manager\">Administration</a>
-                    </li>
-                ";
-        }
-        // line 53
-        echo "                ";
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 53, $this->source); })()), "user", [], "any", false, false, false, 53)) {
-            // line 54
-            echo "                    <li class=\"nav-item\">
                         <a class=\"nav-link \" href=\"";
-            // line 55
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_show", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 55, $this->source); })()), "user", [], "any", false, false, false, 55), "id", [], "any", false, false, false, 55)]), "html", null, true);
+            // line 50
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_show", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 50, $this->source); })()), "user", [], "any", false, false, false, 50), "id", [], "any", false, false, false, 50)]), "html", null, true);
             echo "\">Mon compte</a>
                     </li>
                     <li class=\"nav-item\">
@@ -127,7 +118,7 @@ class __TwigTemplate_f5eed20d0ef39fe1a19c6a9397ae2635beeef62f1056f96ee274f618e90
                     </li>
                 ";
         }
-        // line 61
+        // line 56
         echo "
 
             </ul>
@@ -156,7 +147,7 @@ class __TwigTemplate_f5eed20d0ef39fe1a19c6a9397ae2635beeef62f1056f96ee274f618e90
 
     public function getDebugInfo()
     {
-        return array (  131 => 61,  122 => 55,  119 => 54,  116 => 53,  110 => 49,  108 => 48,  103 => 46,  99 => 44,  93 => 40,  91 => 39,  72 => 22,  64 => 17,  59 => 14,  57 => 13,  43 => 1,);
+        return array (  122 => 56,  113 => 50,  110 => 49,  108 => 48,  103 => 46,  99 => 44,  93 => 40,  91 => 39,  72 => 22,  64 => 17,  59 => 14,  57 => 13,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -208,11 +199,6 @@ class __TwigTemplate_f5eed20d0ef39fe1a19c6a9397ae2635beeef62f1056f96ee274f618e90
                 <li class=\"nav-item\">
                     <a class=\"nav-link nav-link-active\" href=\"{{ path('app_trick_index')}}\">Les tricks</a>
                 </li>
-                {% if is_granted('ROLE_ADMIN') %}
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"/admin-manager\">Administration</a>
-                    </li>
-                {% endif %}
                 {% if app.user %}
                     <li class=\"nav-item\">
                         <a class=\"nav-link \" href=\"{{ path('app_user_show', {'id': app.user.id}) }}\">Mon compte</a>

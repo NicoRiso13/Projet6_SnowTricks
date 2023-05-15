@@ -1,0 +1,7 @@
+<form method="post" action="{{ path('app_trick_delete', {'id': trick.id}) }}" onsubmit="return confirm('Êtes-vous sur de vouloir supprimer cette figure ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ trick.id) }}">
+    <button class="btn btn-icon-delete"><img
+                class="icon-card-show-details" alt="btn-delete"
+                title="supprimer un trick"
+                src="/img/icons/delete.png"></button>
+</form>

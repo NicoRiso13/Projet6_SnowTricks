@@ -12,7 +12,7 @@
 
 
 
-        <div class="bloc-login col-8 col-sm-6 col-lg-5 col-xl-4 col-xxl-3">
+        <div class="bloc-login col-8 col-sm-6 col-lg-4 col-xl-3 col-xxl-2">
             <h1>Identifiez-vous</h1>
             <label class="login-label" for="inputEmail">Email</label>
             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
@@ -29,7 +29,7 @@
                             class="remenber-login-text">Se souvenir de moi</span>
                 </label>
             </div>
-            <a href="{{ path('app_forget_password')}}" class="forget-password col-6">Mot de passe oublié ?</a>
+            <a href="{{ path('app_forgot_password_request')}}" class="forget-password col-6">Mot de passe oublié ?</a>
             <div class="bloc-btn-login">
                 <button class="btn btn-lg btn-primary btn-login-form " type="submit">
                     Connexion

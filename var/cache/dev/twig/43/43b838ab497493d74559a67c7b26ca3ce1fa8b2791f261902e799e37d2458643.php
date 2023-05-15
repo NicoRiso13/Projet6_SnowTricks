@@ -101,7 +101,7 @@ class __TwigTemplate_14b25ceddf7caaaf4441ef610f03afdaa9e1de52615d606122a57c91dc2
 
 
 
-        <div class=\"bloc-login col-8 col-sm-6 col-lg-5 col-xl-4 col-xxl-3\">
+        <div class=\"bloc-login col-8 col-sm-6 col-lg-4 col-xl-3 col-xxl-2\">
             <h1>Identifiez-vous</h1>
             <label class=\"login-label\" for=\"inputEmail\">Email</label>
             <input type=\"email\" value=\"";
@@ -126,7 +126,7 @@ class __TwigTemplate_14b25ceddf7caaaf4441ef610f03afdaa9e1de52615d606122a57c91dc2
             </div>
             <a href=\"";
         // line 32
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forget_password");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forgot_password_request");
         echo "\" class=\"forget-password col-6\">Mot de passe oublié ?</a>
             <div class=\"bloc-btn-login\">
                 <button class=\"btn btn-lg btn-primary btn-login-form \" type=\"submit\">
@@ -178,7 +178,7 @@ class __TwigTemplate_14b25ceddf7caaaf4441ef610f03afdaa9e1de52615d606122a57c91dc2
 
 
 
-        <div class=\"bloc-login col-8 col-sm-6 col-lg-5 col-xl-4 col-xxl-3\">
+        <div class=\"bloc-login col-8 col-sm-6 col-lg-4 col-xl-3 col-xxl-2\">
             <h1>Identifiez-vous</h1>
             <label class=\"login-label\" for=\"inputEmail\">Email</label>
             <input type=\"email\" value=\"{{ last_username }}\" name=\"email\" id=\"inputEmail\" class=\"form-control\"
@@ -195,7 +195,7 @@ class __TwigTemplate_14b25ceddf7caaaf4441ef610f03afdaa9e1de52615d606122a57c91dc2
                             class=\"remenber-login-text\">Se souvenir de moi</span>
                 </label>
             </div>
-            <a href=\"{{ path('app_forget_password')}}\" class=\"forget-password col-6\">Mot de passe oublié ?</a>
+            <a href=\"{{ path('app_forgot_password_request')}}\" class=\"forget-password col-6\">Mot de passe oublié ?</a>
             <div class=\"bloc-btn-login\">
                 <button class=\"btn btn-lg btn-primary btn-login-form \" type=\"submit\">
                     Connexion

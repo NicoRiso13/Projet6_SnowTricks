@@ -47,7 +47,10 @@ class __TwigTemplate_7acea9b5bdc028f49ef85e05c8ac12dd29083e304fb71ae0ac56b7ae1a8
         // line 2
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 2, $this->source); })()), "id", [], "any", false, false, false, 2))), "html", null, true);
         echo "\">
-    <button class=\"btn\">Supprimer la figure</button>
+    <button class=\"btn btn-icon-delete\"><img
+                class=\"icon-card-index\" alt=\"btn-delete\"
+                title=\"supprimer un trick\"
+                src=\"/img/icons/delete.png\"></button>
 </form>
 ";
         
@@ -77,7 +80,10 @@ class __TwigTemplate_7acea9b5bdc028f49ef85e05c8ac12dd29083e304fb71ae0ac56b7ae1a8
     {
         return new Source("<form method=\"post\" action=\"{{ path('app_trick_delete', {'id': trick.id}) }}\" onsubmit=\"return confirm('Êtes-vous sur de vouloir supprimer cette figure ?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ trick.id) }}\">
-    <button class=\"btn\">Supprimer la figure</button>
+    <button class=\"btn btn-icon-delete\"><img
+                class=\"icon-card-index\" alt=\"btn-delete\"
+                title=\"supprimer un trick\"
+                src=\"/img/icons/delete.png\"></button>
 </form>
 ", "tricks/_delete_form.html.twig", "C:\\wamp64\\www\\SnowTricks\\templates\\tricks\\_delete_form.html.twig");
     }

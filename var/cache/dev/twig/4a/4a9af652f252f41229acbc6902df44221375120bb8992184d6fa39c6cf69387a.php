@@ -104,6 +104,19 @@ class __TwigTemplate_4157ceff39ac921f0cf37d22035049dd81d390409d3e3b68be781c64528
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 14, $this->source); })()));
         $context['_iterated'] = false;
+        $context['loop'] = [
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        ];
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
         foreach ($context['_seq'] as $context["_key"] => $context["trick"]) {
             // line 15
             echo "            <div class=\"bloc-tricks\">
@@ -116,7 +129,10 @@ class __TwigTemplate_4157ceff39ac921f0cf37d22035049dd81d390409d3e3b68be781c64528
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trick"], "name", [], "any", false, false, false, 17), "html", null, true);
             echo "</h2>
                     <div class=\"absolute-div\">
-                        <h3>Voir la figure</h3>
+                        <h3>Voir : ";
+            // line 19
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trick"], "name", [], "any", false, false, false, 19), "html", null, true);
+            echo "</h3>
                     </div>
                 </a>
                 <div class=\"footer-bloc-tricks back-grey\">
@@ -146,24 +162,29 @@ class __TwigTemplate_4157ceff39ac921f0cf37d22035049dd81d390409d3e3b68be781c64528
                                         alt=\"btn-edit\"
                                         title=\"éditer un trick\"
                                         src=\"/img/icons/edit.png\"></a>
-                            <a href=\"";
+                            ";
                 // line 34
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 34)]), "html", null, true);
-                echo "\" target=\"_blank\"><img
-                                        class=\"icon-card-index\" alt=\"btn-delete\"
-                                        title=\"supprimer un trick\"
-                                        src=\"/img/icons/delete.png\"></a>
+                echo twig_include($this->env, $context, "tricks/_delete_form.html.twig");
+                echo "
                         </div>
                     ";
             }
-            // line 40
+            // line 37
             echo "                </div>
             </div>
         ";
             $context['_iterated'] = true;
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
         }
         if (!$context['_iterated']) {
-            // line 43
+            // line 40
             echo "            <div>
                 <p>Aucun résultat trouvé</p>
             </div>
@@ -172,7 +193,7 @@ class __TwigTemplate_4157ceff39ac921f0cf37d22035049dd81d390409d3e3b68be781c64528
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['trick'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 47
+        // line 44
         echo "
 
     </div>
@@ -197,7 +218,7 @@ class __TwigTemplate_4157ceff39ac921f0cf37d22035049dd81d390409d3e3b68be781c64528
 
     public function getDebugInfo()
     {
-        return array (  176 => 47,  167 => 43,  160 => 40,  151 => 34,  143 => 29,  140 => 28,  138 => 27,  134 => 26,  130 => 25,  125 => 23,  116 => 17,  112 => 16,  109 => 15,  103 => 14,  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  197 => 44,  188 => 40,  173 => 37,  167 => 34,  159 => 29,  156 => 28,  154 => 27,  150 => 26,  146 => 25,  141 => 23,  134 => 19,  129 => 17,  125 => 16,  122 => 15,  103 => 14,  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -220,7 +241,7 @@ class __TwigTemplate_4157ceff39ac921f0cf37d22035049dd81d390409d3e3b68be781c64528
                 <a class=\"info-list-trick \" href=\"{{ path('app_trick_show', {'id': trick.id}) }}\" target=\"_blank\">
                     <h2 class=\"p-2 back-grey\">{{ trick.name }}</h2>
                     <div class=\"absolute-div\">
-                        <h3>Voir la figure</h3>
+                        <h3>Voir : {{ trick.name }}</h3>
                     </div>
                 </a>
                 <div class=\"footer-bloc-tricks back-grey\">
@@ -235,10 +256,7 @@ class __TwigTemplate_4157ceff39ac921f0cf37d22035049dd81d390409d3e3b68be781c64528
                                         alt=\"btn-edit\"
                                         title=\"éditer un trick\"
                                         src=\"/img/icons/edit.png\"></a>
-                            <a href=\"{{ path('app_trick_delete', {'id': trick.id}) }}\" target=\"_blank\"><img
-                                        class=\"icon-card-index\" alt=\"btn-delete\"
-                                        title=\"supprimer un trick\"
-                                        src=\"/img/icons/delete.png\"></a>
+                            {{ include('tricks/_delete_form.html.twig') }}
                         </div>
                     {% endif %}
                 </div>
