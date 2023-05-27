@@ -2,12 +2,9 @@
 
 namespace App\Controller;
 
-use App\DTO\ForgetPasswordDto;
 use App\DTO\ResetPasswordDto;
-use App\DTO\UserDto;
 use App\DTO\UserModifyDto;
 use App\Entity\User;
-use App\Form\ForgetPasswordFormType;
 use App\Form\ResetPasswordFormType;
 use App\Form\UserModifyFormType;
 use App\Repository\UserRepository;

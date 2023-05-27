@@ -28,7 +28,7 @@ class Trick
     private User $user;
 
     /**
-     * @ORM\Column(name="name", type="string", length=100)
+     * @ORM\Column(name="name", type="string", length=100,  unique=true)
      */
     private string $name;
 
@@ -68,7 +68,7 @@ class Trick
 
     /**
      * @var Collection<int,Media>
-     * @ORM\OneToMany(targetEntity="Media", mappedBy="tricks")
+     * @ORM\OneToMany(targetEntity="Media", mappedBy="trick")
      */
     private Collection $medias ;
 
@@ -87,6 +87,8 @@ class Trick
 
     }
 
+
+
     /**
      * @return iterable<Commentary>
      */
@@ -95,13 +97,20 @@ class Trick
         return $this->commentarys;
     }
 
-
     /**
      * @return int|null
      */
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
     }
 
 
@@ -244,7 +253,7 @@ class Trick
     {
         if (!$this->medias->contains($media)) {
             $this->medias[] = $media;
-            $media->setTricks($this);
+            $media->setTrick($this);
         }
 
         return $this;

@@ -24,107 +24,70 @@
                 data-bs-target="#view-medias" aria-expanded="true" aria-controls="collapseExample">
             Voir les médias
         </button>
-        <div class="collapsing " id="view-medias">
+
+{#        collapsing#}
+        <div class="" id="view-medias">
+
             <div class="bloc-medias">
                 <div class="section-pictures">
-                    <div class="card-trick-details">
-                        <div id="img-card-details"
-                             style="background-image: url('/uploads/poster/{{ trick.poster }}')"></div>
-                        <div class="bloc-btn-details-card">
-                            <a href="{{ path('app_trick_edit', {'id': trick.id}) }}" target="_blank"><img
-                                        class="icon-card-details"
-                                        alt="btn-edit"
-                                        title="éditer un trick"
-                                        src="/img/icons/edit.png"></a>
-                            <a href="{{ path('app_trick_delete', {'id': trick.id}) }}" target="_blank"><img
-                                        class="icon-card-details" alt="btn-delete"
-                                        title="supprimer un trick"
-                                        src="/img/icons/delete.png"></a>
-                        </div>
-                    </div>
-                    <div class="card-trick-details">
-                        <div id="img-card-details"
-                             style="background-image: url('/uploads/poster/{{ trick.poster }}')"></div>
-                        <div class="bloc-btn-details-card">
-                            <a href="{{ path('app_trick_edit', {'id': trick.id}) }}" target="_blank"><img
-                                        class="icon-card-details"
-                                        alt="btn-edit"
-                                        title="éditer un trick"
-                                        src="/img/icons/edit.png"></a>
-                            <a href="{{ path('app_trick_delete', {'id': trick.id}) }}" target="_blank"><img
-                                        class="icon-card-details" alt="btn-delete"
-                                        title="supprimer un trick"
-                                        src="/img/icons/delete.png"></a>
-                        </div>
-                    </div>
-                    <div class="card-trick-details">
-                        <div id="img-card-details"
-                             style="background-image: url('/uploads/poster/{{ trick.poster }}')"></div>
-                        <div class="bloc-btn-details-card">
-                            <a href="{{ path('app_trick_edit', {'id': trick.id}) }}" target="_blank"><img
-                                        class="icon-card-details"
-                                        alt="btn-edit"
-                                        title="éditer un trick"
-                                        src="/img/icons/edit.png"></a>
-                            <a href="{{ path('app_trick_delete', {'id': trick.id}) }}" target="_blank"><img
-                                        class="icon-card-details" alt="btn-delete"
-                                        title="supprimer un trick"
-                                        src="/img/icons/delete.png"></a>
-                        </div>
-                    </div>
+                    <button class="add-media-card" title="Ajouter une photo" type="button" onclick="editPicture()"
+                            style="background-image: url('/img/icons/add_picture.png')"></button>
+                    {{ form_start(pictureForm, {'attr':{'id' : 'add_picture_form'}}) }}
+                    <div hidden="hidden"
+                         onchange="submission()">{{ form_row(pictureForm.imageFile,{'attr':{'id': 'input_file'}}) }}</div>
+                    {{ form_end(pictureForm) }}
+
+                    {% for medias in media %}
+                        {% if medias.pictures %}
+                            <div class="card-trick-details">
+                                <div id="img-card-details"
+                                     style="background-image: url('/uploads/images/{{ medias.pictures }}')"></div>
+                                <div class="bloc-btn-details-card">
+                                    <a href="{{ path('app_medias_edit_picture', {'id': medias.id}) }}" target="_blank"><img
+                                                class="icon-card-details"
+                                                alt="btn-edit"
+                                                title="éditer un media"
+                                                src="/img/icons/edit.png"></a>
+                                    {{ include('medias/_delete_form.html.twig') }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
+
+
                 <div class="section-videos">
-                    <div class="card card-trick-details">
-                        <iframe src="https://www.youtube.com/embed/hBe2GDnQhU0" title="YouTube video player"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
-                        <div class="bloc-btn-details-card">
-                            <a href="{{ path('app_trick_edit', {'id': trick.id}) }}" target="_blank"><img
-                                        class="icon-card-details"
-                                        alt="btn-edit"
-                                        title="éditer un trick"
-                                        src="/img/icons/edit.png"></a>
-                            <a href="{{ path('app_trick_delete', {'id': trick.id}) }}" target="_blank"><img
-                                        class="icon-card-details" alt="btn-delete"
-                                        title="supprimer un trick"
-                                        src="/img/icons/delete.png"></a>
+                    <div class="add-media-card relative-card" title="Ajouter une video" type="button"
+                            style="background-image: url('/img/icons/add_video.png')">
+                        <div class="add-link">
+                        {{ form_start(videoForm, {'attr':{'id' : 'add_link_form'}}) }}
+                        <div>{{ form_row(videoForm.link,{'attr':{'id': 'input_link'}}) }}</div>
+                        <button class="btn btn-primary btn-add-link" type="submit">Ajouter Vidéo</button>
+                        {{ form_end(videoForm) }}
+                            <a class="link-youtube-helper" href="{{ path('app_helper')}}">Aide</a>
                         </div>
+
                     </div>
-                    <div class="card card-trick-details">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/kOyCsY4rBH0"
-                                title="YouTube video player"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
-                        <div class="bloc-btn-details-card">
-                            <a href="{{ path('app_trick_edit', {'id': trick.id}) }}" target="_blank"><img
-                                        class="icon-card-details"
-                                        alt="btn-edit"
-                                        title="éditer un trick"
-                                        src="/img/icons/edit.png"></a>
-                            <a href="{{ path('app_trick_delete', {'id': trick.id}) }}" target="_blank"><img
-                                        class="icon-card-details" alt="btn-delete"
-                                        title="supprimer un trick"
-                                        src="/img/icons/delete.png"></a>
-                        </div>
-                    </div>
-                    <div class="card card-trick-details">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/U6bdYp7VpuE"
-                                title="YouTube video player"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
-                        <div class="bloc-btn-details-card">
-                            <a href="{{ path('app_trick_edit', {'id': trick.id}) }}" target="_blank"><img
-                                        class="icon-card-details"
-                                        alt="btn-edit"
-                                        title="éditer un trick"
-                                        src="/img/icons/edit.png"></a>
-                            <a href="{{ path('app_trick_delete', {'id': trick.id}) }}" target="_blank"><img
-                                        class="icon-card-details" alt="btn-delete"
-                                        title="supprimer un trick"
-                                        src="/img/icons/delete.png"></a>
-                        </div>
-                    </div>
+
+                    {% for medias in media %}
+                        {% if medias.videos %}
+                            <div class="card card-trick-details">
+                                <iframe src="https://www.youtube.com/embed/{{ medias.videos }}" title="YouTube video player"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen></iframe>
+                                <div class="bloc-btn-details-card">
+                                    <a href="{{ path('app_medias_edit_video', {'id': medias.id}) }}" target="_blank"><img
+                                                class="icon-card-details"
+                                                alt="btn-edit"
+                                                title="éditer un media"
+                                                src="/img/icons/edit.png"></a>
+                                    {{ include('medias/_delete_form.html.twig') }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
+
             </div>
         </div>
         <div class="bloc-description-tricks">
@@ -184,10 +147,23 @@
         </div>
 
         {% if app.user %}
-            <a class="btn btn-primary link-modify-trick" href="{{ path('app_trick_edit', {'id': trick.id}) }}">Modifier la figure</a>
+            <a class="btn btn-primary link-modify-trick" href="{{ path('app_trick_edit', {'id': trick.id}) }}">Modifier
+                la figure</a>
         {% endif %}
         <div class="return-list">
             <a href="{{ path('app_trick_index') }}">Retour à la liste des figures</a>
         </div>
     </div>
+    <script>
+        function editPicture() {
+            document.getElementById("add_picture_form_imageFile").click();
+        }
+
+        function submission() {
+            const smt = document.getElementById("add_picture_form");
+
+            smt.submit();
+
+        }
+    </script>
 {% endblock %}

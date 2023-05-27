@@ -29,11 +29,13 @@ font-family: 'Sarpanch', sans-serif;
     text-decoration: none;
     color: #1f9aff;
 }
+
 * a:hover {
     color: #ff5a00;
     transition: 0.5s;
 }
-* h1{
+
+* h1 {
     text-transform: capitalize;
     font-family: 'Lobster Two', cursive;
     font-size: 3rem;
@@ -277,15 +279,17 @@ font-family: 'Sarpanch', sans-serif;
 .bloc-register form {
     width: 70%;
 }
-#registration-form{
+
+#registration-form {
     width: 90%;
 }
-#registration-form input{
+
+#registration-form input {
     border: none;
     background-color: #ececec;
     font-size: 1rem;
     margin-bottom: 20px;
-    padding: 8px ;
+    padding: 8px;
 }
 
 .bloc-register {
@@ -374,11 +378,12 @@ font-family: 'Sarpanch', sans-serif;
     box-shadow: 5px 5px 25px #676767;
     border: 1px solid #3b3b3b;
 }
-#inputEmail{
+
+#inputEmail {
     margin-bottom: 15px;
 }
 
-.checkbox{
+.checkbox {
     margin-top: 10px;
 }
 
@@ -766,28 +771,83 @@ font-family: 'Sarpanch', sans-serif;
     align-items: center;
 }
 
-.icon-card-index {
+.icon-card-index,.icon-card-details{
     width: 20px;
     margin-right: 10px;
+    opacity: 0.5;
 }
 
-.icon-card-index:hover {
-    width: 23px;
-    margin-right: 7px;
-    margin-bottom: -2px;
-    margin-top: -2px;
+.icon-card-index:hover,.icon-card-details:hover {
+    transition: 0.4s;
+    opacity: 1;
 }
 
 .link-create-trick a {
     text-decoration: none;
 }
-.btn-icon-delete{
+
+.btn-icon-delete {
     padding: 0;
 }
 
 
 /**************************************  SECTION DETAILS TRICKS **************************************/
+.section-pictures button, .section-videos button {
+    border: none;
+}
+#add_video_form_link{
+    font-size: 0.7rem;
+    padding: 5px;
+    width: 100%;
+}
+#add_link_form{
+    width: 100%;
+}
+#add_link_form label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+}
 
+.relative-card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.relative-card:hover {
+    background-image: none;
+}
+
+.add-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+
+}
+#add_link_form input{
+   width: 90%;
+}
+#add_link_form label{
+    margin-bottom: 10px;
+}
+.add-link:hover {
+    background-color: #FFFFFF;
+    opacity: 1;
+    transition: 0.4s;
+}
+.btn-add-link{
+    padding: 5px;
+    margin-top: 15px;
+}
+.link-youtube-helper{
+    margin-top: 15px;
+}
 
 .bloc-details-tricks {
     display: flex;
@@ -830,13 +890,15 @@ font-family: 'Sarpanch', sans-serif;
 }
 
 .title-poster H1 {
+    margin: 10px auto;
     font-family: 'Lobster Two', cursive;
-    font-size: 5vw;
+    font-size: 3.5rem;
     color: #ffffff;
 }
 
 .bloc-icon-poster {
     display: flex;
+    align-items: center;
     position: absolute;
     top: 15px;
     right: 15px;
@@ -872,11 +934,28 @@ font-family: 'Sarpanch', sans-serif;
     border-radius: 0 0 5px 5px;
 }
 
+.add-media-card {
+    width: 15rem;
+    margin: 5px;
+    background-color: #7c7c7c;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 10px;
+
+}
+
+.add-media-card:hover {
+    box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 5px 5px;
+    background-color: #212529;
+    transition: 0.4s ease-in-out;
+}
+
+
 .card-trick-details img {
     width: 100%;
     height: 200px;
-
-
 }
 
 .section-pictures, .section-videos {
@@ -1051,11 +1130,23 @@ font-family: 'Sarpanch', sans-serif;
     color: #ff6a00;
     font-weight: bold;
 }
-.link-modify-trick{
+
+.link-modify-trick {
     margin-top: 40px;
 }
 
 /**************************************  SECTION NEW TRICK **************************************/
+
+.div-form-create-trick ul {
+    list-style: none;
+    color: red;
+    padding: 0;
+    margin: 0;
+}
+
+.div-form-create-trick input {
+    margin-bottom: 10px;
+}
 
 .bloc-new-trick {
     padding: 15px;
@@ -1083,6 +1174,22 @@ font-family: 'Sarpanch', sans-serif;
 
 /**************************************  SECTION EDIT TRICK *****************************************/
 
+
+#form-modify-trick {
+    width: 80%;
+}
+
+#form-modify-trick label {
+    display: block;
+}
+
+#tricks_modify_form_name, #tricks_modify_form_description {
+    width: 100%;
+}
+
+#tricks_modify_form_categorie {
+    width: 30%;
+}
 
 .edit-title {
     font-family: 'Lobster Two', cursive;
@@ -1129,6 +1236,7 @@ font-family: 'Sarpanch', sans-serif;
 
 
 }
+
 .bloc-details-user {
     display: flex;
     flex-direction: column;
@@ -1269,29 +1377,33 @@ font-family: 'Sarpanch', sans-serif;
 
 /************************************ SECTION FORGET PASSWORD ******************************************/
 
-.bloc-password{
+.bloc-password {
     padding: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 700px
 }
-.bloc-form-password{
+
+.bloc-form-password {
     padding: 50px 10px;
     border-radius: 25px;
     -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
 }
-.raw-form-forget-password{
+
+.raw-form-forget-password {
     width: 100%;
 }
-#form-password{
+
+#form-password {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
-.bloc-form-password p{
+
+.bloc-form-password p {
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     text-align: center;
@@ -1299,10 +1411,12 @@ font-family: 'Sarpanch', sans-serif;
     font-weight: 500;
     padding: 10px;
 }
-.bloc-form-password label{
+
+.bloc-form-password label {
     display: none;
 }
-#forget_password_form_email, #reset_password_form_email, #reset_password_form_password{
+
+#forget_password_form_email, #reset_password_form_email, #reset_password_form_password {
     display: block;
     border: none;
     background-color: #f3f3f3;
@@ -1313,7 +1427,7 @@ font-family: 'Sarpanch', sans-serif;
 
 /************************************ SECTION RESET PASSWORD ******************************************/
 
-.bloc-info-reset-password{
+.bloc-info-reset-password {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1324,18 +1438,21 @@ font-family: 'Sarpanch', sans-serif;
     margin: auto;
 }
 
-.bloc-info-reset-password h2{
+.bloc-info-reset-password h2 {
     font-size: 1.5rem;
     margin-bottom: 50px;
 }
-#reset_password_form_plainPassword_first, #reset_password_form_plainPassword_second{
+
+#reset_password_form_plainPassword_first, #reset_password_form_plainPassword_second {
     width: 100%;
     margin: 15px auto;
 }
-.btn-reset-password{
+
+.btn-reset-password {
     margin: auto;
     width: 100%;
 }
+
 /**************************************  SECTION FOOTER *****************************************/
 .footer-content {
     width: 100%;
@@ -1434,6 +1551,42 @@ font-family: 'Sarpanch', sans-serif;
     opacity: 1;
 }
 
+/**************************************  SECTION HELPER LINK YOUTUBE **************************************/
+
+.bloc-helper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+.bloc-helper h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    text-align: center;
+}
+.bloc-helper h3{
+    margin-top: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+}
+.bloc-helper p{
+    margin-top: 70px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+}
+.bloc-helper span{
+    font-weight: bold;
+    color: #ff6a00;
+}
+.picture-1,.picture-2,.picture-3{
+    width: 500px;
+    margin: 20px auto;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
 
 /************************************ MEDIA QUERIES ***********************************************/
 
@@ -1482,6 +1635,9 @@ font-family: 'Sarpanch', sans-serif;
 
 /******************************* 991 PX *********************************/
 @media (max-width: 991px) {
+    .title-poster H1 {
+        font-size: 2rem;
+    }
     .background-link {
         margin-left: 15px;
     }
@@ -1513,7 +1669,9 @@ font-family: 'Sarpanch', sans-serif;
 
     .icon-card-show-details {
         width: 30px;
-        padding: 5px;
+        border-radius: 5px;
+        padding: 3px;
+        margin-right: 5px;
 
     }
 
@@ -1527,14 +1685,15 @@ font-family: 'Sarpanch', sans-serif;
 
 @media (max-width: 750px) {
 
-    .bloc-register h1{
+    .bloc-register h1 {
         font-size: 2rem;
     }
-    .card-trick-details {
+
+    .card-trick-details, .add-media-card {
         width: 12rem;
     }
 
-    #img-card-details {
+    #img-card-details, .add-media-card {
         height: 150px;
     }
 
@@ -1558,9 +1717,32 @@ font-family: 'Sarpanch', sans-serif;
     .btn-modify-account {
         font-size: 0.9rem;
     }
-    .bloc-info-reset-password h2{
+
+    .bloc-info-reset-password h2 {
         font-size: 1.2rem;
 
+    }
+
+    .bloc-helper{
+        padding: 30px;
+    }
+    .bloc-helper h2{
+        font-size: 1.8rem;
+    }
+    .bloc-helper h3{
+        margin-top: 30px;
+        font-size: 1.2rem;
+    }
+    .bloc-helper p{
+        margin-top: 50px;
+        font-size: 0.9rem;
+    }
+    .picture-1,.picture-2{
+        width: 350px;
+        margin: 20px auto;
+    }
+    .picture-3{
+        width: 280px;
     }
 
 
@@ -1619,7 +1801,8 @@ font-family: 'Sarpanch', sans-serif;
     .btn-modify-account {
         font-size: 0.8rem;
     }
-    .link-reset-password{
+
+    .link-reset-password {
         font-size: 0.7rem;
     }
 
@@ -1629,10 +1812,11 @@ font-family: 'Sarpanch', sans-serif;
 /******************************* 637 PX *********************************/
 @media (max-width: 637px) {
 
-    #registration-form input{
+    #registration-form input {
         font-size: 0.7rem;
-        padding: 5px ;
+        padding: 5px;
     }
+
     .bloc-nav-1 {
         display: flex;
         flex-direction: column;
@@ -1718,8 +1902,29 @@ font-family: 'Sarpanch', sans-serif;
     .info-tricks {
         margin: 10px 0 0 0;
     }
+
     .bloc-user-page h1 {
         font-size: 2rem;
+    }
+
+
+    .bloc-helper h2{
+        font-size: 1.5rem;
+    }
+    .bloc-helper h3{
+        margin-top: 30px;
+        font-size: 1rem;
+    }
+    .bloc-helper p{
+        margin-top: 45px;
+        font-size: 0.9rem;
+    }
+    .picture-1,.picture-2{
+        width: 250px;
+        margin: 20px auto;
+    }
+    .picture-3{
+        width: 200px;
     }
 }
 
@@ -1727,22 +1932,27 @@ font-family: 'Sarpanch', sans-serif;
 /******************************* 475 PX *********************************/
 @media (max-width: 475px) {
 
-    #title-bloc-password{
+    #title-bloc-password {
         font-size: 1.5rem;
     }
-    #forget_password_form_email, #reset_password_form_email, #reset_password_form_password{
+
+    #forget_password_form_email, #reset_password_form_email, #reset_password_form_password {
         font-size: 0.7rem;
     }
-    .bloc-form-password p{
+
+    .bloc-form-password p {
         font-size: 0.7rem;
     }
+
     .bloc-list-tricks {
         grid-template-columns: repeat(1, 1fr);
     }
+
     .bloc-login h1 {
         font-size: 1.5rem;
         margin-bottom: 15px;
     }
+
     .bloc-btn-login {
         flex-direction: column;
         align-items: center;
@@ -1776,15 +1986,17 @@ font-family: 'Sarpanch', sans-serif;
     .bloc-description-tricks p {
         font-size: 0.8rem;
     }
-
+.bloc-icon-poster{
+    flex-direction: column;
+}
     .bloc-icon-relative-poster {
         top: 40px;
         right: 15px;
     }
 
     .icon-card-show-details {
-        width: 25px;
-        padding: 5px;
+        width: 20px;
+        padding: 3px;
 
     }
 
@@ -1819,13 +2031,16 @@ font-family: 'Sarpanch', sans-serif;
     .text-bloc-img h1 {
         font-size: 2.5rem;
     }
+
     .text-bloc-img h2 {
         font-size: 0.7rem;
     }
+
     .footer-bloc-tricks {
         padding-left: 10px;
         flex-direction: column;
     }
+
     .bloc-action-list-tricks {
         margin-top: 10px;
     }
@@ -1836,9 +2051,11 @@ font-family: 'Sarpanch', sans-serif;
     .text-bloc-img h1 {
         font-size: 2rem;
     }
+
     .text-bloc-img h2 {
         font-size: 0.5rem;
     }
+
     .bloc-btn-footer-card {
         display: flex;
         justify-content: flex-start;

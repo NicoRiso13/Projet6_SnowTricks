@@ -23,4 +23,12 @@ class HomeController extends AbstractController
         return $this->render('Main/home.html.twig', ['tricks'=>$tricksRepository->findAll()]);
     }
 
+    /**
+     * @Route("/helper", name="app_helper", methods={"GET"})
+     */
+    public function helperLinkYoutube(): Response
+    {
+        return $this->render('medias/helpLinkYoutube.html.twig');
+    }
+
 }

@@ -2,11 +2,13 @@
 
 namespace App\DTO;
 
+use App\Validator\UniqueNameTricks;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class TricksDto
 {
     /**
+     * @UniqueNameTricks()
      * @Assert\NotBlank()
      * @Assert\Length(max=50)
      * @Assert\Type("string")

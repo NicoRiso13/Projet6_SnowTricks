@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Media;
 use App\Entity\Trick;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -40,5 +42,21 @@ class TricksRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+
+    /**
+     * @throws NonUniqueResultException
+     * @throws NoResultException
+     */
+    public function countName(string $name): int
+    {
+        return (int)
+        $this->createQueryBuilder("t")
+            ->select("COUNT(t)")
+            ->where("LOWER(t.name) = LOWER(:name)")
+            ->setParameter("name", $name)
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 }

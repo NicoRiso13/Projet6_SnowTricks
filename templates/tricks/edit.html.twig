@@ -35,7 +35,7 @@
     <h1 class="edit-title">Modifier la figure</h1>
 
     <div class="form-edit-tricks ">
-        {{ form_start(form) }}
+        {{ form_start(form,{'attr':{'id' : 'form-modify-trick'}}) }}
         <div class="div-form-edit-trick">{{ form_row(form.name) }}</div>
         <div class="div-form-edit-trick-description">{{ form_row(form.description) }}</div>
         <div class="div-form-edit-trick">{{ form_row(form.imageFile) }}</div>

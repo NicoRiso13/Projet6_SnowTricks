@@ -19,32 +19,21 @@ class TricksFormType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Nom',
-                'data_class' => null,
-
             ])
-
             ->add('description', TextAreaType::class,[
                 'attr' => array('rows' => '6'),
-                'data_class' => null,
             ])
-
             ->add('imageFile', FileType::class,[
-                'data_class' => null,
                 'label' => 'Télécharger un poster',
                 'required' =>false,
-
-
             ])
-
             ->add('categorie', ChoiceType::class, [
-                'data_class' => null,
                 'choices'  => [
                     ''=>'Choisir une catégorie',
                     'grabs' => 'grabs',
                     'flip' => 'flip',
                     'butter' => 'butter',
                     'spin' => 'spin',
-
                 ],
         ]);
     }

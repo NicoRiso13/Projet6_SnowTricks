@@ -18,20 +18,30 @@ class Media
     private ?int $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Trick", inversedBy="medias")
+     * @ORM\ManyToOne(targetEntity="Trick",inversedBy="medias")
      * @ORM\JoinColumn(nullable=false)
      */
-    private Trick $tricks;
+    private Trick $trick;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="pictures", type="string", length=255, nullable=true)
      */
-    private string $pictures;
+    private ?string $pictures;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="videos", type="string", length=255, nullable=true)
      */
-    private string $videos;
+    private ?string $videos;
+
+
+
+
+    public function __construct(Trick $trick, ?string $pictures, ?string $videos)
+    {
+        $this->trick = $trick;
+        $this->pictures = $pictures;
+        $this->videos = $videos;
+    }
 
     public function getId(): ?int
     {
@@ -41,17 +51,17 @@ class Media
     /**
      * @return Trick
      */
-    public function getTricks(): Trick
+    public function getTrick(): Trick
     {
-        return $this->tricks;
+        return $this->trick;
     }
 
     /**
-     * @param Trick $tricks
+     * @param Trick $trick
      */
-    public function setTricks(Trick $tricks): void
+    public function setTrick(Trick $trick): void
     {
-        $this->tricks = $tricks;
+        $this->trick = $trick;
     }
 
 
@@ -61,7 +71,7 @@ class Media
         return $this->pictures;
     }
 
-    public function setPictures(string $pictures): self
+    public function setPictures(?string $pictures): self
     {
         $this->pictures = $pictures;
 
@@ -73,7 +83,7 @@ class Media
         return $this->videos;
     }
 
-    public function setVideos(string $videos): self
+    public function setVideos(?string $videos): self
     {
         $this->videos = $videos;
 

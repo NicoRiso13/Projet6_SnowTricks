@@ -5,6 +5,8 @@ namespace App\Validator;
 
 
 use App\Repository\UserRepository;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
@@ -15,9 +17,13 @@ class UniqueEmailValidator extends ConstraintValidator
 
     private UserRepository $userRepository;
 
+    /**
+     * @throws NonUniqueResultException
+     * @throws NoResultException
+     */
     public function validate($value, Constraint $constraint)
     {
-        if (!$constraint instanceof UniqueEmail ) {
+        if (!$constraint instanceof UniqueEmail) {
             throw new UnexpectedTypeException($constraint, UniqueEmail::class);
         }
 
@@ -31,7 +37,7 @@ class UniqueEmailValidator extends ConstraintValidator
 
         }
 
-        if ($this->userRepository->count(['email' => $value]) > 0) {
+        if ($this->userRepository->countEmail($value) > 0) {
 
             $this->context->buildViolation($constraint->message)
                 ->setParameter('{{string}}', $value)

@@ -3,19 +3,27 @@
 namespace App\Controller;
 
 use App\DTO\CommentaryDto;
+use App\DTO\MediaPictureDto;
+use App\DTO\MediaVideoDto;
 use App\DTO\TricksDto;
+use App\DTO\TricksModifyDto;
 use App\Entity\Commentary;
+use App\Entity\Media;
 use App\Entity\Trick;
 use App\Entity\User;
+use App\Form\addVideoFormType;
 use App\Form\CommentaryType;
+use App\Form\addPictureFormType;
 use App\Form\TricksFormType;
+use App\Form\TricksModifyFormType;
 use App\Repository\CommentaryRepository;
+use App\Repository\MediasRepository;
 use App\Repository\TricksRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Monolog\DateTimeImmutable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,7 +48,7 @@ class TricksController extends AbstractController
     /**
      * @Route("/new", name="app_trick_new", methods={"GET","POST"})
      */
-    public function new(Request $request, TricksRepository $tricksRepository, SluggerInterface $slugger): Response
+    public function new(Request $request, TricksRepository $tricksRepository, SluggerInterface $slugger, EntityManagerInterface $entityManager): Response
     {
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
@@ -50,19 +58,17 @@ class TricksController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var TricksDto $data */
-            $data = $form->getData();
+            /** @var TricksDto $dto */
+            $dto = $form->getData();
             /** @var User $user */
             $user = $this->getUser();
-            /** @var UploadedFile $imageFile */
-            $imageFile = $form->get('imageFile')->getData();
             $newFilename = null;
-            if ($imageFile) {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+            if ($dto->imageFile) {
+                $originalFilename = pathinfo($dto->imageFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $dto->imageFile->guessExtension();
                 try {
-                    $imageFile->move(
+                    $dto->imageFile->move(
                         $this->getParameter('posters_directory'),
                         $newFilename
                     );
@@ -70,12 +76,13 @@ class TricksController extends AbstractController
 
                 }
             }
-            $trick = new Trick(null, $user, $data->name, $data->description, $data->categorie);
+            $trick = new Trick(null, $user, $dto->name, $dto->description, $dto->categorie);
             $trick->setPoster($newFilename);
             $tricksRepository->add($trick, true);
             $trickName = $trick->getName();
+
             $this->addFlash('success', "La figure $trickName a été ajoutée avec succès !");
-            echo($newFilename);
+
 
             return $this->redirectToRoute('app_trick_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -93,23 +100,22 @@ class TricksController extends AbstractController
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
 
-        $trickDto = new TricksDto();
+        $trickDto = new TricksModifyDto();
         $trickDto->name = $trick->getName();
         $trickDto->description = $trick->getDescription();
         $trickDto->categorie = $trick->getCategorie();
-        $form = $this->createForm(TricksFormType::class, $trickDto);
+        $form = $this->createForm(TricksModifyFormType::class, $trickDto);
         $form->handleRequest($request);
         $modifiedAt = new DateTimeImmutable('now');
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var UploadedFile $imageFile */
-            $imageFile = $form->get('imageFile')->getData();
+
             if ($trickDto->imageFile) {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $originalFilename = pathinfo($trickDto->imageFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $trickDto->imageFile->guessExtension();
                 try {
-                    $imageFile->move(
+                    $trickDto->imageFile->move(
                         $this->getParameter('posters_directory'),
                         $newFilename,
                     );
@@ -124,7 +130,7 @@ class TricksController extends AbstractController
             $trick->setModifiedAt($modifiedAt);
             $trickName = $trick->getName();
             $tricksRepository->add($trick, true);
-            $this->addFlash('success', "La figure $trickName a été mise a jour avec succès !");
+            $this->addFlash('success', "La figure  '$trickName' a été mise a jour avec succès !");
             return $this->redirectToRoute('app_trick_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -138,15 +144,18 @@ class TricksController extends AbstractController
     /**
      * @Route("/{id}", name="app_trick_show", methods={"GET","POST"})
      */
-    public function show(Trick $trick, Request $request, CommentaryRepository $commentaryRepository, User $user): Response
+    public function show(Trick $trick, Request $request, CommentaryRepository $commentaryRepository, SluggerInterface $slugger, MediasRepository $mediasRepository): Response
     {
-
+        $media = $trick->getMedias();
+        $user = $this->getUser();
         $form = $this->createForm(CommentaryType::class);
         $form->handleRequest($request);
+        $pictureForm = $this->createForm(addPictureFormType::class);
+        $pictureForm->handleRequest($request);
+        $videoForm = $this->createForm(addVideoFormType::class);
+        $videoForm->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $user = $this->getUser();
             $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
             if (!$user instanceof User) {
                 throw new BadRequestException();
@@ -156,13 +165,58 @@ class TricksController extends AbstractController
             $commentary = new Commentary($user, $trick, $data->comment);
             $commentaryRepository->add($commentary, true);
             $this->addFlash('success', 'Le commentaire a été ajouté avec succès !');
-            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId(),]);
+            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);
 
+        } elseif ($pictureForm->isSubmitted() && $pictureForm->isValid()) {
+
+            $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
+            if (!$user instanceof User) {
+                throw new BadRequestException();
+            }
+
+            /** @var MediaPictureDto $pictureDto */
+            $pictureDto = $pictureForm->getData();
+            $newFilename = null;
+            if ($pictureDto->imageFile) {
+                $originalFilename = pathinfo($pictureDto->imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $pictureDto->imageFile->guessExtension();
+                try {
+                    $pictureDto->imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+
+                }
+
+            }
+            $media = new Media($trick, $newFilename, null);
+            $mediasRepository->add($media, true);
+            $this->addFlash('success', 'La miniature a été ajouté avec succès !');
+            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);
+
+        } elseif ($videoForm->isSubmitted() && $videoForm->isValid()) {
+            /** @var MediaVideoDto $data */
+            $data = $videoForm->getData();
+            if(preg_match('/^https:\/\/youtu\.be\/(.+)/', $data->link,$matches)){
+                $result = $matches[1];
+                $media = new Media($trick, null, $result);
+            }
+            $mediasRepository->add($media, true);
+            $this->addFlash('success', 'La vidéo a été ajouté avec succès !');
+
+            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);
         }
-        return $this->render('tricks/show.html.twig', [
-            'user' => $user,
+
+        return $this->render('tricks/show.html.twig', ['user' => $user,
             'trick' => $trick,
+            'media' => $media,
             'formCommentary' => $form->createView(),
+            'pictureForm' => $pictureForm->createView(),
+            'videoForm' => $videoForm->createView(),
+
+
         ]);
     }
 
@@ -170,7 +224,8 @@ class TricksController extends AbstractController
     /**
      * @Route("/{id}/delete", name="app_trick_delete", methods={"GET","POST"})
      */
-    public function delete(Trick $trick, TricksRepository $tricksRepository): Response
+    public
+    function delete(Trick $trick, TricksRepository $tricksRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
 
@@ -178,5 +233,7 @@ class TricksController extends AbstractController
         $this->addFlash('success', 'La figure a été supprimée avec succès !');
         return $this->redirectToRoute('app_trick_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
 
 }

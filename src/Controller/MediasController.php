@@ -2,13 +2,18 @@
 
 namespace App\Controller;
 
+use App\DTO\MediaPictureDto;
+use App\DTO\MediaVideoDto;
 use App\Entity\Media;
-use App\Form\MediasType;
+use App\Form\addPictureFormType;
+use App\Form\addVideoFormType;
 use App\Repository\MediasRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
  * @Route("/medias")
@@ -16,29 +21,83 @@ use Symfony\Component\Routing\Annotation\Route;
 class MediasController extends AbstractController
 {
 
+
     /**
-     * @Route("/new", name="app_medias_new", methods={"GET", "POST"})
+     * @Route("/{id}/edit_picture", name="app_medias_edit_picture", methods={"GET", "POST"})
      */
-    public function new(Request $request, MediasRepository $mediasRepository): Response
+    public function editPicture(Request $request, Media $media, MediasRepository $mediasRepository, SluggerInterface $slugger): Response
     {
         $user = $request->getSession()->getId();
         if ($user === null) {
             return $this->renderForm('bundles/TwigBundle/Exception/error404.html.twig');
         }
 
-        $media = new Media();
-        $form = $this->createForm(MediasType::class, $media);
+        $mediaPictureDto = new MediaPictureDto();
+
+        $form = $this->createForm(addPictureFormType::class, $mediaPictureDto);
         $form->handleRequest($request);
+        $trick = $media->getTrick();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $mediasRepository->add($media, true);
 
-            return $this->redirectToRoute('app_medias_index', [], Response::HTTP_SEE_OTHER);
+            if ($mediaPictureDto->imageFile) {
+                $originalFilename = pathinfo($mediaPictureDto->imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $mediaPictureDto->imageFile->guessExtension();
+                try {
+                    $mediaPictureDto->imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename,
+                    );
+                } catch (FileException $e) {
+
+                }
+                $media->setPictures($newFilename);
+            }
+            $mediasRepository->add($media, true);
+            $this->addFlash('success', "Le média a été mise a jour avec succès !");
+            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);
+
+
         }
 
-        return $this->renderForm('medias/new.html.twig', [
-            'media' => $media,
-            'form' => $form,
+        return $this->renderForm('medias/edit.html.twig', [
+            'medias' => $media,
+//            'videoForm' => $videoForm,
+        ]);
+    }
+
+
+    /**
+     * @Route("/{id}/edit_video", name="app_medias_edit_video", methods={"GET", "POST"})
+     */
+    public function editVideo(Request $request, Media $media, MediasRepository $mediasRepository, SluggerInterface $slugger): Response
+    {
+        $user = $request->getSession()->getId();
+        if ($user === null) {
+            return $this->renderForm('bundles/TwigBundle/Exception/error404.html.twig');
+        }
+
+        $mediaVideoDto = new MediaVideoDto();
+
+        $videoForm = $this->createForm(addVideoFormType::class, $mediaVideoDto);
+        $videoForm->handleRequest($request);
+        $trick = $media->getTrick();
+
+        if ($videoForm->isSubmitted() && $videoForm->isValid()) {
+            /** @var MediaVideoDto $data */
+            $data = $videoForm->getData();
+            $media = new Media($trick,null,$data->link);
+            $mediasRepository->add($media, true);
+            $this->addFlash('success', "Le média a été mise a jour avec succès !");
+            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);
+
+
+        }
+
+        return $this->renderForm('medias/edit.html.twig', [
+            'medias' => $media,
+            'videoForm' => $videoForm,
         ]);
     }
 
@@ -53,32 +112,7 @@ class MediasController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="app_medias_edit", methods={"GET", "POST"})
-     */
-    public function edit(Request $request, Media $media, MediasRepository $mediasRepository): Response
-    {
-        $user = $request->getSession()->getId();
-        if ($user === null) {
-            return $this->renderForm('bundles/TwigBundle/Exception/error404.html.twig');
-        }
-
-        $form = $this->createForm(MediasType::class, $media);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $mediasRepository->add($media, true);
-
-            return $this->redirectToRoute('app_medias_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('medias/edit.html.twig', [
-            'media' => $media,
-            'form' => $form,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="app_medias_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="app_medias_delete", methods={"GET","POST"})
      */
     public function delete(Request $request, Media $media, MediasRepository $mediasRepository): Response
     {
@@ -86,8 +120,10 @@ class MediasController extends AbstractController
         if ($user === null) {
             return $this->renderForm('bundles/TwigBundle/Exception/error404.html.twig');
         }
-            $mediasRepository->remove($media, true);
+        $mediasRepository->remove($media, true);
 
-        return $this->redirectToRoute('app_medias_index', [], Response::HTTP_SEE_OTHER);
+        $trick = $media->getTrick();
+        $this->addFlash('success', 'Le média a été supprimée avec succès !');
+        return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);
     }
 }
