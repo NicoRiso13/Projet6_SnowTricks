@@ -1,4 +1,4 @@
-{{ form_start(videoForm) }}
+{{ form_start(videoForm, {'attr' :{'id':'videoForm'}}) }}
     {{ form_widget(videoForm) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn btn-primary btn-valid-edit-form">{{ button_label|default('Save') }}</button>
 {{ form_end(videoForm) }}

@@ -21,7 +21,7 @@ class UniqueEmailValidator extends ConstraintValidator
      * @throws NonUniqueResultException
      * @throws NoResultException
      */
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
         if (!$constraint instanceof UniqueEmail) {
             throw new UnexpectedTypeException($constraint, UniqueEmail::class);

@@ -31,8 +31,8 @@ class TricksFormType extends AbstractType
                 'choices'  => [
                     ''=>'Choisir une catégorie',
                     'grabs' => 'grabs',
-                    'flip' => 'flip',
                     'butter' => 'butter',
+                    'flip' => 'flip',
                     'spin' => 'spin',
                 ],
         ]);

@@ -27,18 +27,6 @@ class ForgetPasswordController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var ForgetPasswordDto $forgetFormDto */
             $forgetFormDto = $form->getData();
-            dump($forgetFormDto);
-//            if ($entityManager->find(User::class, 'email' == $forgetFormDto)) {
-//
-//                $to = 'personne@example.com';
-//                $subject = 'le sujet';
-//                $message = 'Bonjour !';
-//                $headers = 'From: webmaster@example.com' . "\r\n" .
-//                    'Reply-To: webmaster@example.com' . "\r\n" .
-//                    'X-Mailer: PHP/' . phpversion();
-//
-//                mail($to, $subject, $message, $headers);
-//            }
 
             return $this->render('security/login.html.twig');
         }

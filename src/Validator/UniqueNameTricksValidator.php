@@ -18,7 +18,7 @@ class UniqueNameTricksValidator extends ConstraintValidator
      * @throws NonUniqueResultException
      * @throws NoResultException
      */
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
         if (!$constraint instanceof UniqueNameTricks) {
             throw new UnexpectedTypeException($constraint, UniqueNameTricks::class);

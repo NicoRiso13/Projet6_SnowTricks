@@ -5,10 +5,12 @@ namespace App\Controller;
 use App\DTO\MediaPictureDto;
 use App\DTO\MediaVideoDto;
 use App\Entity\Media;
-use App\Form\addPictureFormType;
-use App\Form\addVideoFormType;
+use App\Entity\User;
+use App\Form\AddPictureFormType;
+use App\Form\AddVideoFormType;
 use App\Repository\MediasRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,18 +29,19 @@ class MediasController extends AbstractController
      */
     public function editPicture(Request $request, Media $media, MediasRepository $mediasRepository, SluggerInterface $slugger): Response
     {
-        $user = $request->getSession()->getId();
-        if ($user === null) {
-            return $this->renderForm('bundles/TwigBundle/Exception/error404.html.twig');
+        $user = $this->getUser();
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
+        if (!$user instanceof User) {
+            throw new BadRequestException();
         }
 
         $mediaPictureDto = new MediaPictureDto();
 
-        $form = $this->createForm(addPictureFormType::class, $mediaPictureDto);
-        $form->handleRequest($request);
+        $pictureForm = $this->createForm(AddPictureFormType::class, $mediaPictureDto);
+        $pictureForm->handleRequest($request);
         $trick = $media->getTrick();
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($pictureForm->isSubmitted() && $pictureForm->isValid()) {
 
             if ($mediaPictureDto->imageFile) {
                 $originalFilename = pathinfo($mediaPictureDto->imageFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -61,9 +64,10 @@ class MediasController extends AbstractController
 
         }
 
-        return $this->renderForm('medias/edit.html.twig', [
+        return $this->renderForm('medias/editPicture.html.twig', [
             'medias' => $media,
-//            'videoForm' => $videoForm,
+            'trick' =>$trick,
+            'pictureForm' => $pictureForm,
         ]);
     }
 
@@ -73,21 +77,25 @@ class MediasController extends AbstractController
      */
     public function editVideo(Request $request, Media $media, MediasRepository $mediasRepository, SluggerInterface $slugger): Response
     {
-        $user = $request->getSession()->getId();
-        if ($user === null) {
-            return $this->renderForm('bundles/TwigBundle/Exception/error404.html.twig');
+        $user = $this->getUser();
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
+        if (!$user instanceof User) {
+            throw new BadRequestException();
         }
 
         $mediaVideoDto = new MediaVideoDto();
 
-        $videoForm = $this->createForm(addVideoFormType::class, $mediaVideoDto);
+        $videoForm = $this->createForm(AddVideoFormType::class, $mediaVideoDto);
         $videoForm->handleRequest($request);
         $trick = $media->getTrick();
 
         if ($videoForm->isSubmitted() && $videoForm->isValid()) {
             /** @var MediaVideoDto $data */
             $data = $videoForm->getData();
-            $media = new Media($trick,null,$data->link);
+            if(preg_match('/^https:\/\/youtu\.be\/(.+)/', $data->link,$matches)){
+                $result = $matches[1];
+                $media->setVideos($result);
+            }
             $mediasRepository->add($media, true);
             $this->addFlash('success', "Le média a été mise a jour avec succès !");
             return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);

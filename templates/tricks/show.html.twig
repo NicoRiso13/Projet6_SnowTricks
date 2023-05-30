@@ -30,18 +30,21 @@
 
             <div class="bloc-medias">
                 <div class="section-pictures">
+                    {% if app.user and app.user.isVerified == 1 %}
                     <button class="add-media-card" title="Ajouter une photo" type="button" onclick="editPicture()"
                             style="background-image: url('/img/icons/add_picture.png')"></button>
                     {{ form_start(pictureForm, {'attr':{'id' : 'add_picture_form'}}) }}
                     <div hidden="hidden"
                          onchange="submission()">{{ form_row(pictureForm.imageFile,{'attr':{'id': 'input_file'}}) }}</div>
                     {{ form_end(pictureForm) }}
+                    {% endif %}
 
                     {% for medias in media %}
                         {% if medias.pictures %}
                             <div class="card-trick-details">
                                 <div id="img-card-details"
                                      style="background-image: url('/uploads/images/{{ medias.pictures }}')"></div>
+                        {% if app.user and app.user.isVerified == 1 %}
                                 <div class="bloc-btn-details-card">
                                     <a href="{{ path('app_medias_edit_picture', {'id': medias.id}) }}" target="_blank"><img
                                                 class="icon-card-details"
@@ -50,6 +53,7 @@
                                                 src="/img/icons/edit.png"></a>
                                     {{ include('medias/_delete_form.html.twig') }}
                                 </div>
+                            {% endif %}
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -57,6 +61,7 @@
 
 
                 <div class="section-videos">
+                    {% if app.user and app.user.isVerified == 1 %}
                     <div class="add-media-card relative-card" title="Ajouter une video" type="button"
                             style="background-image: url('/img/icons/add_video.png')">
                         <div class="add-link">
@@ -67,14 +72,16 @@
                             <a class="link-youtube-helper" href="{{ path('app_helper')}}">Aide</a>
                         </div>
 
-                    </div>
 
+                    </div>
+                    {% endif %}
                     {% for medias in media %}
                         {% if medias.videos %}
                             <div class="card card-trick-details">
                                 <iframe src="https://www.youtube.com/embed/{{ medias.videos }}" title="YouTube video player"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         allowfullscreen></iframe>
+                                {% if app.user and app.user.isVerified == 1 %}
                                 <div class="bloc-btn-details-card">
                                     <a href="{{ path('app_medias_edit_video', {'id': medias.id}) }}" target="_blank"><img
                                                 class="icon-card-details"
@@ -83,6 +90,7 @@
                                                 src="/img/icons/edit.png"></a>
                                     {{ include('medias/_delete_form.html.twig') }}
                                 </div>
+                        {% endif %}
                             </div>
                         {% endif %}
                     {% endfor %}

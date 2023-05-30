@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mettre à jour la miniature{% endblock %}
+
+{% block body %}
+    <div class="bloc-edit-picture">
+
+    <h1>Mise à jour de la miniature</h1>
+
+    {{ include('medias/_pictureForm.html.twig', {'button_label': 'valider'}) }}
+
+    </div>
+
+{% endblock %}

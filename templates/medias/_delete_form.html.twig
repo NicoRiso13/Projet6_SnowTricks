@@ -1,5 +1,5 @@
 <form method="post" action="{{ path('app_medias_delete', {'id': medias.id}) }}" onsubmit="return confirm('Êtes-vous sur de vouloir supprimer ce média ?');">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ trick.id) }}">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ medias.id) }}">
     <button class="btn btn-icon-delete"><img
                 class="icon-card-index" alt="btn-delete"
                 title="supprimer un média"

@@ -11,9 +11,9 @@ use App\Entity\Commentary;
 use App\Entity\Media;
 use App\Entity\Trick;
 use App\Entity\User;
-use App\Form\addVideoFormType;
+use App\Form\AddVideoFormType;
 use App\Form\CommentaryType;
-use App\Form\addPictureFormType;
+use App\Form\AddPictureFormType;
 use App\Form\TricksFormType;
 use App\Form\TricksModifyFormType;
 use App\Repository\CommentaryRepository;
@@ -150,9 +150,9 @@ class TricksController extends AbstractController
         $user = $this->getUser();
         $form = $this->createForm(CommentaryType::class);
         $form->handleRequest($request);
-        $pictureForm = $this->createForm(addPictureFormType::class);
+        $pictureForm = $this->createForm(AddPictureFormType::class);
         $pictureForm->handleRequest($request);
-        $videoForm = $this->createForm(addVideoFormType::class);
+        $videoForm = $this->createForm(AddVideoFormType::class);
         $videoForm->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -209,7 +209,8 @@ class TricksController extends AbstractController
             return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);
         }
 
-        return $this->render('tricks/show.html.twig', ['user' => $user,
+        return $this->render('tricks/show.html.twig', [
+            'user' => $user,
             'trick' => $trick,
             'media' => $media,
             'formCommentary' => $form->createView(),
