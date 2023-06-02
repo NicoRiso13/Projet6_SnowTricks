@@ -9,7 +9,7 @@
 
                 {% if app.user and app.user.isVerified == 1 %}
                     <div class="bloc-icon-poster">
-                        <a href="{{ path('app_trick_edit', {'id': trick.id}) }}"><img
+                        <a href="{{ path('app_trick_edit', {'slug': trick.slug}) }}"><img
                                     class="icon-card-show-details" alt="btn-edit" title="éditer un trick"
                                     src="/img/icons/edit.png"></a>
                         {{ include('tricks/_delete_form_show.html.twig') }}
@@ -147,15 +147,16 @@
                         </div>
                     {% endif %}
 
-                    <p>{{ commentary.content }}</p>
+                    <p>{{ commentary.content | capitalize }}</p>
                     <h5>Réponse publiée par : <span class="span-author">{{ commentary.user.name | capitalize }}</span>
                     </h5>
                 </div>
             {% endfor %}
         </div>
 
+
         {% if app.user %}
-            <a class="btn btn-primary link-modify-trick" href="{{ path('app_trick_edit', {'id': trick.id}) }}">Modifier
+            <a class="btn btn-primary link-modify-trick" href="{{ path('app_trick_edit', {'slug': trick.slug}) }}">Modifier
                 la figure</a>
         {% endif %}
         <div class="return-list">

@@ -27,6 +27,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
@@ -48,7 +49,7 @@ class TricksController extends AbstractController
     /**
      * @Route("/new", name="app_trick_new", methods={"GET","POST"})
      */
-    public function new(Request $request, TricksRepository $tricksRepository, SluggerInterface $slugger, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, TricksRepository $tricksRepository, SluggerInterface $slugger): Response
     {
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
@@ -76,7 +77,8 @@ class TricksController extends AbstractController
 
                 }
             }
-            $trick = new Trick(null, $user, $dto->name, $dto->description, $dto->categorie);
+            $slugger = new AsciiSlugger();
+            $trick = new Trick(null, $user, $dto->name, $dto->description, $dto->categorie, $slugger->slug($dto->name)->lower()->toString());
             $trick->setPoster($newFilename);
             $tricksRepository->add($trick, true);
             $trickName = $trick->getName();
@@ -94,7 +96,7 @@ class TricksController extends AbstractController
 
 
     /**
-     * @Route("/{id}/edit", name="app_trick_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="app_trick_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Trick $trick, TricksRepository $tricksRepository, SluggerInterface $slugger): Response
     {
@@ -124,10 +126,12 @@ class TricksController extends AbstractController
                 }
                 $trick->setPoster($newFilename);
             }
+            $slugger = new AsciiSlugger();
             $trick->setName($trickDto->name);
             $trick->setDescription($trickDto->description);
             $trick->setCategorie($trickDto->categorie);
             $trick->setModifiedAt($modifiedAt);
+            $trick->setSlug($slugger->slug($trickDto->name)->lower()->toString());
             $trickName = $trick->getName();
             $tricksRepository->add($trick, true);
             $this->addFlash('success', "La figure  '$trickName' a été mise a jour avec succès !");
@@ -142,7 +146,7 @@ class TricksController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_trick_show", methods={"GET","POST"})
+     * @Route("/{slug}", name="app_trick_show", methods={"GET","POST"})
      */
     public function show(Trick $trick, Request $request, CommentaryRepository $commentaryRepository, SluggerInterface $slugger, MediasRepository $mediasRepository): Response
     {
@@ -194,7 +198,7 @@ class TricksController extends AbstractController
             $media = new Media($trick, $newFilename, null);
             $mediasRepository->add($media, true);
             $this->addFlash('success', 'La miniature a été ajouté avec succès !');
-            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);
+            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId(), 'slug' => $trick->getSlug()]);
 
         } elseif ($videoForm->isSubmitted() && $videoForm->isValid()) {
             /** @var MediaVideoDto $data */
@@ -206,7 +210,7 @@ class TricksController extends AbstractController
             $mediasRepository->add($media, true);
             $this->addFlash('success', 'La vidéo a été ajouté avec succès !');
 
-            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);
+            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId(), 'slug' => $trick->getSlug()]);
         }
 
         return $this->render('tricks/show.html.twig', [
@@ -223,7 +227,7 @@ class TricksController extends AbstractController
 
 
     /**
-     * @Route("/{id}/delete", name="app_trick_delete", methods={"GET","POST"})
+     * @Route("/{slug}/delete", name="app_trick_delete", methods={"GET","POST"})
      */
     public
     function delete(Trick $trick, TricksRepository $tricksRepository): Response

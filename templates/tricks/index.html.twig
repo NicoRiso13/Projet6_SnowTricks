@@ -13,7 +13,7 @@
         {% endif %}
         {% for trick in tricks %}
             <div class="bloc-tricks">
-                <a class="info-list-trick " href="{{ path('app_trick_show', {'id': trick.id}) }}" target="_blank">
+                <a class="info-list-trick " href="{{ path('app_trick_show', {'slug': trick.slug}) }}" target="_blank">
                     <h2 class="p-2 back-grey">{{ trick.name }}</h2>
                     <div class="absolute-div">
                         <h3>Voir : {{ trick.name }}</h3>
@@ -26,7 +26,7 @@
                                 class="orange-bold-span">{{ trick.user.name }}</span></p>
                     {% if app.user %}
                         <div class="bloc-action-list-tricks">
-                            <a href="{{ path('app_trick_edit', {'id': trick.id}) }}" target="_blank"><img
+                            <a href="{{ path('app_trick_edit', {'slug': trick.slug}) }}" target="_blank"><img
                                         class="icon-card-index"
                                         alt="btn-edit"
                                         title="éditer un trick"

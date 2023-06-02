@@ -59,7 +59,7 @@ class MediasController extends AbstractController
             }
             $mediasRepository->add($media, true);
             $this->addFlash('success', "Le média a été mise a jour avec succès !");
-            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);
+            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId(),'slug' => $trick->getSlug()]);
 
 
         }
@@ -98,7 +98,7 @@ class MediasController extends AbstractController
             }
             $mediasRepository->add($media, true);
             $this->addFlash('success', "Le média a été mise a jour avec succès !");
-            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);
+            return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId(),'slug' => $trick->getSlug()]);
 
 
         }
@@ -132,6 +132,6 @@ class MediasController extends AbstractController
 
         $trick = $media->getTrick();
         $this->addFlash('success', 'Le média a été supprimée avec succès !');
-        return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId()]);
+        return $this->redirectToRoute('app_trick_show', ['id' => $trick->getId(), 'slug' => $trick->getSlug()]);
     }
 }

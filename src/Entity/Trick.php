@@ -72,9 +72,15 @@ class Trick
      */
     private Collection $medias ;
 
+    /**
+     *
+     * @ORM\Column(name="slug", type="string", length=255, nullable=false, unique=true)
+     */
+    private string $slug;
 
 
-    public function __construct(?int $id, User $userId, string $name, string $description, string $categorie)
+
+    public function __construct(?int $id, User $userId, string $name, string $description, string $categorie, string $slug)
     {
         $this->id = $id;
         $this->user = $userId;
@@ -84,6 +90,7 @@ class Trick
         $this->categorie = $categorie;
         $this->medias = new ArrayCollection();
         $this->commentarys = new ArrayCollection();
+        $this->slug = $slug;
 
     }
 
@@ -270,7 +277,21 @@ class Trick
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
 
+    /**
+     * @param string $slug
+     */
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
+    }
 
 
 }

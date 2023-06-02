@@ -35,16 +35,16 @@
                     {% endif %}
                     <div class="footer-trick-card">
                         <div class="col-8 title-card">
-                            <a href="{{ path('app_trick_show', {'id': trick.id}) }}" target="_blank">
+                            <a href="{{ path('app_trick_show', {'slug': trick.slug}) }}" target="_blank">
                                 <h5>{{ trick.name }}</h5></a>
                             <h6>Catégorie : {{ trick.categorie | capitalize }}</h6>
                         </div>
                         {% if app.user %}
                         <div class="col-4 bloc-btn-footer-card">
-                            <a href="{{ path('app_trick_edit', {'id': trick.id}) }}" target="_blank"><img
+                            <a href="{{ path('app_trick_edit', {'slug': trick.slug}) }}" target="_blank"><img
                                         class="icon-card" alt="btn-edit" title="éditer un trick"
                                         src="/img/icons/edit.png"></a>
-                            <a href="{{ path('app_trick_delete', {'id': trick.id}) }}" target="_blank"><img
+                            <a href="{{ path('app_trick_delete', {'slug': trick.slug}) }}" target="_blank"><img
                                         class="icon-card" alt="btn-delete"
                                         title="supprimer un trick"
                                         src="/img/icons/delete.png"></a>
