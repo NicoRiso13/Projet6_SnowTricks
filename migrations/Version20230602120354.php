@@ -23,7 +23,6 @@ final class Version20230602120354 extends AbstractMigration
         $this->addSql('ALTER TABLE media DROP FOREIGN KEY FK_6A2CA10CB281BE2E');
         $this->addSql('ALTER TABLE media ADD CONSTRAINT FK_6A2CA10CB281BE2E FOREIGN KEY (trick_id) REFERENCES trick (id)');
         $this->addSql('ALTER TABLE trick ADD slug VARCHAR(255) DEFAULT NULL');
-//        $this->addSql('CREATE UNIQUE INDEX UNIQ_D8F0A91E989D9B62 ON trick (slug)');
     }
 
     public function down(Schema $schema): void
